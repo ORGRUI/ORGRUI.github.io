@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+<title>Java控制规范和其他规范</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo">
+			<a href="#">Study <span>notes</span></a>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+
+			<!-- One -->
+			<section id="one" class="wrapper style1">
+
+				<div class="image fit flush">
+					<img src="images/pic02.jpg" alt="" />
+				</div>
+				<header class="special">
+					<h2>阿里巴巴Java开发手册读后总结---控制及其他规范</h2>
+					<p>好记性不如烂笔头</p>
+				</header>
+				<div class="content">
+				    <p>本文内容总结自阿里Java开发关于控制语句、其他规范的内容</p>
+				    <p>以下：</p>
+					<p>1、在if/else/for/while/do语句中必须使用大括号，即使只有一行代码。</p>
+					<p>2、少用if()..else if()方式，如果非要使用，不要超过3层。</p>
+					<p>3、循环体中的语句要考量性能，以下操作尽量移至循环体外处理：定义对象、变量、获取数据库连接，不必要的try-catch操作。</p>
+					<p>4、对外开放的接口都应该进行参数校验。</p>
+					<p>5、类、类属性、类方法、所有抽象方法的注解必须使用/**内容*/格式，方便调用时进行提示。</p>
+					<p>6、所有的枚举类型字段必须有注释，说明每个数据的用途。</p>
+					<p>7、代码修改的时候注释也要进行修改。</p>
+					<p>8、在使用正则表达式时，利用好其预编译的功能，可以有效加快正则匹配的速度。</p>
+					<p>9、注意Math.random()这个方法返回的时都变了类型，注意取值时可能取到0，所以需要进行判断。</p>
+					<p>10、根据MVC理论视图的责任是战士，不要加入任何复杂的逻辑。</p>
+					<p>11、所有数据结构的构造或者初始化都应该指定大小，否则容易浪费内存。</p>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+</body>
+</html>

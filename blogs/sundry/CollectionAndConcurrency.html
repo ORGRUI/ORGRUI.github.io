@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+<title>Java集合和并发规范</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo">
+			<a href="#">Study <span>notes</span></a>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+
+			<!-- One -->
+			<section id="one" class="wrapper style1">
+
+				<div class="image fit flush">
+					<img src="images/pic02.jpg" alt="" />
+				</div>
+				<header class="special">
+					<h2>阿里巴巴Java开发手册读后总结---集合和并发规范</h2>
+					<p>好记性不如烂笔头</p>
+				</header>
+				<div class="content">
+				    <p>本文内容总结自阿里Java开发关于集合处理、并发处理的内容</p>
+				    <p>以下：</p>
+					<p>1、如果自定义对象作为Map的键，那么必须重写hashCode和equals，如String。</p>
+					<p>2、subList返回的是ArrayList的内部类SubList，宾不是ArrayList，而是ArraylList的一个识图。</p>
+					<p>3、使用集合转数组的方法必须使用集合的toArray（T[] array），传入的是类型完全一样的数组，大小就是list.size()。</p>
+					<p>4、不要在foreach循环里面进行元素的remove/add操作，remove元素请使用Iterator方式，并发操作时需要给Iterator加锁。</p>
+					<p>5、集合初始化时制定集合初始值大小。</p>
+					<p>6、使用entrySet遍历Map类集合KV，而不是keySet方式进行遍历。values()返回得是V值的集合，是一个list 对象；keySet()返回的是K值的集合，是一个Set集合对象。</p>
+					<p>7、获取单例对象需要保证线程安全，其中的方法也要保证线程安全。</p>
+					<p>8、创建线程或线程池时请指定有意义的线程名称，目的是方便出错时回溯。</p>
+					<p>9、线程资源必须通过线程池提供，不允许在应用中自行显式的创建线程。</p>
+					<p>10、线程不允许使用Executors去创建，而是通过ThreadPoolExector方式去创建。</p>
+					<p>11、SimpleDateFormat是线程不安全的类，不要定义为Static 变量，如果是JDK8的应用，可以使用Instant代替Date，LoclaDateTime代替Calendar，DateTimeFormatter代替SimpleDateFormat。</p>
+					<p>12、高并发时，同步调用应该去考量锁的性能损耗，尽可能使加锁的代码块工作量尽可能的小。</p>
+					<p>13、避免Random实例被多线程使用，因为会因竞争统一seed导致性能的下降。</p>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+</body>
+</html>

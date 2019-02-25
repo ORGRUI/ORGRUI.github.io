@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+<title>Java命名规范</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo">
+			<a href="#">Study <span>notes</span></a>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+
+			<!-- One -->
+			<section id="one" class="wrapper style1">
+
+				<div class="image fit flush">
+					<img src="images/pic02.jpg" alt="" />
+				</div>
+				<header class="special">
+					<h2>阿里巴巴Java开发手册读后总结---命名规范</h2>
+					<p>好记性不如烂笔头</p>
+				</header>
+				<div class="content">
+				    <p>本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读</p>
+				    <p>以下：</p>
+					<p>1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。</p>
+					<p>2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。</p>
+					<p>3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类名层次分明，易于理解。</p>
+					<p>4、所有常量的命名必须大写，同时单词之间使用“_”隔开，比如“MAX_COUNT”。</p>
+					<p>5、方法名、参数名、成员变量、局部变量统一采用lowerCamelCase风格，例如“countUserNumber()”等。</p>
+					<p>6、抽象类以Abstract或者base作为开头，异常类以Exception作为结尾，测试类则已Test作为结尾。</p>
+					<p>7、数组定义的规范化，如String [] args;</p>
+					<p>8、POJO类中的布尔变量禁止加is，因为部分框架在解析时会出现错误。</p>
+					<p>9、包名统一使用小写，同时要做到用途清晰，例如util包存放工具类，service包存放sevice接口类。</p>
+					<p>10、尽量不使用缩写，不规范的缩写会极大影响代码可读性，尽量使用完整的命名来表达。</p>
+					<p>11、如果在程序中使用了设计模式，则在命名时应当体现出具体的模式。</p>
+					<p>12、坚持SOA的理念，对外仅暴露接口，内部通过实现类来实现接口</p>
+					<p>13、枚举类成员名称全部大写，单词间通过下划线连接。说明：枚举类其实是特殊的常量类，且构造方法默认是私有的。</p>
+					<p>14、Service层方法命名get（获取单个对象）、list（获取多个对象）、count（统计量）、insert（插入）、delete（删除）、update（更新）</p>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+</body>
+</html>

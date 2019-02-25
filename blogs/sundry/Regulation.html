@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+<title>Java常量和OOP规约</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo">
+			<a href="#">Study <span>notes</span></a>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+
+			<!-- One -->
+			<section id="one" class="wrapper style1">
+
+				<div class="image fit flush">
+					<img src="images/pic02.jpg" alt="" />
+				</div>
+				<header class="special">
+					<h2>阿里巴巴Java开发手册读后总结---常量和OOP规约</h2>
+					<p>好记性不如烂笔头</p>
+				</header>
+				<div class="content">
+				    <p>本文内容总结自阿里Java开发关于常量定义、代码格式OOP规约的内容</p>
+				    <p>以下：</p>
+					<p>1、定义常量的时候严禁出现未定义的常量，如String key = "id123"+tradeId;</p>
+					<p>2、使用long或者Long时，使用大写的L而不是小写的l，以免引发误读。</p>
+					<p>3、常量类根据服务对象的不同分开定义，方便管理和修改。</p>
+					<p>4、if/for/while/switch/do等保留子与括号之间必须加空格。</p>
+					<p>5、任何二目三目运算符的左右两边都必须加一个空格。</p>
+					<p>6、禁止tab字符尽心缩进。</p>
+					<p>7、单行字符不超过120个，超出时需要换行，换行后第二行相对第一行缩进4个空格，运算符和点符号一起换行。</p>
+					<p>8、静态方法通过类名来访问，要求所有的的覆写方法必须加@Override注解。</p>
+					<p>9、外部正在调用接口时，禁止修改方法签名，避免对接口调用产生影响，接口过时必须加@Deprecated注解，通知禁止吊钟所有过时的类和方法。</p>
+					<p>10、所有的相同类型的包装类对象值的比较全部使用equals方法比较。</p>
+					<p>11、POJO类的所有属性必须使用包装数据类型，方法的返回值也使用包装数据类型，所有局部变量则使用基本数据类型。</p>
+					<p>12、构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑则应该放在init方法中。</p>
+					<p>13、所有POJO类必须写toString方法，目的是方便后期的调试和排查。</p>
+					<p>14、类中方法定义的顺序依次是：公有方法或保护方法、私有方法、getter和setter方法。</p>
+					<p>15、在循环体中字符串的连接方式使用append方法而不是直接“+”，目的是防止资源的浪费。</p>
+					<p>16、任何类、方法、参数、变量严控访问范围，过于宽泛的范围不利于模块解藕。</p>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+</body>
+</html>
