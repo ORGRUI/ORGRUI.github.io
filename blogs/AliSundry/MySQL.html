@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+<title>MySQL建表规范</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo">
+			<a href="#">Study <span>notes</span></a>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+
+			<!-- One -->
+			<section id="one" class="wrapper style1">
+
+				<div class="image fit flush">
+					<img src="images/pic02.jpg" alt="" /> 
+				</div>
+				<header class="special">
+					<h2>阿里巴巴Java开发手册读后总结---MySQL建表规范</h2>
+					<p>好记性不如烂笔头</p> 
+				</header>
+				<div class="content">
+				    <p>本文内容总结自阿里Java开发关于MySQL建表规范的内容</p>
+				    <p>以下：</p>
+					<p>1、表达是与否概念的字段，必须使用is_XXX的方式命名，数据类型是unsigned tinyint，任何字段如果非负数，必须是unsigned。</p>
+					<p>2、表名、字段名必须使用小写字母或者数字，禁止出现数字开头，禁止两个下划线中间出现数字。</p>
+					<p>3、表名不实用复数名词，表明应该仅仅表示表里面的实体内容，不应该表示实体数量，对应的DO类名也是单数形式，符合表达习惯。</p>
+					<p>4、禁止使用保留字，如desc、range、match、delayed等。</p>
+					<p>5、主键索引名为pk_字段名；唯一索引名为uk_字段名；普通索引名则为idx_字段名。</p>
+					<p>6、小数类型为decimal，禁止使用float和double，float和double在存储的时候存在精度损失的问题，很可能在值比较时得不到不正确的结果，如果存储的数据范围超过decimal范围，建议将数据拆分存储。</p>
+					<p>7、如果存储的字符串长度几乎相等，使用char定长字符串类型。</p>
+					<p>8、varchar是可变长字符串，不预先分配存储空间，长度不要超过5000，若超过则应定义字段类型为text，独立出来一张表，避免影响其他字段索引效率。</p>
+					<p>9、表必备三字段：id，gmt_create,gmt_modified，id类型为unsigned bigint、单表时自增，步长为1，gmt_create,gmt_modified类型为date_time。</p>
+					<p>10、表的命名最好是加上“业务名称_表的作用”如：alipay_task。</p>
+					<p>11、库名与应用名称尽量一致。</p>
+					<p>12、应该给每个字段备注字段的含义。</p>
+					<p>13、字段允许适当冗余，以提高查询性能，但是必须考虑数据一致。冗余字段不能是频繁修改的字段，不是varchar或者text等长字段</p>
+					<p>14、单表行数超过500万行或者单表容量超过2GB，才推荐进行分库分表，如果预计3年后数据量根本达不到这个级别，请不要在创建表示就分库分表。</p>
+					<p>15、合适的字符存储长度，不但节约数据库表空间、节约索引存储，更重要的时提升索引速度。</p>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+<title>Java安全规范</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo">
+			<a href="#">Study <span>notes</span></a>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+
+			<!-- One -->
+			<section id="one" class="wrapper style1">
+
+				<div class="image fit flush">
+					<img src="images/pic02.jpg" alt="" />
+				</div>
+				<header class="special">
+					<h2>阿里巴巴Java开发手册读后总结---安全规范</h2>
+					<p>好记性不如烂笔头</p> 
+				</header>
+				<div class="content">
+				    <p>本文内容总结自阿里Java开发关于安全规范的内容</p>
+				    <p>以下：</p>
+					<p>1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。</p>
+					<p>2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158****9119。</p>
+					<p>3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。</p>
+					<p>4、禁止向html输出未经过安全过滤或未安全转义的内容。</p>
+					<p>5、表单、ajax提交必须执行CSRF安全过滤。</p>
+					<p>6、在使用平台资源，如断行，邮件等，必须实现正确的防重限制。</p>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+<title>Java日志规范</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo">
+			<a href="#">Study <span>notes</span></a>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+
+			<!-- One -->
+			<section id="one" class="wrapper style1">
+
+				<div class="image fit flush">
+					<img src="images/pic02.jpg" alt="" />
+				</div>
+				<header class="special">
+					<h2>阿里巴巴Java开发手册读后总结---日志规范</h2>
+					<p>好记性不如烂笔头</p>
+				</header>
+				<div class="content">
+				    <p>本文内容总结自阿里Java开发关于日志规范的内容</p>
+				    <p>以下：</p>
+					<p>1、应用中不可直接使用日志系统Log4j中的API，而应以来使用日志框架SLF4j的API，有利于维护和个个类的日志处理方式统一;</p>
+					<p>2、日志文件推荐存放时间为15天，因为有些异常可能已一周的频次出现。</p>
+					<p>3、避免重复答应日志文件，浪费磁盘空间，务必在Log4J.xml中色孩纸additivity=false。</p>
+					<p>4、异常信息应该包括两类信息，案发现场信息和异常堆栈信息，如果不处理那么通过throws往上抛出。</p> 
+					<p>5、可以使用warn日志级别来记录用户输入参数错误的情况，避免用户投诉时无所适从。</p>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+</body>
+</html>

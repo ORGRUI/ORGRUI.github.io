@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+<title>Java异常处理规范</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo">
+			<a href="#">Study <span>notes</span></a>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+
+			<!-- One -->
+			<section id="one" class="wrapper style1">
+
+				<div class="image fit flush">
+					<img src="images/pic02.jpg" alt="" />
+				</div>
+				<header class="special">
+					<h2>阿里巴巴Java开发手册读后总结---异常处理规范</h2>
+					<p>好记性不如烂笔头</p>
+				</header>
+				<div class="content">
+				    <p>本文内容总结自阿里Java开发关于异常处理的内容</p>
+				    <p>以下：</p>
+					<p>1、Java类库中定义的一类RuntimeException可以通过预先检查或者判断进行避免，不应该用catch来处理。</p>
+					<p>2、异常不要用来做流程控制，条件控制，因为异常的处理效率比田间分支低。</p>
+					<p>3、对大段代码进行try-catch是不负责任的行为，尽可能仅catch不稳定的代码。</p>
+					<p>4、捕获异常的作用时处理它，不要捕获了答案什么都不处理，如果不想处理请往上层抛出，一直到处理。</p>
+					<p>5、finally快必须对资源对象，刘对象进行关闭，有异常也要做try-catch。</p>
+					<p>6、不能在finally块中使用return，finally块中的return返回后方法结束执行，不会在执行try块中的return语句。</p>
+					<p>7、捕获异常和抛出的异常必须是匹配的。</p>
+					<p>8、防止NPE是程序员的基本修养，方法可以返回为NULL，但是调用时必须判断NULL情况。</p>
+					<p>9、返回类型时基本数据类型，但是return包装数据类型的对象时，自动拆箱有可能产生NPE。</p>
+					<p>10、对于所有的http/api开放接口必须使用“错误码”。</p>
+					<p>11、避免出现重复的代码，即DRY原则，必要时抽取拱形方法，抽象方法，组件化。</p>
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.poptrox.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+</body>
+</html>
