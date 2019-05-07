@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 本周工作进展本周制定了详细的任务分工和进度安排，按照计划，本周的任务是首页展示页和详情页面，在有多余时间的境况下完成登录注册页面，后台工作已全部完成。 1.1 实现接口 实现根据分类请求所有模型的接口 接口地址：http://4dshoetech.com/sdtc/component/Models  实现根据模型的名字请求模型详情的接口 接口地址：http://4dshoetech.com/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="研发周报">
+<meta property="og:url" content="http://yoursite.com/2017/05/26/研发周报_杨瑞_10_13/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 本周工作进展本周制定了详细的任务分工和进度安排，按照计划，本周的任务是首页展示页和详情页面，在有多余时间的境况下完成登录注册页面，后台工作已全部完成。 1.1 实现接口 实现根据分类请求所有模型的接口 接口地址：http://4dshoetech.com/sdtc/component/Models  实现根据模型的名字请求模型详情的接口 接口地址：http://4dshoetech.com/">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/Users/mac/Library/Application%20Support/typora-user-images/image-20181013170320300.png">
+<meta property="og:image" content="http://yoursite.com/Users/mac/Library/Application%20Support/typora-user-images/image-20181013173454935.png">
+<meta property="og:image" content="http://yoursite.com/Users/mac/Library/Application%20Support/typora-user-images/image-20181013173552668.png">
+<meta property="og:image" content="http://yoursite.com/Users/mac/Library/Application%20Support/typora-user-images/image-20181013173721543.png">
+<meta property="og:image" content="https://gw.alipayobjects.com/os/skylark-tools/public/files/b46d76f23545d5ca205a3e246322bbae">
+<meta property="og:updated_time" content="2019-05-07T13:28:17.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="研发周报">
+<meta name="twitter:description" content="1. 本周工作进展本周制定了详细的任务分工和进度安排，按照计划，本周的任务是首页展示页和详情页面，在有多余时间的境况下完成登录注册页面，后台工作已全部完成。 1.1 实现接口 实现根据分类请求所有模型的接口 接口地址：http://4dshoetech.com/sdtc/component/Models  实现根据模型的名字请求模型详情的接口 接口地址：http://4dshoetech.com/">
+<meta name="twitter:image" content="http://yoursite.com/Users/mac/Library/Application%20Support/typora-user-images/image-20181013170320300.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'R i/o'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/26/研发周报_杨瑞_10_13/">
+
+
+
+
+
+  <title>研发周报 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home  //首页"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th   //分类"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user  //关于"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/26/研发周报_杨瑞_10_13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">研发周报</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-26T19:57:47+08:00">
+                2017-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作/" itemprop="url" rel="index">
+                    <span itemprop="name">工作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-本周工作进展"><a href="#1-本周工作进展" class="headerlink" title="1. 本周工作进展"></a><strong>1. 本周工作进展</strong></h2><p>本周制定了详细的任务分工和进度安排，按照计划，本周的任务是首页展示页和详情页面，在有多余时间的境况下完成登录注册页面，后台工作已全部完成。</p>
+<h5 id="1-1-实现接口"><a href="#1-1-实现接口" class="headerlink" title="1.1 实现接口"></a>1.1 实现接口</h5><ol>
+<li><p>实现根据分类请求所有模型的接口</p>
+<p>接口地址：<a href="http://4dshoetech.com/sdtc/component/Models" target="_blank" rel="noopener">http://4dshoetech.com/sdtc/component/Models</a></p>
+</li>
+<li><p>实现根据模型的名字请求模型详情的接口</p>
+<p>接口地址：<a href="http://4dshoetech.com/sdtc/component/modelDetail" target="_blank" rel="noopener">http://4dshoetech.com/sdtc/component/modelDetail</a></p>
+<p><img src="/Users/mac/Library/Application Support/typora-user-images/image-20181013170320300.png" alt="image-20181013170320300"></p>
+</li>
+<li><p>实现用户注册部分的接口</p>
+<p>接口地址：<a href="http://4dshoetech.com/sdtc/user/validate/Register" target="_blank" rel="noopener">http://4dshoetech.com/sdtc/user/validate/Register</a></p>
+</li>
+<li><p>实现获取手机验证码的接口（由于需要企业支付宝账户所以目前只是模拟实现）</p>
+<p>接口地址：<a href="http://4dshoetech.com/sdtc/user/validate/IdentityCode" target="_blank" rel="noopener">http://4dshoetech.com/sdtc/user/validate/IdentityCode</a></p>
+</li>
+<li><p>实现用户登录接口</p>
+<p>接口地址：<a href="http://4dshoetech.com/sdtc/user/validate/Login" target="_blank" rel="noopener">http://4dshoetech.com/sdtc/user/validate/Login</a></p>
+</li>
+</ol>
+<h5 id="1-2-学习了解支付相关的操作"><a href="#1-2-学习了解支付相关的操作" class="headerlink" title="1.2 学习了解支付相关的操作"></a>1.2 学习了解支付相关的操作</h5><p>1.查阅支付宝支付开发文档</p>
+<p>支付宝支付有很多种，本项目主要涉及到的是电脑网站支付</p>
+<p><img src="/Users/mac/Library/Application Support/typora-user-images/image-20181013173454935.png" alt="image-20181013173454935"></p>
+<p>只得注意的是当要开通支付宝支付功能，需要满足以下条件的公司开可以开通</p>
+<p><img src="/Users/mac/Library/Application Support/typora-user-images/image-20181013173552668.png" alt="image-20181013173552668"></p>
+<p>还需和甲方公司进行核对器公司是否符合准入条件</p>
+<p>特别注意的是</p>
+<p>支付宝支付每笔订单需要加收0.6%的手续费，服务期限为一年。</p>
+<p><img src="/Users/mac/Library/Application Support/typora-user-images/image-20181013173721543.png" alt="image-20181013173721543"></p>
+<p> 2.了解支付流程</p>
+<p> <img src="https://gw.alipayobjects.com/os/skylark-tools/public/files/b46d76f23545d5ca205a3e246322bbae" alt="image"></p>
+<h2 id="2-遇到问题以及解决办法"><a href="#2-遇到问题以及解决办法" class="headerlink" title="2. 遇到问题以及解决办法"></a>2. 遇到问题以及解决办法</h2><h5 id="1-需求明确以及时间进度的问题"><a href="#1-需求明确以及时间进度的问题" class="headerlink" title="1. 需求明确以及时间进度的问题"></a>1. 需求明确以及时间进度的问题</h5><p>经过本周的需求分析发现了许多之前没有引起注意的问题，比如模型上传后台系统是否支持甲方公司上传，如支持，则需要为其定制上传模型的后台，并告知使用说明，工作量将增加。以及面料上传后台系统是否支持甲方公司，因面料涉及许多参数校验工作，还需考察甲方是否有相关技术人才，以及详尽的后台操作手册，工作量也将倍增，如上两者都需要在原项目基础上开发，那对于目前仅限的时间是一个巨大的挑战。</p>
+<p>解决办法：积极和甲方公司确认需求，在合理的情况下争取更多的时间。</p>
+<h5 id="2-支付系统相关问题（支付宝支付和微信支付）"><a href="#2-支付系统相关问题（支付宝支付和微信支付）" class="headerlink" title="2.支付系统相关问题（支付宝支付和微信支付）"></a>2.支付系统相关问题（支付宝支付和微信支付）</h5><p>支付系统的开发需要以甲方公司为主体申请企业支付宝帐号以及企业微信账号，因甲方公司属于传统企业，缺少互联网相关人才，对于互联网支付的细节了解不够详尽，导致在沟通中出现障碍。</p>
+<p>解决办法：为提高项目进度，最好的办法是有我们全部负责企业支付宝和微信的注册，有甲方公司提供相应的材料。但考虑到，部分公司信息的保密性，此方案还需和甲方公司进行详细交流。</p>
+<h5 id="3-业务逻辑以及代码问题"><a href="#3-业务逻辑以及代码问题" class="headerlink" title="3.业务逻辑以及代码问题"></a>3.业务逻辑以及代码问题</h5><p>（1）项目搭建成功，在本机可以访问，但放入服务器后却未正常启动服务。</p>
+<p>解决办法：经过排查，发现项目在本机环境下有两个相同项目不同版本的开源JAR包，在本机进行编译时，在IDE的帮助下，会自动屏蔽低版本JAR包，同时编译高版本JAR包，但导出项目至服务器时，会把两个JAR包同时进行编译，于是发生错误。</p>
+<p>（2）在项目测试过程中国呢开源项目——mybatis在前几日突然中断了服务，但此时刚好需要下载该项目的一些资源。</p>
+<p>解决办法：首先在网上搜索相关资源并下载配置，最终由于没有齐全的资源文件，只得在旧的工作机上将必要的文件资源拷贝到新的工作机上。</p>
+<h2 id="3-下周计划"><a href="#3-下周计划" class="headerlink" title="3. 下周计划"></a>3. 下周计划</h2><p>1.设计并实现定制页的接口，在定制页允许客户修改模型，修改面料。</p>
+<p>2.时刻更新客户需求，今早将最终需求梳理清楚。</p>
+<p>3.阅读支付宝支付提供的SDK，迅速熟练相关的操作。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/28/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-本周工作进展"><span class="nav-number">1.</span> <span class="nav-text">1. 本周工作进展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-实现接口"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1.1 实现接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-学习了解支付相关的操作"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">1.2 学习了解支付相关的操作</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#2-遇到问题以及解决办法"><span class="nav-number">2.</span> <span class="nav-text">2. 遇到问题以及解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-需求明确以及时间进度的问题"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1. 需求明确以及时间进度的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-支付系统相关问题（支付宝支付和微信支付）"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2.支付系统相关问题（支付宝支付和微信支付）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-业务逻辑以及代码问题"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">3.业务逻辑以及代码问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-下周计划"><span class="nav-number">3.</span> <span class="nav-text">3. 下周计划</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
