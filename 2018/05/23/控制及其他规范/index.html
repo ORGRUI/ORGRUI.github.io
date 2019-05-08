@@ -40,16 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="每个人都会碰到很多难题，想要解开这些难题，就必须专心地做下去，就需要最疯狂的那股痴劲儿，但这种痴却不是山一般压在你肩上的重量，而是你内心深处最向往的那些喜悦。人生如题各种痴，就是各种喜欢，喜欢做什么那便做下去，这道题目总会有答案的。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="R io">
-<meta property="og:url" content="http://ORGRUI.github.io/archives/index.html">
+<meta name="description" content="本文内容总结自阿里Java开发关于控制语句、其他规范的内容以下： 1、在if/else/for/while/do语句中必须使用大括号，即使只有一行代码。 2、少用if()..else if()方式，如果非要使用，不要超过3层。 3、循环体中的语句要考量性能，以下操作尽量移至循环体外处理：定义对象、变量、获取数据库连接，不必要的try-catch操作。 4、对外开放的接口都应该进行参数校验。 5、类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里巴巴Java开发手册读后总结---控制及其他规范">
+<meta property="og:url" content="http://ORGRUI.github.io/2018/05/23/控制及其他规范/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="每个人都会碰到很多难题，想要解开这些难题，就必须专心地做下去，就需要最疯狂的那股痴劲儿，但这种痴却不是山一般压在你肩上的重量，而是你内心深处最向往的那些喜悦。人生如题各种痴，就是各种喜欢，喜欢做什么那便做下去，这道题目总会有答案的。">
+<meta property="og:description" content="本文内容总结自阿里Java开发关于控制语句、其他规范的内容以下： 1、在if/else/for/while/do语句中必须使用大括号，即使只有一行代码。 2、少用if()..else if()方式，如果非要使用，不要超过3层。 3、循环体中的语句要考量性能，以下操作尽量移至循环体外处理：定义对象、变量、获取数据库连接，不必要的try-catch操作。 4、对外开放的接口都应该进行参数校验。 5、类">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-08T11:49:30.042Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R io">
-<meta name="twitter:description" content="每个人都会碰到很多难题，想要解开这些难题，就必须专心地做下去，就需要最疯狂的那股痴劲儿，但这种痴却不是山一般压在你肩上的重量，而是你内心深处最向往的那些喜悦。人生如题各种痴，就是各种喜欢，喜欢做什么那便做下去，这道题目总会有答案的。">
+<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---控制及其他规范">
+<meta name="twitter:description" content="本文内容总结自阿里Java开发关于控制语句、其他规范的内容以下： 1、在if/else/for/while/do语句中必须使用大括号，即使只有一行代码。 2、少用if()..else if()方式，如果非要使用，不要超过3层。 3、循环体中的语句要考量性能，以下操作尽量移至循环体外处理：定义对象、变量、获取数据库连接，不必要的try-catch操作。 4、对外开放的接口都应该进行参数校验。 5、类">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +60,7 @@
   };
 </script>
 
-  <title> Archive | R io </title>
+  <title> 阿里巴巴Java开发手册读后总结---控制及其他规范 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -77,7 +78,7 @@
 
 
 
-  <div class="container one-column  page-archive ">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -318,310 +319,118 @@
       <div class="main-inner">
         <div id="content" class="content"> 
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 9 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
       
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              阿里巴巴Java开发手册读后总结---控制及其他规范
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-05-23T19:11:22+08:00" content="2018-05-23">
+            2018-05-23
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
+                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
       
       
 
       
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
+        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于控制语句、其他规范的内容"><a href="#本文内容总结自阿里Java开发关于控制语句、其他规范的内容" class="headerlink" title="本文内容总结自阿里Java开发关于控制语句、其他规范的内容"></a>本文内容总结自阿里Java开发关于控制语句、其他规范的内容</h5><p>以下：</p>
+<p>1、在if/else/for/while/do语句中必须使用大括号，即使只有一行代码。</p>
+<p>2、少用if()..else if()方式，如果非要使用，不要超过3层。</p>
+<p>3、循环体中的语句要考量性能，以下操作尽量移至循环体外处理：定义对象、变量、获取数据库连接，不必要的try-catch操作。</p>
+<p>4、对外开放的接口都应该进行参数校验。</p>
+<p>5、类、类属性、类方法、所有抽象方法的注解必须使用/*<em>内容</em>/格式，方便调用时进行提示。</p>
+<p>6、所有的枚举类型字段必须有注释，说明每个数据的用途。</p>
+<p>7、代码修改的时候注释也要进行修改。</p>
+<p>8、在使用正则表达式时，利用好其预编译的功能，可以有效加快正则匹配的速度。</p>
+<p>9、注意Math.random()这个方法返回的时都变了类型，注意取值时可能取到0，所以需要进行判断。</p>
+<p>10、根据MVC理论视图的责任是战士，不要加入任何复杂的逻辑。</p>
+<p>11、所有数据结构的构造或者初始化都应该指定大小，否则容易浪费内存。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/23/异常处理规范/" rel="prev">阿里巴巴Java开发手册读后总结---异常处理规范</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/常量和OOP规约/" rel="next">阿里巴巴Java开发手册读后总结---常量和OOP规约</a>
+            
+          </div>
         </div>
       
-      
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/27/MySQL规范/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---MySQL建表规范</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-27T12:07:40.000Z" itemprop="dateCreated" content="2018-05-27"> 05-27 </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div>
       
+    </div>
+
+    <div class="post-spread">
       
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/26/安全规范/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---安全规范</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-26T14:10:12.000Z" itemprop="dateCreated" content="2018-05-26"> 05-26 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/25/单元测试规范/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---单元测试规范</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-25T13:17:41.000Z" itemprop="dateCreated" content="2018-05-25"> 05-25 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/25/日志规范/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---日志规范</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-25T10:59:54.000Z" itemprop="dateCreated" content="2018-05-25"> 05-25 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/24/集合和并发规范/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---集合和并发规范</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-24T11:31:14.000Z" itemprop="dateCreated" content="2018-05-24"> 05-24 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/23/异常处理规范/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---异常处理规范</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-23T13:02:14.000Z" itemprop="dateCreated" content="2018-05-23"> 05-23 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/23/控制及其他规范/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---控制及其他规范</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-23T11:11:22.000Z" itemprop="dateCreated" content="2018-05-23"> 05-23 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/22/常量和OOP规约/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---常量和OOP规约</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-22T11:15:41.000Z" itemprop="dateCreated" content="2018-05-22"> 05-22 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/21/命名规范/" itemprop="url">
-              <span itemprop="name">阿里巴巴Java开发手册读后总结---命名规范</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2018-05-21T12:01:44.000Z" itemprop="dateCreated" content="2018-05-21"> 05-21 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
+    </div>
+  </div>
 
  </div>
 
+        
+          <div class="comments" id="comments">
+            
+            -->
         
       </div>
 
@@ -638,6 +447,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -686,12 +504,23 @@
       </section>
 
       
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于控制语句、其他规范的内容"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于控制语句、其他规范的内容</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
 
     </div>
   </aside>
 
 
-    </main>
+    </div></main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright">
@@ -729,12 +558,6 @@
   
   
   
-    <script type="text/javascript">
-      postMotionOptions = {stagger: 100, drag: true};
-    </script>
-  
-
-  
     
   
   
@@ -758,10 +581,163 @@
 
   
   
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
 
 
   <script type="text/javascript">
