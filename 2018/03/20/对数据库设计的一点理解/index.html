@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta name="description" content="本文主要探讨一下本人针对数据库设计的一点心得体会数据库范式数据库设计对数据的存储性能，还有开发人员对数据的操作都有莫大的关系。所以建立科学的，规范的的数据库是需要满足一些规范的来优化数据数据存储方式，在关系型数据库中这些规范就可以称为范式。 第一范式：当关系模型R的所有属性都不能再分解为更基本的数据单位时称R为第一范式，及数据表的属性都是最基础的，不可以再分。 第二范式：每个表必须有且仅有一个数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴Java开发手册读后总结---命名规范">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/21/命名规范/index.html">
+<meta property="og:title" content="对数据库设计的理解—范式选择">
+<meta property="og:url" content="http://ORGRUI.github.io/2018/03/20/对数据库设计的一点理解/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta property="og:description" content="本文主要探讨一下本人针对数据库设计的一点心得体会数据库范式数据库设计对数据的存储性能，还有开发人员对数据的操作都有莫大的关系。所以建立科学的，规范的的数据库是需要满足一些规范的来优化数据数据存储方式，在关系型数据库中这些规范就可以称为范式。 第一范式：当关系模型R的所有属性都不能再分解为更基本的数据单位时称R为第一范式，及数据表的属性都是最基础的，不可以再分。 第二范式：每个表必须有且仅有一个数据">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:49:40.609Z">
+<meta property="og:updated_time" content="2019-05-09T12:44:11.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---命名规范">
-<meta name="twitter:description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta name="twitter:title" content="对数据库设计的理解—范式选择">
+<meta name="twitter:description" content="本文主要探讨一下本人针对数据库设计的一点心得体会数据库范式数据库设计对数据的存储性能，还有开发人员对数据的操作都有莫大的关系。所以建立科学的，规范的的数据库是需要满足一些规范的来优化数据数据存储方式，在关系型数据库中这些规范就可以称为范式。 第一范式：当关系模型R的所有属性都不能再分解为更基本的数据单位时称R为第一范式，及数据表的属性都是最基础的，不可以再分。 第二范式：每个表必须有且仅有一个数据">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 阿里巴巴Java开发手册读后总结---命名规范 | R io </title>
+  <title> 对数据库设计的理解—范式选择 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              阿里巴巴Java开发手册读后总结---命名规范
+              对数据库设计的理解—范式选择
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-21T20:01:44+08:00" content="2018-05-21">
-            2018-05-21
+          <time itemprop="dateCreated" datetime="2018-03-20T10:07:20+08:00" content="2018-03-20">
+            2018-03-20
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                <a href="/categories/数据库/" itemprop="url" rel="index">
+                  <span itemprop="name">数据库</span>
                 </a>
               </span>
 
@@ -374,21 +374,107 @@
       
 
       
-        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"><a href="#本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读" class="headerlink" title="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"></a>本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读</h5><p>以下：</p>
-<p>1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。</p>
-<p>2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。</p>
-<p>3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类名层次分明，易于理解。</p>
-<p>4、所有常量的命名必须大写，同时单词之间使用“_”隔开，比如“MAX_COUNT”。</p>
-<p>5、方法名、参数名、成员变量、局部变量统一采用lowerCamelCase风格，例如“countUserNumber()”等。</p>
-<p>6、抽象类以Abstract或者base作为开头，异常类以Exception作为结尾，测试类则已Test作为结尾。</p>
-<p>7、数组定义的规范化，如String [] args;</p>
-<p>8、POJO类中的布尔变量禁止加is，因为部分框架在解析时会出现错误。</p>
-<p>9、包名统一使用小写，同时要做到用途清晰，例如util包存放工具类，service包存放sevice接口类。</p>
-<p>10、尽量不使用缩写，不规范的缩写会极大影响代码可读性，尽量使用完整的命名来表达。</p>
-<p>11、如果在程序中使用了设计模式，则在命名时应当体现出具体的模式。</p>
-<p>12、坚持SOA的理念，对外仅暴露接口，内部通过实现类来实现接口</p>
-<p>13、枚举类成员名称全部大写，单词间通过下划线连接。说明：枚举类其实是特殊的常量类，且构造方法默认是私有的。</p>
-<p>14、Service层方法命名get（获取单个对象）、list（获取多个对象）、count（统计量）、insert（插入）、delete（删除）、update（更新）</p>
+        <span itemprop="articleBody"><h5 id="本文主要探讨一下本人针对数据库设计的一点心得体会"><a href="#本文主要探讨一下本人针对数据库设计的一点心得体会" class="headerlink" title="本文主要探讨一下本人针对数据库设计的一点心得体会"></a>本文主要探讨一下本人针对数据库设计的一点心得体会</h5><h5 id="数据库范式"><a href="#数据库范式" class="headerlink" title="数据库范式"></a>数据库范式</h5><p>数据库设计对数据的存储性能，还有开发人员对数据的操作都有莫大的关系。所以建立科学的，规范的的数据库是需要满足一些规范的来优化数据数据存储方式，在关系型数据库中这些规范就可以称为范式。</p>
+<p>第一范式：当关系模型R的所有属性都不能再分解为更基本的数据单位时称R为第一范式，及数据表的属性都是最基础的，不可以再分。</p>
+<p>第二范式：每个表必须有且仅有一个数据元素为主关键字(Primary key),其他数据元素与主关键字一一对应，在数据库设计中要求数据表如果只有一个主键时就满足第二范式。第二范式主要是要求在一个数据表中，一个表只能存储一种数据，不可以把多种不同数据形式保存在同一张表中。</p>
+<p>第三范式：满足第三范式前提是满足第二范式。同时，实体中的属性不能是其他实体中的非主属性，因为这样会出现冗余。如果一个实体出现其他实体的非主属性，可以将这两个实体用外键关联，而不是将另一张表的非主属性直接卸载当前表中。第三范式的目的主要是防止数据的冗余</p>
+<p>BC范式（BCNF）：BC范式的定义是在关系模型中每一个决定因素都包含候选键，也就是说只要属性或者属性组A能够决定属性B，则A的子集中必须有候选键。看起来很复杂，来看看例子。</p>
+<table>
+<thead>
+<tr>
+<th>StudentId</th>
+<th>Major</th>
+<th>Advisor</th>
+<th>MajGPA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>人工智能</td>
+<td>Edward</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>大数据</td>
+<td>William</td>
+<td>3.8</td>
+</tr>
+<tr>
+<td>1</td>
+<td>大数据</td>
+<td>William</td>
+<td>3.7</td>
+</tr>
+<tr>
+<td>3</td>
+<td>大数据</td>
+<td>Joseph</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+<p>上面这张表学生ID和专业ID为联合主键，但是导师只能对应一个专业，所以我们可以拆分数据表，将Advisor和Maior单独成另一张表。</p>
+<p>学生导师表：</p>
+<table>
+<thead>
+<tr>
+<th>StudentId</th>
+<th>Advisor</th>
+<th>MajGPA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Edward</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>William</td>
+<td>3.8</td>
+</tr>
+<tr>
+<td>1</td>
+<td>William</td>
+<td>3.7</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Joseph</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+<p>导师表：</p>
+<table>
+<thead>
+<tr>
+<th>Advisor</th>
+<th>Major</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edward</td>
+<td>人工智能</td>
+</tr>
+<tr>
+<td>William</td>
+<td>大数据</td>
+</tr>
+<tr>
+<td>Joseph</td>
+<td>大数据</td>
+</tr>
+</tbody>
+</table>
+<p>好了这就是BC范式了，主要目的还是为了减少冗余。</p>
+<h5 id="我的理解和设计"><a href="#我的理解和设计" class="headerlink" title="我的理解和设计"></a>我的理解和设计</h5><p>我在设计数据表的时候会严格按照前三个范式进行设计，但是偶尔会不满足BC范式，及处于第三范式和BC范式之间。因为在实际的业务中很有可能会遇到以下情况。</p>
+<p>就拿上面这张表为例，如果我们想要查询选修了大数据专业的所有学生的ID，此时如果是BC范式并且是单表查询的话，我们要先查询导师表，找到所有的大数据方面的导师，然后查找学生导师表查找出学生ID，或者两个表做join进行联合查询，而如果是第三范式则可以直接查询到对应学生ID，从速度上来说第三范式是肯定快过BC范式的，但空间上会产生一定的冗余。</p>
+<p>如果我们现在把条件想象的比较特别，如果这两个表数据都很多，那么速度差异就更加明显了，同时由于join查询时会占用较长的数据库执行时间，很可能会造成其他数据库请求的等待，这是得不偿失的。而且在实际开发中常常会碰到改表改库的情况，单表的sql语句大多可以自动生成如Mybatis，如果你手写了一条多表联合查询，等下次数据库改动，又要重写，这一点是不符合敏捷开发的原则。综上所述，我个人更愿意用空间换时间，用空间来换开发效率。</p>
 </span>
       
     </div>
@@ -400,13 +486,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/22/常量和OOP规约/" rel="prev">阿里巴巴Java开发手册读后总结---常量和OOP规约</a>
+              <a href="/2018/04/22/Bug记录[Mybatis]1/" rel="prev">Bug记录-【Mybatis】 Mapper method '...attempted to...</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/22/Bug记录[Mybatis]1/" rel="next">Bug记录-【Mybatis】 Mapper method '...attempted to...</a>
+              <a href="/2017/10/20/Java内存--堆和栈/" rel="next">Java内存详谈--堆和栈的异同</a>
             
           </div>
         </div>
@@ -512,7 +598,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文主要探讨一下本人针对数据库设计的一点心得体会"><span class="nav-number">1.</span> <span class="nav-text">本文主要探讨一下本人针对数据库设计的一点心得体会</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库范式"><span class="nav-number">2.</span> <span class="nav-text">数据库范式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#我的理解和设计"><span class="nav-number">3.</span> <span class="nav-text">我的理解和设计</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

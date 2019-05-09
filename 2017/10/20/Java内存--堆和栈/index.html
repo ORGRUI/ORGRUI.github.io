@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta name="description" content="本文主要探讨一下Java内存中堆和栈不同堆和栈JAVA在程序运行时，内存被划分为5片空间分别是：寄存器 、本地方法区 、方法区 、栈 、堆，这里仅讨论堆和栈。 栈：用于存放基本数据类型、局部变量。 堆：用于存放实例化的对象、数组存放在堆内存中，通过垃圾回收机制回收。 通过程序来看看 123456789101112131415public static void main(String args[]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴Java开发手册读后总结---命名规范">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/21/命名规范/index.html">
+<meta property="og:title" content="Java内存详谈--堆和栈的异同">
+<meta property="og:url" content="http://ORGRUI.github.io/2017/10/20/Java内存--堆和栈/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta property="og:description" content="本文主要探讨一下Java内存中堆和栈不同堆和栈JAVA在程序运行时，内存被划分为5片空间分别是：寄存器 、本地方法区 、方法区 、栈 、堆，这里仅讨论堆和栈。 栈：用于存放基本数据类型、局部变量。 堆：用于存放实例化的对象、数组存放在堆内存中，通过垃圾回收机制回收。 通过程序来看看 123456789101112131415public static void main(String args[]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:49:40.609Z">
+<meta property="og:updated_time" content="2019-05-09T14:14:26.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---命名规范">
-<meta name="twitter:description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta name="twitter:title" content="Java内存详谈--堆和栈的异同">
+<meta name="twitter:description" content="本文主要探讨一下Java内存中堆和栈不同堆和栈JAVA在程序运行时，内存被划分为5片空间分别是：寄存器 、本地方法区 、方法区 、栈 、堆，这里仅讨论堆和栈。 栈：用于存放基本数据类型、局部变量。 堆：用于存放实例化的对象、数组存放在堆内存中，通过垃圾回收机制回收。 通过程序来看看 123456789101112131415public static void main(String args[]">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 阿里巴巴Java开发手册读后总结---命名规范 | R io </title>
+  <title> Java内存详谈--堆和栈的异同 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              阿里巴巴Java开发手册读后总结---命名规范
+              Java内存详谈--堆和栈的异同
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-21T20:01:44+08:00" content="2018-05-21">
-            2018-05-21
+          <time itemprop="dateCreated" datetime="2017-10-20T16:07:46+08:00" content="2017-10-20">
+            2017-10-20
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                <a href="/categories/java高级/" itemprop="url" rel="index">
+                  <span itemprop="name">java高级</span>
                 </a>
               </span>
 
@@ -374,21 +374,26 @@
       
 
       
-        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"><a href="#本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读" class="headerlink" title="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"></a>本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读</h5><p>以下：</p>
-<p>1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。</p>
-<p>2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。</p>
-<p>3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类名层次分明，易于理解。</p>
-<p>4、所有常量的命名必须大写，同时单词之间使用“_”隔开，比如“MAX_COUNT”。</p>
-<p>5、方法名、参数名、成员变量、局部变量统一采用lowerCamelCase风格，例如“countUserNumber()”等。</p>
-<p>6、抽象类以Abstract或者base作为开头，异常类以Exception作为结尾，测试类则已Test作为结尾。</p>
-<p>7、数组定义的规范化，如String [] args;</p>
-<p>8、POJO类中的布尔变量禁止加is，因为部分框架在解析时会出现错误。</p>
-<p>9、包名统一使用小写，同时要做到用途清晰，例如util包存放工具类，service包存放sevice接口类。</p>
-<p>10、尽量不使用缩写，不规范的缩写会极大影响代码可读性，尽量使用完整的命名来表达。</p>
-<p>11、如果在程序中使用了设计模式，则在命名时应当体现出具体的模式。</p>
-<p>12、坚持SOA的理念，对外仅暴露接口，内部通过实现类来实现接口</p>
-<p>13、枚举类成员名称全部大写，单词间通过下划线连接。说明：枚举类其实是特殊的常量类，且构造方法默认是私有的。</p>
-<p>14、Service层方法命名get（获取单个对象）、list（获取多个对象）、count（统计量）、insert（插入）、delete（删除）、update（更新）</p>
+        <span itemprop="articleBody"><h4 id="本文主要探讨一下Java内存中堆和栈不同"><a href="#本文主要探讨一下Java内存中堆和栈不同" class="headerlink" title="本文主要探讨一下Java内存中堆和栈不同"></a>本文主要探讨一下Java内存中堆和栈不同</h4><h5 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h5><p>JAVA在程序运行时，内存被划分为5片空间分别是：寄存器 、本地方法区 、方法区 、栈 、堆，这里仅讨论堆和栈。</p>
+<p>栈：用于存放基本数据类型、局部变量。</p>
+<p>堆：用于存放实例化的对象、数组存放在堆内存中，通过垃圾回收机制回收。</p>
+<p>通过程序来看看</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setUserID(<span class="number">0</span>);</span><br><span class="line">    change(i,user);</span><br><span class="line">    System.out.println(i);</span><br><span class="line">    System.out.println(user.getUserID());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> i,User user)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    i=<span class="number">1</span>;</span><br><span class="line">    user.setUserID(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出到结果想必不用多说吧，以下：</p>
+<p>0<br>1</p>
+<p>第一步–main()函数是程序的入口JVM在栈内存中开辟一个空间存放int类型的变量x，同时赋值为0；在堆内存中开辟一块内存用来存放user对象，userid赋值为0；</p>
+<p>第二步–change方法用来改变两个入参的值，但是由于变量i存在栈内存中当方法调用该参数时保存现场，方法结束时，恢复现场，所以不会改变原来的值。而user在堆内存中则会改变并记录下改变过后的值。</p>
+<p>由于基本类型变量在存储时是存在于栈内存中的，当方法调用该参数时保存现场，方法结束时，恢复现场，所以，无论方法中如何改变这个变量，结束时都不会发生变化。而user是对象，他在堆内存中，所以他的属性修改会得以保存。</p>
+<p>再来看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> j=i;</span><br><span class="line">    j=<span class="number">1</span>;</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这太简单了，答案是0不用多说，因为i和j都在栈内存中两个互不影响，int j=i;起到的是赋值的作用。所以当j变成1时，i不会收到j的影响，依然为0.</p>
+<p>再来看下另一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setUserID(<span class="number">1</span>);</span><br><span class="line">    User user2 =user;</span><br><span class="line">    user2.setUserID(<span class="number">2</span>);</span><br><span class="line">    System.out.println(user.getUserID());</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果应该也是显而易见的，为2</p>
+<p>但是为什么呢？这里就很好的体现堆内存和栈内存的不同，对象和基本数据类型的不同。</p>
+<p>User user2 =user;这句话相当于将对象复制一份出来，两个对象的内存地址值一样。所以指向同一个实体，对user2的属性修改，相当于user的属性也改了。这说明在堆内存中对象是一种引用的关系，这个关系可以给 很多个变量，但是实体还是存在堆中，一旦其中一个引用对其进行修改，所有的其他的引用结果也会修改。</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>栈存储基本类型变量，对象的引用变量都在函数的栈内存中进行分配。栈的特点是数据存活时间极短，节约内存空间。</p>
+<p>堆中所有的实体都拥有内存地址值，当相应的实体不在被指向时及没有被引用时，JVM的垃圾回收机制会自动清理内存空间，防止内存溢出。</p>
 </span>
       
     </div>
@@ -400,13 +405,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/22/常量和OOP规约/" rel="prev">阿里巴巴Java开发手册读后总结---常量和OOP规约</a>
+              <a href="/2018/03/20/对数据库设计的一点理解/" rel="prev">对数据库设计的理解—范式选择</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/22/Bug记录[Mybatis]1/" rel="next">Bug记录-【Mybatis】 Mapper method '...attempted to...</a>
+              <a href="/2017/09/27/Bug记录[SSM]1/" rel="next">Tomcat启动SSM项目时卡在Initializing</a>
             
           </div>
         </div>
@@ -512,7 +517,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文主要探讨一下Java内存中堆和栈不同"><span class="nav-number">1.</span> <span class="nav-text">本文主要探讨一下Java内存中堆和栈不同</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#堆和栈"><span class="nav-number">1.1.</span> <span class="nav-text">堆和栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

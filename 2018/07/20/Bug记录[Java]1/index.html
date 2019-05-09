@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta name="description" content="本文记录一个Java基础的Bug由于需要写一个文件上传的接口，为了防止命名重复的问题，我想到了用系统当时的毫秒数的Long值来给文件命名。 Date d = new Date(); d.getTime()； 因为是多文件上传，所以用到了for循环给文件进行命名。 Date d = new Date(); for(int i=0;i&amp;lt;9 ; i++) ​        d.getTime())">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴Java开发手册读后总结---命名规范">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/21/命名规范/index.html">
+<meta property="og:title" content="Bug记录-【Java】 系统时间给程序命名重复">
+<meta property="og:url" content="http://ORGRUI.github.io/2018/07/20/Bug记录[Java]1/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta property="og:description" content="本文记录一个Java基础的Bug由于需要写一个文件上传的接口，为了防止命名重复的问题，我想到了用系统当时的毫秒数的Long值来给文件命名。 Date d = new Date(); d.getTime()； 因为是多文件上传，所以用到了for循环给文件进行命名。 Date d = new Date(); for(int i=0;i&amp;lt;9 ; i++) ​        d.getTime())">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:49:40.609Z">
+<meta property="og:updated_time" content="2019-05-09T13:06:00.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---命名规范">
-<meta name="twitter:description" content="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读以下： 1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。 2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。 3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类">
+<meta name="twitter:title" content="Bug记录-【Java】 系统时间给程序命名重复">
+<meta name="twitter:description" content="本文记录一个Java基础的Bug由于需要写一个文件上传的接口，为了防止命名重复的问题，我想到了用系统当时的毫秒数的Long值来给文件命名。 Date d = new Date(); d.getTime()； 因为是多文件上传，所以用到了for循环给文件进行命名。 Date d = new Date(); for(int i=0;i&amp;lt;9 ; i++) ​        d.getTime())">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 阿里巴巴Java开发手册读后总结---命名规范 | R io </title>
+  <title> Bug记录-【Java】 系统时间给程序命名重复 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              阿里巴巴Java开发手册读后总结---命名规范
+              Bug记录-【Java】 系统时间给程序命名重复
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-21T20:01:44+08:00" content="2018-05-21">
-            2018-05-21
+          <time itemprop="dateCreated" datetime="2018-07-20T11:02:14+08:00" content="2018-07-20">
+            2018-07-20
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                <a href="/categories/Bug记录/" itemprop="url" rel="index">
+                  <span itemprop="name">Bug记录</span>
                 </a>
               </span>
 
@@ -374,21 +374,15 @@
       
 
       
-        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"><a href="#本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读" class="headerlink" title="本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"></a>本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读</h5><p>以下：</p>
-<p>1、代码中变量的命名禁止以“_”,“$”作为开头或者结尾。</p>
-<p>2、严禁使用中文拼音或者拼音和英文结合的方式命名变量，但是某些国际性通用词可例外，目的是为了提高代码的可读性。</p>
-<p>3、类名必须严格按照驼峰命名法进行规范，比如XmlService、UserMapper等，目的是使得类名层次分明，易于理解。</p>
-<p>4、所有常量的命名必须大写，同时单词之间使用“_”隔开，比如“MAX_COUNT”。</p>
-<p>5、方法名、参数名、成员变量、局部变量统一采用lowerCamelCase风格，例如“countUserNumber()”等。</p>
-<p>6、抽象类以Abstract或者base作为开头，异常类以Exception作为结尾，测试类则已Test作为结尾。</p>
-<p>7、数组定义的规范化，如String [] args;</p>
-<p>8、POJO类中的布尔变量禁止加is，因为部分框架在解析时会出现错误。</p>
-<p>9、包名统一使用小写，同时要做到用途清晰，例如util包存放工具类，service包存放sevice接口类。</p>
-<p>10、尽量不使用缩写，不规范的缩写会极大影响代码可读性，尽量使用完整的命名来表达。</p>
-<p>11、如果在程序中使用了设计模式，则在命名时应当体现出具体的模式。</p>
-<p>12、坚持SOA的理念，对外仅暴露接口，内部通过实现类来实现接口</p>
-<p>13、枚举类成员名称全部大写，单词间通过下划线连接。说明：枚举类其实是特殊的常量类，且构造方法默认是私有的。</p>
-<p>14、Service层方法命名get（获取单个对象）、list（获取多个对象）、count（统计量）、insert（插入）、delete（删除）、update（更新）</p>
+        <span itemprop="articleBody"><h5 id="本文记录一个Java基础的Bug"><a href="#本文记录一个Java基础的Bug" class="headerlink" title="本文记录一个Java基础的Bug"></a>本文记录一个Java基础的Bug</h5><p>由于需要写一个文件上传的接口，为了防止命名重复的问题，我想到了用系统当时的毫秒数的Long值来给文件命名。</p>
+<p>Date d = new Date();</p>
+<p>d.getTime()；</p>
+<p>因为是多文件上传，所以用到了for循环给文件进行命名。</p>
+<p>Date d = new Date();</p>
+<p>for(int i=0;i&lt;9 ; i++)</p>
+<p>​        d.getTime());</p>
+<p>但后来却发现一个很严重的错误就是文件保存过后只有一个文件，我很奇怪，按道理，时间是每时每刻都不一样的但是为什么会导致文件名重复呢？</p>
+<p>于是我打印出了所有命名发现在一个for循环下产生的文件的名字居然是一样的。于是想到，一般cpu执行速度都十分快在3Ghz左右，但是系统时间仅仅是毫秒级的，所以当在同一毫秒下系统执行了多条指令，所以输出了相同的文件名，正确的做法是可以在时间上加入当时的循环此时，这样就可以帮助不会再重复了。</p>
 </span>
       
     </div>
@@ -400,13 +394,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/22/常量和OOP规约/" rel="prev">阿里巴巴Java开发手册读后总结---常量和OOP规约</a>
+              <a href="/2018/07/20/Redis源码-close()方法/" rel="prev">Jedis中close方法详解</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/22/Bug记录[Mybatis]1/" rel="next">Bug记录-【Mybatis】 Mapper method '...attempted to...</a>
+              <a href="/2018/07/20/Bug记录[Redis]1/" rel="next">Bug记录-【Redis】 Read timed out</a>
             
           </div>
         </div>
@@ -512,7 +506,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于命名方面的规范涉及变量名、类名、方法名等，按照此规范进行编程，可以使得代码更易于阅读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文记录一个Java基础的Bug"><span class="nav-number">1.</span> <span class="nav-text">本文记录一个Java基础的Bug</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
