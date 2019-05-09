@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文内容总结自阿里Java开发关于安全规范的内容以下： 1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。 2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158**9119。 3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。 4、禁止向html输出">
+<meta name="description" content="本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑close()方法的作用自Jedis3.0版本之后jedisPool.returnResource()被选择性弃用，而官方则重写close()方法来进行对上述方法进行替代。 1234567891011121314@Overridepublic void close() &amp;#123;  if (dataSource !">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴Java开发手册读后总结---安全规范">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/26/安全规范/index.html">
+<meta property="og:title" content="Jedis中close方法详解">
+<meta property="og:url" content="http://ORGRUI.github.io/2018/07/20/Redis源码-close()方法/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文内容总结自阿里Java开发关于安全规范的内容以下： 1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。 2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158**9119。 3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。 4、禁止向html输出">
+<meta property="og:description" content="本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑close()方法的作用自Jedis3.0版本之后jedisPool.returnResource()被选择性弃用，而官方则重写close()方法来进行对上述方法进行替代。 1234567891011121314@Overridepublic void close() &amp;#123;  if (dataSource !">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:48:10.087Z">
+<meta property="og:updated_time" content="2019-05-09T08:14:29.433Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---安全规范">
-<meta name="twitter:description" content="本文内容总结自阿里Java开发关于安全规范的内容以下： 1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。 2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158**9119。 3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。 4、禁止向html输出">
+<meta name="twitter:title" content="Jedis中close方法详解">
+<meta name="twitter:description" content="本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑close()方法的作用自Jedis3.0版本之后jedisPool.returnResource()被选择性弃用，而官方则重写close()方法来进行对上述方法进行替代。 1234567891011121314@Overridepublic void close() &amp;#123;  if (dataSource !">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 阿里巴巴Java开发手册读后总结---安全规范 | R io </title>
+  <title> Jedis中close方法详解 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              阿里巴巴Java开发手册读后总结---安全规范
+              Jedis中close方法详解
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-26T22:10:12+08:00" content="2018-05-26">
-            2018-05-26
+          <time itemprop="dateCreated" datetime="2018-07-20T14:07:40+08:00" content="2018-07-20">
+            2018-07-20
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                <a href="/categories/Redis源码阅读/" itemprop="url" rel="index">
+                  <span itemprop="name">Redis源码阅读</span>
                 </a>
               </span>
 
@@ -374,13 +374,11 @@
       
 
       
-        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于安全规范的内容"><a href="#本文内容总结自阿里Java开发关于安全规范的内容" class="headerlink" title="本文内容总结自阿里Java开发关于安全规范的内容"></a>本文内容总结自阿里Java开发关于安全规范的内容</h5><p>以下：</p>
-<p>1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。</p>
-<p>2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158<em>**</em>9119。</p>
-<p>3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。</p>
-<p>4、禁止向html输出未经过安全过滤或未安全转义的内容。</p>
-<p>5、表单、ajax提交必须执行CSRF安全过滤。</p>
-<p>6、在使用平台资源，如断行，邮件等，必须实现正确的防重限制。</p>
+        <span itemprop="articleBody"><h4 id="本文内容主要是准对Jedis中的close-方法进行解释，以及在开发中所遇到的坑"><a href="#本文内容主要是准对Jedis中的close-方法进行解释，以及在开发中所遇到的坑" class="headerlink" title="本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑"></a>本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑</h4><h5 id="close-方法的作用"><a href="#close-方法的作用" class="headerlink" title="close()方法的作用"></a>close()方法的作用</h5><p>自Jedis3.0版本之后jedisPool.returnResource()被选择性弃用，而官方则重写close()方法来进行对上述方法进行替代。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void close() &#123;</span><br><span class="line">  if (dataSource != null) &#123;</span><br><span class="line">    Pool&lt;Jedis&gt; pool = this.dataSource;</span><br><span class="line">    this.dataSource = null;</span><br><span class="line">    if (client.isBroken()) &#123;</span><br><span class="line">      pool.returnBrokenResource(this);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      pool.returnResource(this);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    super.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们通过阅读close()的源码可以发现这个方法的的功能十分强大，它包含了jedispool.returnBrokenResource()和jedispool.returnResource()两个释放资源的方法，这也是官方决定弃用之前方法的原因。</p>
+<p>我们知道jedisPool是一个资源池，每当我们从资源池中借走一个连接的时候资源池中就会少一个连接，当最后资源池中没有连接时，会导致后面的用户处于等待状态，又由于redis通常被拿来做身份权限验证，所以资源更加宝贵。close()方法就是把资源归还的方法，只有及时归还资源才能更好的响应用户的请求。</p>
+<h5 id="close-方法注意事项"><a href="#close-方法注意事项" class="headerlink" title="close()方法注意事项"></a>close()方法注意事项</h5><p>有的同学在使用Jedis时可能会发现Jedis包中没有提供close()方法，不要着急，这是因为你Jedis包版本太旧的原因，应将Jedis升级为3.0级以上就可以看到此方法。还有的同学发现，即使导入了最新版本的Jedis包但是依旧没有close()方法，此时可以考虑两个问题。（1）旧版本Jedis包没有清理干净，此时检查一下maven和Libraries。（2）项目没有更新，一般STS会出现这个问题，解决办法刷新项目</p>
 </span>
       
     </div>
@@ -392,13 +390,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/27/MySQL规范/" rel="prev">阿里巴巴Java开发手册读后总结---MySQL规范</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/25/单元测试规范/" rel="next">阿里巴巴Java开发手册读后总结---单元测试规范</a>
+              <a href="/2018/05/27/MySQL规范/" rel="next">阿里巴巴Java开发手册读后总结---MySQL规范</a>
             
           </div>
         </div>
@@ -504,7 +500,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于安全规范的内容"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于安全规范的内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容主要是准对Jedis中的close-方法进行解释，以及在开发中所遇到的坑"><span class="nav-number">1.</span> <span class="nav-text">本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#close-方法的作用"><span class="nav-number">1.1.</span> <span class="nav-text">close()方法的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#close-方法注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">close()方法注意事项</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
