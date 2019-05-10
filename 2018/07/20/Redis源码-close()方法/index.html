@@ -42,14 +42,14 @@
 
 <meta name="description" content="本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑close()方法的作用自Jedis3.0版本之后jedisPool.returnResource()被选择性弃用，而官方则重写close()方法来进行对上述方法进行替代。 1234567891011121314@Overridepublic void close() &amp;#123;  if (dataSource !">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jedis中close方法详解">
+<meta property="og:title" content="Redis源码阅读--Jedis中close方法详解">
 <meta property="og:url" content="http://ORGRUI.github.io/2018/07/20/Redis源码-close()方法/index.html">
 <meta property="og:site_name" content="R io">
 <meta property="og:description" content="本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑close()方法的作用自Jedis3.0版本之后jedisPool.returnResource()被选择性弃用，而官方则重写close()方法来进行对上述方法进行替代。 1234567891011121314@Overridepublic void close() &amp;#123;  if (dataSource !">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-09T08:14:29.433Z">
+<meta property="og:updated_time" content="2019-05-10T08:44:40.457Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jedis中close方法详解">
+<meta name="twitter:title" content="Redis源码阅读--Jedis中close方法详解">
 <meta name="twitter:description" content="本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑close()方法的作用自Jedis3.0版本之后jedisPool.returnResource()被选择性弃用，而官方则重写close()方法来进行对上述方法进行替代。 1234567891011121314@Overridepublic void close() &amp;#123;  if (dataSource !">
 
 
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> Jedis中close方法详解 | R io </title>
+  <title> Redis源码阅读--Jedis中close方法详解 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              Jedis中close方法详解
+              Redis源码阅读--Jedis中close方法详解
             
           
         </h1>
@@ -458,14 +458,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>

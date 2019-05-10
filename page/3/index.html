@@ -332,8 +332,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/10/20/Java内存--堆和栈/" itemprop="url">
-                Java内存详谈--堆和栈的异同
+              <a class="post-title-link" href="/2018/05/13/汇编--完成十六进制数输出的功能/" itemprop="url">
+                汇编--十六进制数输出
               </a>
             
           
@@ -343,8 +343,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2017-10-20T16:07:46+08:00" content="2017-10-20">
-            2017-10-20
+          <time itemprop="dateCreated" datetime="2018-05-13T15:21:11+08:00" content="2018-05-13">
+            2018-05-13
           </time>
         </span>
 
@@ -353,8 +353,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/java高级/" itemprop="url" rel="index">
-                  <span itemprop="name">java高级</span>
+                <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                  <span itemprop="name">汇编语言</span>
                 </a>
               </span>
 
@@ -380,15 +380,11 @@
         
           <span itemprop="articleBody">
             
-            本文主要探讨一下Java内存中堆和栈不同堆和栈JAVA在程序运行时，内存被划分为5片空间分别是：寄存器 、本地方法区 、方法区 、栈 、堆，这里仅讨论堆和栈。
-栈：用于存放基本数据类型、局部变量。
-堆：用于存放实例化的对象、数组存放在堆内存中，通过垃圾回收机制回收。
-通过程序来看看
-12345678
+            本文讲述如何编写一段子程序BINIHEX，完成十六进制数输出的功能123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354STACKS   SEGMENT  
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/10/20/Java内存--堆和栈/#more" rel="contents">
+            <a class="btn" href="/2018/05/13/汇编--完成十六进制数输出的功能/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -421,8 +417,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/09/27/Bug记录[SSM]1/" itemprop="url">
-                Tomcat启动SSM项目时卡在Initializing
+              <a class="post-title-link" href="/2018/05/07/汇编--输出反转字符/" itemprop="url">
+                汇编--输出反转字符
               </a>
             
           
@@ -432,8 +428,433 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2017-09-27T10:17:40+08:00" content="2017-09-27">
-            2017-09-27
+          <time itemprop="dateCreated" datetime="2018-05-07T16:17:56+08:00" content="2018-05-07">
+            2018-05-07
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                  <span itemprop="name">汇编语言</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文讲述如何编写一子程序编写一子程序输出反转字符123456789101112131415161718192021222324252627282930313233343536373839404142434445 STACKS   SEGMENT  STACK         DW     100H 
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/05/07/汇编--输出反转字符/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2018/05/05/汇编--字符串比较/" itemprop="url">
+                汇编—比较两个字符串是否相等
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-05-05T20:18:16+08:00" content="2018-05-05">
+            2018-05-05
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                  <span itemprop="name">汇编语言</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文通过汇编编写一程序，要求比较两个字符串STRING1和STRING2所含字符是否相同，若相同则显示“MATCH”，若不相同则显示“NO MATCH”12345678910111213141516171819202122232425262728293031323334353637383940414
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/05/05/汇编--字符串比较/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2018/05/03/汇编--将空行的行数保存在参数AX寄存器中/" itemprop="url">
+                汇编--将空行的行数保存在参数AX寄存器中
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-05-03T19:11:16+08:00" content="2018-05-03">
+            2018-05-03
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                  <span itemprop="name">汇编语言</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中1234567891011121314151617181920212223242526272829303132333435363738394041424344454647STACKS   SEGMENT  STACK         DW  
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/05/03/汇编--将空行的行数保存在参数AX寄存器中/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2018/04/27/汇编--将该线性表中内容为0FFFFH的项删除/" itemprop="url">
+                汇编--将该线性表中内容为0FFFFH的项删除
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-04-27T13:17:26+08:00" content="2018-04-27">
+            2018-04-27
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                  <span itemprop="name">汇编语言</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文通过汇编解决删除指定线性表内容的方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556STACKS   SEGMENT  STACK   D
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/04/27/汇编--将该线性表中内容为0FFFFH的项删除/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2018/04/23/汇编--一个整数二进制值中1和0的个数/" itemprop="url">
+                汇编—一个整数二进制值中1和0的个数
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-04-23T11:08:36+08:00" content="2018-04-23">
+            2018-04-23
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/汇编语言/" itemprop="url" rel="index">
+                  <span itemprop="name">汇编语言</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文通过汇编统计变量X中的二进制值中1和0的个数，并记入ONE和ZERO变量中1234567891011121314151617181920212223242526272829303132333435363738STACKS    SEGMENT     STACK          DW   10
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/04/23/汇编--一个整数二进制值中1和0的个数/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2018/04/22/Bug记录[Mybatis]1/" itemprop="url">
+                Bug记录-【Mybatis】 Mapper method '...attempted to...
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-04-22T11:02:14+08:00" content="2018-04-22">
+            2018-04-22
           </time>
         </span>
 
@@ -469,12 +890,13 @@
         
           <span itemprop="articleBody">
             
-            本文主要讨论Tomcat启动SSM项目时卡在Initializing的情况报错内容：
-Server Tomcat v9.0 Server at localhost was unable to start within 150 seconds. If the server requires more 
+            本文记录一个Mybatis异常Mapper method ‘…attempted to return null from a method with a primitive return type(int)
+这是一个mybtis的映射语句错误，原因是数据库中没有你想要查询的这个值
+因为没有结果，所以
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/09/27/Bug记录[SSM]1/#more" rel="contents">
+            <a class="btn" href="/2018/04/22/Bug记录[Mybatis]1/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -500,7 +922,7 @@ Server Tomcat v9.0 Server at localhost was unable to start within 150 seconds. I
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
   </nav>
 
  </div>
@@ -532,14 +954,14 @@ Server Tomcat v9.0 Server at localhost was unable to start within 150 seconds. I
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
