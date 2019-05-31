@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文内容总结自阿里Java开发关于单元测试的内容以下： 1、好的单元测试必须遵守AIR原则，具有自动化、独立性、可重复执行的特点。 2、单元测试应该是全自动执行的，不允许认为进行验证。 3、保持单元测试的独立性，便于维护不能互相调用。 4、对于单元测试，要保证测试力度足够小，有助精确定位问题。 5、核心业务、核心应用、核心模块的增量代码确保单元测试通过。 6、单元测试代码必须写在工程目录：src/">
+<meta name="description" content="本文内容主要介绍如何在Azure的Centos7.5服务器上搭建Java环境和Tomcat服务器首先强调一点的就是在Azure中申请的Centos服务器是不会给你root账户的，这一点有别于阿里云，这主要是为了服务器安全所考虑的，因为如果在root用户下启动某些服务可能会导致被黑客利用从而进行恶意破坏，这一点可参见Redis无授权访问漏洞。 Java环境的配置1、如何申请Centos服务器我就不多">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴Java开发手册读后总结---单元测试规范">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/25/单元测试规范/index.html">
+<meta property="og:title" content="Azure-CentOS搭建Java环境和Tomcat服务器">
+<meta property="og:url" content="http://ORGRUI.github.io/2018/04/21/Azure-CentOS搭建Java环境/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文内容总结自阿里Java开发关于单元测试的内容以下： 1、好的单元测试必须遵守AIR原则，具有自动化、独立性、可重复执行的特点。 2、单元测试应该是全自动执行的，不允许认为进行验证。 3、保持单元测试的独立性，便于维护不能互相调用。 4、对于单元测试，要保证测试力度足够小，有助精确定位问题。 5、核心业务、核心应用、核心模块的增量代码确保单元测试通过。 6、单元测试代码必须写在工程目录：src/">
+<meta property="og:description" content="本文内容主要介绍如何在Azure的Centos7.5服务器上搭建Java环境和Tomcat服务器首先强调一点的就是在Azure中申请的Centos服务器是不会给你root账户的，这一点有别于阿里云，这主要是为了服务器安全所考虑的，因为如果在root用户下启动某些服务可能会导致被黑客利用从而进行恶意破坏，这一点可参见Redis无授权访问漏洞。 Java环境的配置1、如何申请Centos服务器我就不多">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:49:16.361Z">
+<meta property="og:updated_time" content="2019-05-31T02:54:28.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---单元测试规范">
-<meta name="twitter:description" content="本文内容总结自阿里Java开发关于单元测试的内容以下： 1、好的单元测试必须遵守AIR原则，具有自动化、独立性、可重复执行的特点。 2、单元测试应该是全自动执行的，不允许认为进行验证。 3、保持单元测试的独立性，便于维护不能互相调用。 4、对于单元测试，要保证测试力度足够小，有助精确定位问题。 5、核心业务、核心应用、核心模块的增量代码确保单元测试通过。 6、单元测试代码必须写在工程目录：src/">
+<meta name="twitter:title" content="Azure-CentOS搭建Java环境和Tomcat服务器">
+<meta name="twitter:description" content="本文内容主要介绍如何在Azure的Centos7.5服务器上搭建Java环境和Tomcat服务器首先强调一点的就是在Azure中申请的Centos服务器是不会给你root账户的，这一点有别于阿里云，这主要是为了服务器安全所考虑的，因为如果在root用户下启动某些服务可能会导致被黑客利用从而进行恶意破坏，这一点可参见Redis无授权访问漏洞。 Java环境的配置1、如何申请Centos服务器我就不多">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 阿里巴巴Java开发手册读后总结---单元测试规范 | R io </title>
+  <title> Azure-CentOS搭建Java环境和Tomcat服务器 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              阿里巴巴Java开发手册读后总结---单元测试规范
+              Azure-CentOS搭建Java环境和Tomcat服务器
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-25T21:17:41+08:00" content="2018-05-25">
-            2018-05-25
+          <time itemprop="dateCreated" datetime="2018-04-21T10:07:21+08:00" content="2018-04-21">
+            2018-04-21
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                <a href="/categories/Azure/" itemprop="url" rel="index">
+                  <span itemprop="name">Azure</span>
                 </a>
               </span>
 
@@ -374,17 +374,27 @@
       
 
       
-        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于单元测试的内容"><a href="#本文内容总结自阿里Java开发关于单元测试的内容" class="headerlink" title="本文内容总结自阿里Java开发关于单元测试的内容"></a>本文内容总结自阿里Java开发关于单元测试的内容</h5><p>以下：</p>
-<p>1、好的单元测试必须遵守AIR原则，具有自动化、独立性、可重复执行的特点。</p>
-<p>2、单元测试应该是全自动执行的，不允许认为进行验证。</p>
-<p>3、保持单元测试的独立性，便于维护不能互相调用。</p>
-<p>4、对于单元测试，要保证测试力度足够小，有助精确定位问题。</p>
-<p>5、核心业务、核心应用、核心模块的增量代码确保单元测试通过。</p>
-<p>6、单元测试代码必须写在工程目录：src/test/java，不允许写在业务代码目录下。</p>
-<p>7、和数据库相关的单元测试设定自动回滚机制。</p>
-<p>8、单元测试作为一种质量保证手段，不建议项目发布后补充。</p>
-<p>9、业务代码因避免以下情况：构造方法做的事情过多，存在过多的全局变量和静态方法，存在过多的外部依赖，存在过多的条件语句。</p>
-<p>10、无论开发人员还是测试人员都需要熟悉单元测试，单元测试通过不一定代表线上版本通过。</p>
+        <span itemprop="articleBody"><h4 id="本文内容主要介绍如何在Azure的Centos7-5服务器上搭建Java环境和Tomcat服务器"><a href="#本文内容主要介绍如何在Azure的Centos7-5服务器上搭建Java环境和Tomcat服务器" class="headerlink" title="本文内容主要介绍如何在Azure的Centos7.5服务器上搭建Java环境和Tomcat服务器"></a>本文内容主要介绍如何在Azure的Centos7.5服务器上搭建Java环境和Tomcat服务器</h4><p>首先强调一点的就是在Azure中申请的Centos服务器是不会给你root账户的，这一点有别于阿里云，这主要是为了服务器安全所考虑的，因为如果在root用户下启动某些服务可能会导致被黑客利用从而进行恶意破坏，这一点可参见Redis无授权访问漏洞。</p>
+<h5 id="Java环境的配置"><a href="#Java环境的配置" class="headerlink" title="Java环境的配置"></a>Java环境的配置</h5><p>1、如何申请Centos服务器我就不多说了，首先需要将Java压缩包上传到服务器，我这里使用的是jdk-8u181-linux-x64.tar.gz</p>
+<p>2、服务器解压压缩包 tar zxvf jdk-8u181-linux-x64.tar.gz</p>
+<p>3、配置环境变量：vim ~/.bash_profile</p>
+<p>4、在文档的末尾加入jdk的路径信息如下：</p>
+<p>export JAVA_HOME=/home/admin/Java/jdk-8u181<br>export PATH=$JAVA_HOME/bin:$PATH<br>export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</p>
+<p>注意JAVA_HOME=/home/admin/Java/jdk-8u181是你虚拟机上的路径，这个是我的路径</p>
+<p>5、执行指令source ~/.bash_profile</p>
+<p>6、通过java -version进行验证是否成功</p>
+<h5 id="Tomcat环境配置"><a href="#Tomcat环境配置" class="headerlink" title="Tomcat环境配置"></a>Tomcat环境配置</h5><p>1、上传Tomcat压缩包到服务器，我这里使用的是apache-tomcat-9.0.13.tar.gz</p>
+<p>2、服务器解压 tar zxvf apache-tomcat-9.0.13.tar.gz</p>
+<p>3、进入apache-tomcat-9.0.13的bin目录 cd   apache-tomcat-9.0.13/bin/</p>
+<p>4、在bin目录下执行启动命令 ./startup.sh</p>
+<p>5、通过 netstat -nltp指令查看8080端口是否开放，若开放则证明成功</p>
+<p>到这里还没有完成全部操作，你会发现输入 ip地址:8080 是访问不了的，因为防火墙没有开放，这里的话进入Azure管理后台，进入网络安全组，添加入站规则8080，默认配置点击确认，此时便可以访问了。</p>
+<h5 id="80端口重定向"><a href="#80端口重定向" class="headerlink" title="80端口重定向"></a>80端口重定向</h5><p>如果想将Tomcat端口修改为80，则需要通过配置Linux端口重定向而不是修改server.xml文件，因为普通Linux用户是无权操作1024及以上端口的。</p>
+<p>1、进入管理员账号 sudo su</p>
+<p>2、执行端口重定向命令</p>
+<p><strong>iptables -t nat -A PREROUTING -p tcp –dport 80 -j REDIRECT –to-port 8080</strong></p>
+<p>此时发现可以通过80端口来进行网站的访问</p>
+<h5 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h5><p>如果发现还是访问不了网站的情况，请检查网络安全组中的80端口是否开放。Java版本和Tomcat版本是否兼容。程序本身和Tomcat版本是否兼容等问题。</p>
 </span>
       
     </div>
@@ -396,13 +406,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/26/安全规范/" rel="prev">阿里巴巴Java开发手册读后总结---安全规范</a>
+              <a href="/2018/04/22/Bug记录[Mybatis]1/" rel="prev">Bug记录-【Mybatis】 Mapper method '...attempted to...</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/25/日志规范/" rel="next">阿里巴巴Java开发手册读后总结---日志规范</a>
+              <a href="/2018/04/15/汇编--统计字母个数/" rel="next">汇编—统计字母个数</a>
             
           </div>
         </div>
@@ -508,7 +518,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于单元测试的内容"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于单元测试的内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容主要介绍如何在Azure的Centos7-5服务器上搭建Java环境和Tomcat服务器"><span class="nav-number">1.</span> <span class="nav-text">本文内容主要介绍如何在Azure的Centos7.5服务器上搭建Java环境和Tomcat服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java环境的配置"><span class="nav-number">1.1.</span> <span class="nav-text">Java环境的配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat环境配置"><span class="nav-number">1.2.</span> <span class="nav-text">Tomcat环境配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#80端口重定向"><span class="nav-number">1.3.</span> <span class="nav-text">80端口重定向</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后记"><span class="nav-number">1.4.</span> <span class="nav-text">后记</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

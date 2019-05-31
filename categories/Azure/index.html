@@ -40,17 +40,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文内容总结自阿里Java开发关于单元测试的内容以下： 1、好的单元测试必须遵守AIR原则，具有自动化、独立性、可重复执行的特点。 2、单元测试应该是全自动执行的，不允许认为进行验证。 3、保持单元测试的独立性，便于维护不能互相调用。 4、对于单元测试，要保证测试力度足够小，有助精确定位问题。 5、核心业务、核心应用、核心模块的增量代码确保单元测试通过。 6、单元测试代码必须写在工程目录：src/">
-<meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴Java开发手册读后总结---单元测试规范">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/25/单元测试规范/index.html">
+<meta name="description" content="每个人都会碰到很多难题，想要解开这些难题，就必须专心地做下去，就需要最疯狂的那股痴劲儿，但这种痴却不是山一般压在你肩上的重量，而是你内心深处最向往的那些喜悦。人生如题各种痴，就是各种喜欢，喜欢做什么那便做下去，这道题目总会有答案的。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="R io">
+<meta property="og:url" content="http://ORGRUI.github.io/categories/Azure/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文内容总结自阿里Java开发关于单元测试的内容以下： 1、好的单元测试必须遵守AIR原则，具有自动化、独立性、可重复执行的特点。 2、单元测试应该是全自动执行的，不允许认为进行验证。 3、保持单元测试的独立性，便于维护不能互相调用。 4、对于单元测试，要保证测试力度足够小，有助精确定位问题。 5、核心业务、核心应用、核心模块的增量代码确保单元测试通过。 6、单元测试代码必须写在工程目录：src/">
+<meta property="og:description" content="每个人都会碰到很多难题，想要解开这些难题，就必须专心地做下去，就需要最疯狂的那股痴劲儿，但这种痴却不是山一般压在你肩上的重量，而是你内心深处最向往的那些喜悦。人生如题各种痴，就是各种喜欢，喜欢做什么那便做下去，这道题目总会有答案的。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:49:16.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---单元测试规范">
-<meta name="twitter:description" content="本文内容总结自阿里Java开发关于单元测试的内容以下： 1、好的单元测试必须遵守AIR原则，具有自动化、独立性、可重复执行的特点。 2、单元测试应该是全自动执行的，不允许认为进行验证。 3、保持单元测试的独立性，便于维护不能互相调用。 4、对于单元测试，要保证测试力度足够小，有助精确定位问题。 5、核心业务、核心应用、核心模块的增量代码确保单元测试通过。 6、单元测试代码必须写在工程目录：src/">
+<meta name="twitter:title" content="R io">
+<meta name="twitter:description" content="每个人都会碰到很多难题，想要解开这些难题，就必须专心地做下去，就需要最疯狂的那股痴劲儿，但这种痴却不是山一般压在你肩上的重量，而是你内心深处最向往的那些喜悦。人生如题各种痴，就是各种喜欢，喜欢做什么那便做下去，这道题目总会有答案的。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +59,7 @@
   };
 </script>
 
-  <title> 阿里巴巴Java开发手册读后总结---单元测试规范 | R io </title>
+  <title> Category: Azure | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -78,7 +77,7 @@
 
 
 
-  <div class="container one-column page-post-detail">
+  <div class="container one-column ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -319,117 +318,43 @@
       <div class="main-inner">
         <div id="content" class="content"> 
 
-  <div id="posts" class="posts-expand">
-    
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              阿里巴巴Java开发手册读后总结---单元测试规范
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2018-05-25T21:17:41+08:00" content="2018-05-25">
-            2018-05-25
-          </time>
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于单元测试的内容"><a href="#本文内容总结自阿里Java开发关于单元测试的内容" class="headerlink" title="本文内容总结自阿里Java开发关于单元测试的内容"></a>本文内容总结自阿里Java开发关于单元测试的内容</h5><p>以下：</p>
-<p>1、好的单元测试必须遵守AIR原则，具有自动化、独立性、可重复执行的特点。</p>
-<p>2、单元测试应该是全自动执行的，不允许认为进行验证。</p>
-<p>3、保持单元测试的独立性，便于维护不能互相调用。</p>
-<p>4、对于单元测试，要保证测试力度足够小，有助精确定位问题。</p>
-<p>5、核心业务、核心应用、核心模块的增量代码确保单元测试通过。</p>
-<p>6、单元测试代码必须写在工程目录：src/test/java，不允许写在业务代码目录下。</p>
-<p>7、和数据库相关的单元测试设定自动回滚机制。</p>
-<p>8、单元测试作为一种质量保证手段，不建议项目发布后补充。</p>
-<p>9、业务代码因避免以下情况：构造方法做的事情过多，存在过多的全局变量和静态方法，存在过多的外部依赖，存在过多的条件语句。</p>
-<p>10、无论开发人员还是测试人员都需要熟悉单元测试，单元测试通过不一定代表线上版本通过。</p>
-</span>
-      
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2>
+        Azure
+        <small>Category</small>
+      </h2>
     </div>
 
-    <footer class="post-footer">
+    
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/26/安全规范/" rel="prev">阿里巴巴Java开发手册读后总结---安全规范</a>
-            
-          </div>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/05/25/日志规范/" rel="next">阿里巴巴Java开发手册读后总结---日志规范</a>
-            
-          </div>
-        </div>
-      
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2018/04/21/Azure-CentOS搭建Java环境/" itemprop="url">
+              <span itemprop="name">Azure-CentOS搭建Java环境和Tomcat服务器</span>
+            </a>
+        
+      </h1>
 
-      
-      
-    </footer>
+      <div class="post-meta">
+        <time class="post-time" datetime="2018-04-21T02:07:21.000Z" itemprop="dateCreated" content="2018-04-21"> 04-21 </time>
+      </div>
+
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div>
-      
-    </div>
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
 
  </div>
 
-        
-          <div class="comments" id="comments">
-            
-            -->
         
       </div>
 
@@ -446,15 +371,6 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table Of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
       
 
       <section class="site-overview">
@@ -503,23 +419,12 @@
       </section>
 
       
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于单元测试的内容"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于单元测试的内容</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </section>
-      
 
     </div>
   </aside>
 
 
-    </div></main>
+    </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright">
@@ -557,6 +462,12 @@
   
   
   
+    <script type="text/javascript">
+      postMotionOptions = {stagger: 100, drag: true};
+    </script>
+  
+
+  
     
   
   
@@ -579,165 +490,6 @@
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
 
   <script type="text/javascript">
     $(document).ready(function () {
