@@ -47,7 +47,7 @@
 <meta property="og:site_name" content="R io">
 <meta property="og:description" content="本文内容主要介绍如何在Azure的Centos7.5服务器上搭建Java环境和Tomcat服务器首先强调一点的就是在Azure中申请的Centos服务器是不会给你root账户的，这一点有别于阿里云，这主要是为了服务器安全所考虑的，因为如果在root用户下启动某些服务可能会导致被黑客利用从而进行恶意破坏，这一点可参见Redis无授权访问漏洞。 Java环境的配置1、如何申请Centos服务器我就不多">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-31T02:57:29.368Z">
+<meta property="og:updated_time" content="2019-06-03T01:28:04.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Azure-CentOS-Java-Tomcat环境配置">
 <meta name="twitter:description" content="本文内容主要介绍如何在Azure的Centos7.5服务器上搭建Java环境和Tomcat服务器首先强调一点的就是在Azure中申请的Centos服务器是不会给你root账户的，这一点有别于阿里云，这主要是为了服务器安全所考虑的，因为如果在root用户下启动某些服务可能会导致被黑客利用从而进行恶意破坏，这一点可参见Redis无授权访问漏洞。 Java环境的配置1、如何申请Centos服务器我就不多">
@@ -379,7 +379,7 @@
 <p>2、服务器解压压缩包 tar zxvf jdk-8u181-linux-x64.tar.gz</p>
 <p>3、配置环境变量：vim ~/.bash_profile</p>
 <p>4、在文档的末尾加入jdk的路径信息如下：</p>
-<p>export JAVA_HOME=/home/admin/Java/jdk-8u181<br>export PATH=$JAVA_HOME/bin:$PATH<br>export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</p>
+<p>export JAVA_HOME=/root/jdk1.8.0_181<br>export PATH=$JAVA_HOME/bin:$PATH<br>export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</p>
 <p>注意JAVA_HOME=/home/admin/Java/jdk-8u181是你虚拟机上的路径，这个是我的路径</p>
 <p>5、执行指令source ~/.bash_profile</p>
 <p>6、通过java -version进行验证是否成功</p>
@@ -476,14 +476,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
