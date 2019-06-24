@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文内容总结自阿里Java开发关于异常处理的内容以下： 1、Java类库中定义的一类RuntimeException可以通过预先检查或者判断进行避免，不应该用catch来处理。 2、异常不要用来做流程控制，条件控制，因为异常的处理效率比田间分支低。 3、对大段代码进行try-catch是不负责任的行为，尽可能仅catch不稳定的代码。 4、捕获异常的作用时处理它，不要捕获了答案什么都不处理，如果不">
+<meta name="description" content="本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境简述Otter是基于数据库增量日志解析，准实时同步到本机房或异地机房的mysql/oracle数据库. 一个分布式数据库同步系统。主要解决一个跨地域性的数据同步问题，支持单向同步，双向同步，高可用性部署等。我只要用来解决业务在国际间不同数据库的数据同步问题，当然阿里云也有收费的数据同步解决方案DTS，拥有强大的功能个更低的延">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴Java开发手册读后总结---异常处理规范">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/23/异常处理规范/index.html">
+<meta property="og:title" content="数据同步解决方案—Otter部署">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/03/21/数据同步解决方案Otter部署/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文内容总结自阿里Java开发关于异常处理的内容以下： 1、Java类库中定义的一类RuntimeException可以通过预先检查或者判断进行避免，不应该用catch来处理。 2、异常不要用来做流程控制，条件控制，因为异常的处理效率比田间分支低。 3、对大段代码进行try-catch是不负责任的行为，尽可能仅catch不稳定的代码。 4、捕获异常的作用时处理它，不要捕获了答案什么都不处理，如果不">
+<meta property="og:description" content="本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境简述Otter是基于数据库增量日志解析，准实时同步到本机房或异地机房的mysql/oracle数据库. 一个分布式数据库同步系统。主要解决一个跨地域性的数据同步问题，支持单向同步，双向同步，高可用性部署等。我只要用来解决业务在国际间不同数据库的数据同步问题，当然阿里云也有收费的数据同步解决方案DTS，拥有强大的功能个更低的延">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:49:55.536Z">
+<meta property="og:updated_time" content="2019-06-24T12:26:32.486Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---异常处理规范">
-<meta name="twitter:description" content="本文内容总结自阿里Java开发关于异常处理的内容以下： 1、Java类库中定义的一类RuntimeException可以通过预先检查或者判断进行避免，不应该用catch来处理。 2、异常不要用来做流程控制，条件控制，因为异常的处理效率比田间分支低。 3、对大段代码进行try-catch是不负责任的行为，尽可能仅catch不稳定的代码。 4、捕获异常的作用时处理它，不要捕获了答案什么都不处理，如果不">
+<meta name="twitter:title" content="数据同步解决方案—Otter部署">
+<meta name="twitter:description" content="本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境简述Otter是基于数据库增量日志解析，准实时同步到本机房或异地机房的mysql/oracle数据库. 一个分布式数据库同步系统。主要解决一个跨地域性的数据同步问题，支持单向同步，双向同步，高可用性部署等。我只要用来解决业务在国际间不同数据库的数据同步问题，当然阿里云也有收费的数据同步解决方案DTS，拥有强大的功能个更低的延">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 阿里巴巴Java开发手册读后总结---异常处理规范 | R io </title>
+  <title> 数据同步解决方案—Otter部署 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              阿里巴巴Java开发手册读后总结---异常处理规范
+              数据同步解决方案—Otter部署
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-23T21:02:14+08:00" content="2018-05-23">
-            2018-05-23
+          <time itemprop="dateCreated" datetime="2019-03-21T15:03:15+08:00" content="2019-03-21">
+            2019-03-21
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                <a href="/categories/数据库/" itemprop="url" rel="index">
+                  <span itemprop="name">数据库</span>
                 </a>
               </span>
 
@@ -374,18 +374,62 @@
       
 
       
-        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于异常处理的内容"><a href="#本文内容总结自阿里Java开发关于异常处理的内容" class="headerlink" title="本文内容总结自阿里Java开发关于异常处理的内容"></a>本文内容总结自阿里Java开发关于异常处理的内容</h5><p>以下：</p>
-<p>1、Java类库中定义的一类RuntimeException可以通过预先检查或者判断进行避免，不应该用catch来处理。</p>
-<p>2、异常不要用来做流程控制，条件控制，因为异常的处理效率比田间分支低。</p>
-<p>3、对大段代码进行try-catch是不负责任的行为，尽可能仅catch不稳定的代码。</p>
-<p>4、捕获异常的作用时处理它，不要捕获了答案什么都不处理，如果不想处理请往上层抛出，一直到处理。</p>
-<p>5、finally快必须对资源对象，刘对象进行关闭，有异常也要做try-catch。</p>
-<p>6、不能在finally块中使用return，finally块中的return返回后方法结束执行，不会在执行try块中的return语句。</p>
-<p>7、捕获异常和抛出的异常必须是匹配的。</p>
-<p>8、防止NPE是程序员的基本修养，方法可以返回为NULL，但是调用时必须判断NULL情况。</p>
-<p>9、返回类型时基本数据类型，但是return包装数据类型的对象时，自动拆箱有可能产生NPE。</p>
-<p>10、对于所有的http/api开放接口必须使用“错误码”。</p>
-<p>11、避免出现重复的代码，即DRY原则，必要时抽取拱形方法，抽象方法，组件化。</p>
+        <span itemprop="articleBody"><h5 id="本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境"><a href="#本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境" class="headerlink" title="本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境"></a>本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境</h5><h6 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h6><p>Otter是基于数据库增量日志解析，准实时同步到本机房或异地机房的mysql/oracle数据库. 一个分布式数据库同步系统。主要解决一个跨地域性的数据同步问题，支持单向同步，双向同步，高可用性部署等。我只要用来解决业务在国际间不同数据库的数据同步问题，当然阿里云也有收费的数据同步解决方案DTS，拥有强大的功能个更低的延迟，根据自身业务不同来进行最合适的选择。</p>
+<p>Otter主要分为两个重要组件，manager和node。简单介绍一下，manager就是管理控制界面，node是处理数据同步的机器节点。</p>
+<h6 id="第一步-搭建Java运行环境"><a href="#第一步-搭建Java运行环境" class="headerlink" title="第一步 搭建Java运行环境"></a>第一步 搭建Java运行环境</h6><p>Java运行环境搭建网上有很多，也可以查看我的关于搭建Java环境的博客，此处推荐使用JDK8及以上。</p>
+<h6 id="第二步-搭建Zookeeper"><a href="#第二步-搭建Zookeeper" class="headerlink" title="第二步 搭建Zookeeper"></a>第二步 搭建Zookeeper</h6><p>1、下载Zookeeper，<a href="http://zookeeper.apache.org/releases.html" target="_blank" rel="noopener">http://zookeeper.apache.org/releases.html</a></p>
+<p>我这里下载的是是zookeeper-3.4.6</p>
+<p>2、解压</p>
+<p>tar –zxvf zookeeper-3.4.6.tar.gz</p>
+<p>3、进入zookeeper中的conf目录将zoo_sample.cfg重命名为zoo.cfg</p>
+<p>4、修改zoo.cfg配置文件，仅保留下列信息，其他信息注释</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">initLimit=10</span><br><span class="line">syncLimit=5</span><br><span class="line">dataDir=/root/zookeeper/zookeeper-3.4.9/data</span><br><span class="line">dataLogDir=/root/zookeeper/zookeeper-3.4.9/logs</span><br><span class="line">clientPort=2181</span><br></pre></td></tr></table></figure>
+<p>5、在/etc/profile文件中设置PATH<br>修改profile文件：<br>sudo vi /etc/profile</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ZOOKEEPER_HOME=/home/hadooptest/zookeeper-3.4.3</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$ZOOKEEPER_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
+<p>6、启动项目，进入到zookeeper中的bin目录中，执行一下指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zkServer.sh start</span><br></pre></td></tr></table></figure>
+<h6 id="第三步安装mysql"><a href="#第三步安装mysql" class="headerlink" title="第三步安装mysql"></a>第三步安装mysql</h6><p>mysql安装的方法也比较多，这里采用最常见的用yum源安装的方式。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql57-community-release-el7-10.noarch.rpm</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql-community-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysql</span><br></pre></td></tr></table></figure>
+<p>启动mysql数据库之后修改mysql的密码为自己的密码。通过以下命令找到初始密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep "password" /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+<p>下载otter manager的sql文件，进入mysql初始化otter manager系统表。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.github.com/alibaba/otter/master/manager/deployer/src/main/resources/sql/otter-manager-schema.sql</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source otter-manager-schema.sql</span><br></pre></td></tr></table></figure>
+<h6 id="第四步现在OtterManager并启动"><a href="#第四步现在OtterManager并启动" class="headerlink" title="第四步现在OtterManager并启动"></a>第四步现在OtterManager并启动</h6><p>直接下载的方式下载OtterManager的版本包，可访问：<a href="https://github.com/alibaba/otter/releases" target="_blank" rel="noopener">https://github.com/alibaba/otter/releases</a> ，会列出所有历史的发布版本包下载。下载好之后传送到服务器上。</p>
+<p>解压缩该版本包到指定目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /root/otter/manager</span><br><span class="line">tar zxvf manager.deployer-4.2.7.tar.gz  -C /tmp/manager</span><br></pre></td></tr></table></figure>
+<p>配置修改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">## otter manager domain name #修改为正确访问ip，生成URL使用</span><br><span class="line">otter.domainName = <span class="number">127.0</span>.0.1</span><br><span class="line">## otter manager http port</span><br><span class="line">otter.port = <span class="number">8080</span></span><br><span class="line">## jetty web config xml</span><br><span class="line">otter.jetty = jetty.xml</span><br><span class="line">otter manager database config ，修改为正确数据库信息</span><br><span class="line">otter.database.driver.class.name = com.mysql.jdbc.Driver</span><br><span class="line">#修改为正确的地址和账户密码</span><br><span class="line">otter.database.driver.url = jdbc:mysql:<span class="comment">//127.0.01:3306/ottermanager</span></span><br><span class="line">otter.database.driver.username = root</span><br><span class="line">otter.database.driver.password = hello</span><br><span class="line"></span><br><span class="line">otter communication port</span><br><span class="line">otter.communication.manager.port = <span class="number">1099</span></span><br><span class="line">otter communication pool size</span><br><span class="line">otter.communication.pool.size = <span class="number">10</span></span><br><span class="line">#修改为正确的地址</span><br><span class="line">otter.zookeeper.cluster.<span class="keyword">default</span> = <span class="number">127.0</span>.0.1:<span class="number">2181</span></span><br><span class="line">otter.zookeeper.sessionTimeout = <span class="number">90000</span></span><br><span class="line">otter arbitrate connect manager config</span><br><span class="line">otter.manager.address = $&#123;otter.domainName&#125;:$&#123;otter.communication.manager.port&#125;</span><br></pre></td></tr></table></figure>
+<p>进入manager/bin目录中执行启动脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh startup.sh</span><br></pre></td></tr></table></figure>
+<p>查看项目日志，可以看到错误信息等</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ../logs/manager.log</span><br></pre></td></tr></table></figure>
+<p>如果日志中没有发现异常则可以进入浏览器输入 http://你的ip:8080/，出现otter的页面，即代表启动成功，请注意相应的端口是否开通。</p>
+<h6 id="第五步安装OtterNode"><a href="#第五步安装OtterNode" class="headerlink" title="第五步安装OtterNode"></a>第五步安装OtterNode</h6><ol>
+<li><p>otter node会受otter manager进行管理，所以需要预先安装otter manager，参见：Otter Manager Quickstart.</p>
+</li>
+<li><p>完成manager安装后，需要在manager页面为node定义配置信息，并生一个唯一id.</p>
+</li>
+</ol>
+<p>​    a. 首先访问manager页面的机器管理页面，点击添加机器按钮</p>
+<p>​    b. 机器添加完成后，跳转到机器列表页面，获取对应的机器序号nid</p>
+<p>   （通过这两部操作，获取到了node节点对应的唯一标示，称之为node id，简称：nid. 记录该nid，后续启动nid时会使用）</p>
+<ol start="3">
+<li>安装aria2c，可以提高同步时候的速度，也可以不装</li>
+<li>直接下载的方式下载OtterNode的版本包，可访问：<a href="https://github.com/alibaba/otter/releases" target="_blank" rel="noopener">https://github.com/alibaba/otter/releases</a> ，会列出所有历史的发布版本包下载。下载好之后传送到服务器上。</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /root/node</span><br><span class="line">tar zxvf node.deployer-4.2.17.tar.gz  -C /tmp/node</span><br></pre></td></tr></table></figure>
+<p>​        a. nid配置 (将环境准备中添加机器后获取到的最左端的序号，保存到conf目录下的nid文件，比如我添加的机器对应序号为1)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt; conf/nid</span><br></pre></td></tr></table></figure>
+<p>​        b. otter.properties配置修改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># otter node root dir</span><br><span class="line">otter.nodeHome = $&#123;user.dir&#125;/../node</span><br><span class="line">## otter node dir</span><br><span class="line">otter.htdocs.dir = $&#123;otter.nodeHome&#125;/htdocs</span><br><span class="line">otter.download.dir = $&#123;otter.nodeHome&#125;/download</span><br><span class="line">otter.extend.dir= $&#123;otter.nodeHome&#125;/extend</span><br><span class="line"></span><br><span class="line">otter.zookeeper.sessionTimeout = <span class="number">90000</span></span><br><span class="line"></span><br><span class="line">otter communication pool size</span><br><span class="line"></span><br><span class="line">otter.communication.pool.size = <span class="number">10</span></span><br><span class="line">#修改为正确的manager服务地址</span><br><span class="line">otter.manager.address = <span class="number">127.0</span>.0.1:<span class="number">1099</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>进入node/bin/目录中 通过sh startup.sh命令启动项目</li>
+<li>访问： http://你的ip:8080/node_list.htm，查看对应的节点状态，如果变为了已启动，代表已经正常启动。</li>
+</ol>
 </span>
       
     </div>
@@ -397,13 +441,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/24/集合和并发规范/" rel="prev">阿里巴巴Java开发手册读后总结---集合和并发规范</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/23/控制及其他规范/" rel="next">阿里巴巴Java开发手册读后总结---控制及其他规范</a>
+              <a href="/2019/03/15/Docker容器--容器的优势/" rel="next">Docker容器—容器的优势</a>
             
           </div>
         </div>
@@ -509,7 +551,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于异常处理的内容"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于异常处理的内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境"><span class="nav-number">1.</span> <span class="nav-text">本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#简述"><span class="nav-number">1.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第一步-搭建Java运行环境"><span class="nav-number">1.2.</span> <span class="nav-text">第一步 搭建Java运行环境</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第二步-搭建Zookeeper"><span class="nav-number">1.3.</span> <span class="nav-text">第二步 搭建Zookeeper</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第三步安装mysql"><span class="nav-number">1.4.</span> <span class="nav-text">第三步安装mysql</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第四步现在OtterManager并启动"><span class="nav-number">1.5.</span> <span class="nav-text">第四步现在OtterManager并启动</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第五步安装OtterNode"><span class="nav-number">1.6.</span> <span class="nav-text">第五步安装OtterNode</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
