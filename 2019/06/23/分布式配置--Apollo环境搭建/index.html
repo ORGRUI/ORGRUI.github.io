@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文通过汇编解决删除指定线性表内容的方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556STACKS   SEGMENT  STACK   DW     100H DUP(?)   TOP    LABEL WORD   STACKS END">
+<meta name="description" content="####本文内容总结分布式配置Apollo的环境的过程以及遇到的问题 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 官方提供了两种配置Apollo的方法，一个是Quick Start，另一种是分布式部署。 #####Quick Start QuickStart目的是让使用者快速的上手Apollo项目，能够在几分钟内在本地环境部署、启动Apol">
 <meta property="og:type" content="article">
-<meta property="og:title" content="汇编--将该线性表中内容为0FFFFH的项删除">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/04/27/汇编--将该线性表中内容为0FFFFH的项删除/index.html">
+<meta property="og:title" content="分布式配置--Apollo环境搭建">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/06/23/分布式配置--Apollo环境搭建/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文通过汇编解决删除指定线性表内容的方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556STACKS   SEGMENT  STACK   DW     100H DUP(?)   TOP    LABEL WORD   STACKS END">
+<meta property="og:description" content="####本文内容总结分布式配置Apollo的环境的过程以及遇到的问题 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 官方提供了两种配置Apollo的方法，一个是Quick Start，另一种是分布式部署。 #####Quick Start QuickStart目的是让使用者快速的上手Apollo项目，能够在几分钟内在本地环境部署、启动Apol">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-10T08:21:39.409Z">
+<meta property="og:updated_time" content="2019-07-05T13:45:07.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="汇编--将该线性表中内容为0FFFFH的项删除">
-<meta name="twitter:description" content="本文通过汇编解决删除指定线性表内容的方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556STACKS   SEGMENT  STACK   DW     100H DUP(?)   TOP    LABEL WORD   STACKS END">
+<meta name="twitter:title" content="分布式配置--Apollo环境搭建">
+<meta name="twitter:description" content="####本文内容总结分布式配置Apollo的环境的过程以及遇到的问题 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 官方提供了两种配置Apollo的方法，一个是Quick Start，另一种是分布式部署。 #####Quick Start QuickStart目的是让使用者快速的上手Apollo项目，能够在几分钟内在本地环境部署、启动Apol">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 汇编--将该线性表中内容为0FFFFH的项删除 | R io </title>
+  <title> 分布式配置--Apollo环境搭建 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              汇编--将该线性表中内容为0FFFFH的项删除
+              分布式配置--Apollo环境搭建
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-04-27T13:17:26+08:00" content="2018-04-27">
-            2018-04-27
+          <time itemprop="dateCreated" datetime="2019-06-23T22:39:11+08:00" content="2019-06-23">
+            2019-06-23
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/汇编语言/" itemprop="url" rel="index">
-                  <span itemprop="name">汇编语言</span>
+                <a href="/categories/分布式中间件/" itemprop="url" rel="index">
+                  <span itemprop="name">分布式中间件</span>
                 </a>
               </span>
 
@@ -374,7 +374,48 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="本文通过汇编解决删除指定线性表内容的方法"><a href="#本文通过汇编解决删除指定线性表内容的方法" class="headerlink" title="本文通过汇编解决删除指定线性表内容的方法"></a>本文通过汇编解决删除指定线性表内容的方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">STACKS   SEGMENT  STACK</span><br><span class="line">   DW     100H DUP(?)</span><br><span class="line">   TOP    LABEL WORD</span><br><span class="line">   STACKS ENDS            --定义栈</span><br><span class="line"></span><br><span class="line">   DATAS    SEGMENT</span><br><span class="line">   LINK DW 10,1,2,3,4,5,6,0FFFFh,8,9,0FFFFh</span><br><span class="line">   BUFF DW 11 DUP(?)</span><br><span class="line">   DATAS  ENDS            --定义变量</span><br><span class="line"></span><br><span class="line">   CODES    SEGMENT</span><br><span class="line">   ASSUME CS:CODE,SS:STACKS,DS:DATAS</span><br><span class="line">   MAIN PROC FAR</span><br><span class="line"></span><br><span class="line">   MOV AX,STACKS</span><br><span class="line">   MOV SS,AX</span><br><span class="line">   LEA SP,TOP</span><br><span class="line">   MOV AX,DATAS</span><br><span class="line">   MOV DS,AX</span><br><span class="line"></span><br><span class="line">   MOV BX,0         --BX用于记录BUFF的长度</span><br><span class="line">   LEA SI,LINK      --将LINK的首地址传到SI</span><br><span class="line">   MOV CX,[SI]      --将LINK字符串的长度传入CX</span><br><span class="line">   LEA DI,BUFF+2    --将BUFF串的第二个位置地址传给DI，第一位用来存长度，因为是DW，所以要加2</span><br><span class="line">   L1:</span><br><span class="line">   ADD SI,2         --指向LINK中的存的元素</span><br><span class="line">   MOV AX,[SI]      --将元素存入AX中</span><br><span class="line">   MOV [SI],0       --将该元素变为零，之后会存入新的元素作为替代</span><br><span class="line">       CMP AX,0FFFFH    --和0FFFFH比较，如果不相同则跳转至CUN</span><br><span class="line">       JNZ CUN</span><br><span class="line">       LOOP L1          --循环L1</span><br><span class="line">       JMP FUZHI</span><br><span class="line">   CUN:</span><br><span class="line">               MOV [DI],AX      --将LINK中不与0FFFFH相同的值存入BUFF</span><br><span class="line">       ADD DI,2         --地址加2</span><br><span class="line">       INC BX           --BX用于记录其长度</span><br><span class="line">       LOOP L1</span><br><span class="line">   FUZHI:                   --将BUFF中的元素存入LINK达到题目的目的</span><br><span class="line">   LEA SI,BUFF</span><br><span class="line">   MOV [SI],BX</span><br><span class="line">   LEA DI,LINK</span><br><span class="line">   MOV CX,BX</span><br><span class="line">   L2:     ADD SI,2</span><br><span class="line">   ADD DI,2</span><br><span class="line">   MOV AX,[SI]</span><br><span class="line">   MOV [DI],AX</span><br><span class="line">   LOOP L2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   EXIT:</span><br><span class="line">   MOV AH,4CH</span><br><span class="line">   INT 21H</span><br><span class="line"></span><br><span class="line">   MAIN   ENDP</span><br><span class="line">   CODES  ENDS</span><br><span class="line">   END   MAIN</span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><p>####本文内容总结分布式配置Apollo的环境的过程以及遇到的问题</p>
+<p>以下：</p>
+<p>官方文档请看<a href="https://github.com/ctripcorp/apollo/wiki" target="_blank" rel="noopener">https://github.com/ctripcorp/apollo/wiki</a></p>
+<p>官方提供了两种配置Apollo的方法，一个是Quick Start，另一种是分布式部署。</p>
+<p>#####Quick Start</p>
+<p>QuickStart目的是让使用者快速的上手Apollo项目，能够在几分钟内在本地环境部署、启动Apollo配置中心。操作十分简单，只需要在demo.sh里修改相关的数据库地址即可，单机部署，不能保证高可用，不适用于生产环境，这里不过多介绍。</p>
+<h5 id="分布式部署"><a href="#分布式部署" class="headerlink" title="分布式部署"></a>分布式部署</h5><h6 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h6><p>Centos7.5，JDK 1.8，Mysql5.7</p>
+<p>由于在Apollo里，不同的环境在物理上进行了隔离，及DEV环境和FAT环境不能使用同一个数据库，所以如果需要多个环境，则要多个Mysql数据库进行分别部署，这里只展示一个环境下的分布式部署过程。</p>
+<h6 id="导入Sql到数据库"><a href="#导入Sql到数据库" class="headerlink" title="导入Sql到数据库"></a>导入Sql到数据库</h6><p>在Mysql中创建两个数据库ApolloPortalDB和ApolloConfigDB（<a href="https://github.com/ctripcorp/apollo/blob/master/scripts/db/migration/portaldb/V1.0.0__initialization.sql" target="_blank" rel="noopener">apolloportaldb.sql</a>和<a href="https://github.com/ctripcorp/apollo/blob/master/scripts/db/migration/configdb/V1.0.0__initialization.sql" target="_blank" rel="noopener">apolloconfigdb.sql</a>），这里有个坑，如果你的数据库是不区分大小写的，在后面配置数据库连接时要注意把对应的连接改成小写，否则保持大小写。</p>
+<h6 id="获取安装包"><a href="#获取安装包" class="headerlink" title="获取安装包"></a>获取安装包</h6><p>直接下载安装包从<a href="https://github.com/ctripcorp/apollo/releases" target="_blank" rel="noopener">GitHub Release</a>页面下载预先打好的安装包，分别为apollo-configservice、apollo-adminservice、apollo-portal放到三台不同的服务器上。</p>
+<h6 id="配置apollo-configservice"><a href="#配置apollo-configservice" class="headerlink" title="配置apollo-configservice"></a>配置apollo-configservice</h6><ol>
+<li>打开<code>config</code>目录下的<code>application-github.properties</code>文件</li>
+<li>填写正确的ApolloConfigDB数据库连接串信息，注意用户名和密码后面不要有空格!</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> DataSource</span><br><span class="line">spring.datasource.url = jdbc:mysql://XXXX:3306/apolloconfigdb?useSSL=false&amp;characterEncoding=utf8</span><br><span class="line">spring.datasource.username = someuser</span><br><span class="line">spring.datasource.password = somepwd</span><br></pre></td></tr></table></figure>
+<p>Tips：此处需要注意刚刚说的数据库大小写敏感的问题，按照自己数据库格式来，一般为小写</p>
+<p>3.修改数据库apolloconfigdb中serverconfig表中eureka.service.url的值为你的apollo-configservice的虚拟机的ip地址，因为apollo-configservice既是一个configservice也是一个metaservice，修改后为<a href="http://xxxx:8080/eureka/" target="_blank" rel="noopener">http://xxxx:8080/eureka/</a>, 这一步必不可少。这篇文章不讲高可用，如果想让metaservice做成高可用模式请看后续文章。</p>
+<p>4.进入scripts下启动apollo-configservice，命令 ./startup.sh </p>
+<h6 id="配置apollo-adminservice"><a href="#配置apollo-adminservice" class="headerlink" title="配置apollo-adminservice"></a>配置apollo-adminservice</h6><ol>
+<li><p>打开<code>config</code>目录下的<code>application-github.properties</code>文件</p>
+</li>
+<li><p>填写正确的ApolloConfigDB数据库连接串信息，注意用户名和密码后面不要有空格!</p>
+<p>Tips  这里注意apollo-adminservice连接的是同一个数据库</p>
+</li>
+<li><p>进入scripts下启动apollo-adminservice，命令 ./startup.sh </p>
+</li>
+</ol>
+<p>######配置apollo-portal</p>
+<ol>
+<li><p>打开<code>config</code>目录下的<code>application-github.properties</code>文件</p>
+</li>
+<li><p>填写正确的ApolloPortalDB数据库连接串信息，注意用户名和密码后面不要有空格!</p>
+<p>Tips 注意这里连接的是ApolloPortalDB数据库</p>
+</li>
+<li><p>修改apollo-env.properties 里的内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local.meta=http://metaservice的ip:8080</span><br><span class="line">dev.meta=http://metaservice的ip:8080</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>​      Tips  metaservice的IP就是apollo-configservice的ip就是Eureka的ip</p>
+<p>这篇文章不讲高可用，如果想让metaservice做成高可用模式请看后续文章。</p>
+<p>4.进入scripts执行启动命令。</p>
+<h6 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h6><p>当三台机器在启动过程中都没有出现异常的话，可以登陆apollo-portal所在ip地址:8070，进行验证，初始账户apollo，密码admin。进入右上角点击管理员工具，查看系统信息，如果在上面可以看到运行的adminservice和configservice状态的话说明配置正常。</p>
 </span>
       
     </div>
@@ -386,13 +427,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/03/汇编--将空行的行数保存在参数AX寄存器中/" rel="prev">汇编--将空行的行数保存在参数AX寄存器中</a>
+              <a href="/2019/06/26/分布式配置--Apollo加Springboot/" rel="prev">分布式配置—Apollo加Springboot</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/23/汇编--一个整数二进制值中1和0的个数/" rel="next">汇编—一个整数二进制值中1和0的个数</a>
+              <a href="/2019/06/23/分布式配置--Apollo基本概念/" rel="next">分布式配置--Apollo基本概念</a>
             
           </div>
         </div>
@@ -498,7 +539,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文通过汇编解决删除指定线性表内容的方法"><span class="nav-number">1.</span> <span class="nav-text">本文通过汇编解决删除指定线性表内容的方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#分布式部署"><span class="nav-number">1.</span> <span class="nav-text">分布式部署</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#环境准备"><span class="nav-number">1.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#导入Sql到数据库"><span class="nav-number">1.2.</span> <span class="nav-text">导入Sql到数据库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#获取安装包"><span class="nav-number">1.3.</span> <span class="nav-text">获取安装包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置apollo-configservice"><span class="nav-number">1.4.</span> <span class="nav-text">配置apollo-configservice</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置apollo-adminservice"><span class="nav-number">1.5.</span> <span class="nav-text">配置apollo-adminservice</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#验证"><span class="nav-number">1.6.</span> <span class="nav-text">验证</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

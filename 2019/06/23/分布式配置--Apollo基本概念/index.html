@@ -40,17 +40,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文通过汇编解决删除指定线性表内容的方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556STACKS   SEGMENT  STACK   DW     100H DUP(?)   TOP    LABEL WORD   STACKS END">
+<meta name="description" content="####本文内容总结分布式配置Apollo的应用场景以及基本概念 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 简介Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。在程序开发中封装了很多操作，便于">
 <meta property="og:type" content="article">
-<meta property="og:title" content="汇编--将该线性表中内容为0FFFFH的项删除">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/04/27/汇编--将该线性表中内容为0FFFFH的项删除/index.html">
+<meta property="og:title" content="分布式配置--Apollo基本概念">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/06/23/分布式配置--Apollo基本概念/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文通过汇编解决删除指定线性表内容的方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556STACKS   SEGMENT  STACK   DW     100H DUP(?)   TOP    LABEL WORD   STACKS END">
+<meta property="og:description" content="####本文内容总结分布式配置Apollo的应用场景以及基本概念 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 简介Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。在程序开发中封装了很多操作，便于">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-10T08:21:39.409Z">
+<meta property="og:image" content="https://github.com/ORGRUI/ORGRUI.github.io/blob/master/images/Apollo1.png?raw=true">
+<meta property="og:updated_time" content="2019-07-05T13:44:26.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="汇编--将该线性表中内容为0FFFFH的项删除">
-<meta name="twitter:description" content="本文通过汇编解决删除指定线性表内容的方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556STACKS   SEGMENT  STACK   DW     100H DUP(?)   TOP    LABEL WORD   STACKS END">
+<meta name="twitter:title" content="分布式配置--Apollo基本概念">
+<meta name="twitter:description" content="####本文内容总结分布式配置Apollo的应用场景以及基本概念 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 简介Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。在程序开发中封装了很多操作，便于">
+<meta name="twitter:image" content="https://github.com/ORGRUI/ORGRUI.github.io/blob/master/images/Apollo1.png?raw=true">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +62,7 @@
   };
 </script>
 
-  <title> 汇编--将该线性表中内容为0FFFFH的项删除 | R io </title>
+  <title> 分布式配置--Apollo基本概念 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +333,7 @@
           
           
             
-              汇编--将该线性表中内容为0FFFFH的项删除
+              分布式配置--Apollo基本概念
             
           
         </h1>
@@ -340,8 +342,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-04-27T13:17:26+08:00" content="2018-04-27">
-            2018-04-27
+          <time itemprop="dateCreated" datetime="2019-06-23T22:00:04+08:00" content="2019-06-23">
+            2019-06-23
           </time>
         </span>
 
@@ -350,8 +352,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/汇编语言/" itemprop="url" rel="index">
-                  <span itemprop="name">汇编语言</span>
+                <a href="/categories/分布式中间件/" itemprop="url" rel="index">
+                  <span itemprop="name">分布式中间件</span>
                 </a>
               </span>
 
@@ -374,7 +376,126 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="本文通过汇编解决删除指定线性表内容的方法"><a href="#本文通过汇编解决删除指定线性表内容的方法" class="headerlink" title="本文通过汇编解决删除指定线性表内容的方法"></a>本文通过汇编解决删除指定线性表内容的方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">STACKS   SEGMENT  STACK</span><br><span class="line">   DW     100H DUP(?)</span><br><span class="line">   TOP    LABEL WORD</span><br><span class="line">   STACKS ENDS            --定义栈</span><br><span class="line"></span><br><span class="line">   DATAS    SEGMENT</span><br><span class="line">   LINK DW 10,1,2,3,4,5,6,0FFFFh,8,9,0FFFFh</span><br><span class="line">   BUFF DW 11 DUP(?)</span><br><span class="line">   DATAS  ENDS            --定义变量</span><br><span class="line"></span><br><span class="line">   CODES    SEGMENT</span><br><span class="line">   ASSUME CS:CODE,SS:STACKS,DS:DATAS</span><br><span class="line">   MAIN PROC FAR</span><br><span class="line"></span><br><span class="line">   MOV AX,STACKS</span><br><span class="line">   MOV SS,AX</span><br><span class="line">   LEA SP,TOP</span><br><span class="line">   MOV AX,DATAS</span><br><span class="line">   MOV DS,AX</span><br><span class="line"></span><br><span class="line">   MOV BX,0         --BX用于记录BUFF的长度</span><br><span class="line">   LEA SI,LINK      --将LINK的首地址传到SI</span><br><span class="line">   MOV CX,[SI]      --将LINK字符串的长度传入CX</span><br><span class="line">   LEA DI,BUFF+2    --将BUFF串的第二个位置地址传给DI，第一位用来存长度，因为是DW，所以要加2</span><br><span class="line">   L1:</span><br><span class="line">   ADD SI,2         --指向LINK中的存的元素</span><br><span class="line">   MOV AX,[SI]      --将元素存入AX中</span><br><span class="line">   MOV [SI],0       --将该元素变为零，之后会存入新的元素作为替代</span><br><span class="line">       CMP AX,0FFFFH    --和0FFFFH比较，如果不相同则跳转至CUN</span><br><span class="line">       JNZ CUN</span><br><span class="line">       LOOP L1          --循环L1</span><br><span class="line">       JMP FUZHI</span><br><span class="line">   CUN:</span><br><span class="line">               MOV [DI],AX      --将LINK中不与0FFFFH相同的值存入BUFF</span><br><span class="line">       ADD DI,2         --地址加2</span><br><span class="line">       INC BX           --BX用于记录其长度</span><br><span class="line">       LOOP L1</span><br><span class="line">   FUZHI:                   --将BUFF中的元素存入LINK达到题目的目的</span><br><span class="line">   LEA SI,BUFF</span><br><span class="line">   MOV [SI],BX</span><br><span class="line">   LEA DI,LINK</span><br><span class="line">   MOV CX,BX</span><br><span class="line">   L2:     ADD SI,2</span><br><span class="line">   ADD DI,2</span><br><span class="line">   MOV AX,[SI]</span><br><span class="line">   MOV [DI],AX</span><br><span class="line">   LOOP L2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   EXIT:</span><br><span class="line">   MOV AH,4CH</span><br><span class="line">   INT 21H</span><br><span class="line"></span><br><span class="line">   MAIN   ENDP</span><br><span class="line">   CODES  ENDS</span><br><span class="line">   END   MAIN</span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><p>####本文内容总结分布式配置Apollo的应用场景以及基本概念</p>
+<p>以下：</p>
+<p>官方文档请看<a href="https://github.com/ctripcorp/apollo/wiki" target="_blank" rel="noopener">https://github.com/ctripcorp/apollo/wiki</a></p>
+<h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。在程序开发中封装了很多操作，便于提高代码的开发效率。</p>
+<p>Apollo支持4个维度管理Key-Value格式的配置：</p>
+<ol>
+<li>application (应用)</li>
+<li>environment (环境)</li>
+<li>cluster (集群)</li>
+<li>namespace (命名空间)</li>
+</ol>
+<h6 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h6><p>可以理解为不同的项目，比如展示项目、管理平台项目、权限系统项目等</p>
+<h6 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h6><p>可以理解为DEV、FAT、BATE等，不同环境可以设置不同的配置</p>
+<h6 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h6><p>通过添加集群，可以使同一份程序在不同的集群（如不同的数据中心）使用不同的配置</p>
+<p>Tips  </p>
+<p>如果不同集群使用一样的配置，则没有必要创建集群<br>在这里创建的集群名字需要和机器上server.properties中的idc属性一致</p>
+<h6 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h6><p>可以理解为类似于一个Springboot里配置文件的概念，在创建一个Application的时候会默认创建一个application的namespace，对应的就是Springboot项目中的application.yml配置文件，一个Application中可以定义多个配置文件也是日常开发中经常遇到的事情。</p>
+<p>Namespace的获取权限分为两种：</p>
+<ul>
+<li>private （私有的）</li>
+<li>public （公共的）</li>
+</ul>
+<p>这里的获取权限是相对于Apollo客户端来说的。private权限的Namespace，只能被所属的应用获取到。一个应用尝试获取其它应用private的Namespace，Apollo会报“404”异常。public权限的Namespace，能被任何应用获取。</p>
+<h5 id="各模块概要介绍"><a href="#各模块概要介绍" class="headerlink" title="各模块概要介绍"></a>各模块概要介绍</h5><p><img src="https://github.com/ORGRUI/ORGRUI.github.io/blob/master/images/Apollo1.png?raw=true" alt="Apollo1"></p>
+<h6 id="Config-Service"><a href="#Config-Service" class="headerlink" title="Config Service"></a>Config Service</h6><ul>
+<li>提供配置获取接口</li>
+<li>提供配置更新推送接口（基于Http long polling）<ul>
+<li>服务端使用Spring DeferredResult实现异步化，从而大大增加长连接数量</li>
+<li>目前使用的tomcat embed默认配置是最多10000个连接（可以调整），使用了4C8G的虚拟机实测可以支撑10000个连接，所以满足需求（一个应用实例只会发起一个长连接）。</li>
+</ul>
+</li>
+<li>接口服务对象为Apollo客户端</li>
+</ul>
+<h6 id="Admin-Service"><a href="#Admin-Service" class="headerlink" title="Admin Service"></a>Admin Service</h6><ul>
+<li>提供配置管理接口</li>
+<li>提供配置修改、发布等接口</li>
+<li>接口服务对象为Portal</li>
+</ul>
+<h6 id="Meta-Server"><a href="#Meta-Server" class="headerlink" title="Meta Server"></a>Meta Server</h6><ul>
+<li>Portal通过域名访问Meta Server获取Admin Service服务列表（IP+Port）</li>
+<li>Client通过域名访问Meta Server获取Config Service服务列表（IP+Port）</li>
+<li>Meta Server从Eureka获取Config Service和Admin Service的服务信息，相当于是一个Eureka Client</li>
+<li>增设一个Meta Server的角色主要是为了封装服务发现的细节，对Portal和Client而言，永远通过一个Http接口获取Admin Service和Config Service的服务信息，而不需要关心背后实际的服务注册和发现组件</li>
+<li>Meta Server只是一个逻辑角色，在部署时和Config Service是在一个JVM进程中的，所以IP、端口和Config Service一致</li>
+</ul>
+<h6 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h6><ul>
+<li>基于Eureka和Spring Cloud Netflix提供服务注册和发现</li>
+<li>Config Service和Admin Service会向Eureka注册服务，并保持心跳</li>
+<li>为了简单起见，目前Eureka在部署时和Config Service是在一个JVM进程中的（通过Spring Cloud Netflix）</li>
+</ul>
+<h6 id="Portal"><a href="#Portal" class="headerlink" title="Portal"></a>Portal</h6><ul>
+<li>提供Web界面供用户管理配置</li>
+<li>通过Meta Server获取Admin Service服务列表（IP+Port），通过IP+Port访问服务</li>
+<li>在Portal侧做load balance、错误重试</li>
+</ul>
+<h6 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h6><ul>
+<li>Apollo提供的客户端程序，为应用提供配置获取、实时更新等功能</li>
+<li>通过Meta Server获取Config Service服务列表（IP+Port），通过IP+Port访问服务</li>
+<li>在Client侧做load balance、错误重试</li>
+</ul>
+<h5 id="可用性评估"><a href="#可用性评估" class="headerlink" title="可用性评估"></a>可用性评估</h5><table>
+<thead>
+<tr>
+<th style="text-align:left">场景</th>
+<th>影响</th>
+<th>原因</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">某台Config Service下线</td>
+<td>无影响</td>
+<td>Config Service无状态，客户端重连其它Config Service</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">所有Config Service下线</td>
+<td>客户端无法读取最新配置，Portal无影响</td>
+<td>客户端重启时，可以读取本地缓存配置文件。如果是新扩容的机器，可以从其它机器上获取已缓存的配置文件</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">某台Admin Service下线</td>
+<td>无影响</td>
+<td>Admin Service无状态，Portal重连其它Admin Service</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">所有Admin Service下线</td>
+<td>客户端无影响，Portal无法更新配置</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">某台Portal下线</td>
+<td>无影响</td>
+<td>Portal域名通过SLB绑定多台服务器，重试后指向可用的服务器</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">全部Portal下线</td>
+<td>客户端无影响，Portal无法更新配置</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">某个数据中心下线</td>
+<td>无影响</td>
+<td>多数据中心部署，数据完全同步，Meta Server/Portal域名通过SLB自动切换到其它存活的数据中心</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">数据库宕机</td>
+<td>客户端无影响，Portal无法更新配置</td>
+<td>Config Service开启配置缓存后，对配置的读取不受数据库宕机影响</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </span>
       
     </div>
@@ -386,13 +507,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/03/汇编--将空行的行数保存在参数AX寄存器中/" rel="prev">汇编--将空行的行数保存在参数AX寄存器中</a>
+              <a href="/2019/06/23/分布式配置--Apollo环境搭建/" rel="prev">分布式配置--Apollo环境搭建</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/23/汇编--一个整数二进制值中1和0的个数/" rel="next">汇编—一个整数二进制值中1和0的个数</a>
+              <a href="/2019/03/21/数据同步解决方案Otter部署/" rel="next">数据同步解决方案—Otter部署</a>
             
           </div>
         </div>
@@ -498,7 +619,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文通过汇编解决删除指定线性表内容的方法"><span class="nav-number">1.</span> <span class="nav-text">本文通过汇编解决删除指定线性表内容的方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Application"><span class="nav-number">1.1.</span> <span class="nav-text">Application</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Environment"><span class="nav-number">1.2.</span> <span class="nav-text">Environment</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Cluster"><span class="nav-number">1.3.</span> <span class="nav-text">Cluster</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Namespace"><span class="nav-number">1.4.</span> <span class="nav-text">Namespace</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#各模块概要介绍"><span class="nav-number">2.</span> <span class="nav-text">各模块概要介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Config-Service"><span class="nav-number">2.1.</span> <span class="nav-text">Config Service</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Admin-Service"><span class="nav-number">2.2.</span> <span class="nav-text">Admin Service</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Meta-Server"><span class="nav-number">2.3.</span> <span class="nav-text">Meta Server</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Eureka"><span class="nav-number">2.4.</span> <span class="nav-text">Eureka</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Portal"><span class="nav-number">2.5.</span> <span class="nav-text">Portal</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Client"><span class="nav-number">2.6.</span> <span class="nav-text">Client</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可用性评估"><span class="nav-number">3.</span> <span class="nav-text">可用性评估</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
