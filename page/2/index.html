@@ -332,8 +332,8 @@
           
           
             
-              <a class="post-title-link" href="/2018/07/20/Bug记录[Redis]1/" itemprop="url">
-                Bug记录-【Redis】 Read timed out
+              <a class="post-title-link" href="/2018/07/20/Redis源码-close()方法/" itemprop="url">
+                Redis源码阅读--Jedis中close方法详解
               </a>
             
           
@@ -343,7 +343,7 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-07-20T11:02:14+08:00" content="2018-07-20">
+          <time itemprop="dateCreated" datetime="2018-07-20T14:07:40+08:00" content="2018-07-20">
             2018-07-20
           </time>
         </span>
@@ -353,8 +353,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Bug记录/" itemprop="url" rel="index">
-                  <span itemprop="name">Bug记录</span>
+                <a href="/categories/Redis源码阅读/" itemprop="url" rel="index">
+                  <span itemprop="name">Redis源码阅读</span>
                 </a>
               </span>
 
@@ -380,13 +380,12 @@
         
           <span itemprop="articleBody">
             
-            本文记录一个Redis异常jedis.exceptions.JedisConnectionException:               java.net.SocketTimeoutException: Read timed out
-在做后台开发的时候遇到这个错误
-于是上网寻求帮助，看到很多人说是
+            本文内容主要是准对Jedis中的close()方法进行解释，以及在开发中所遇到的坑close()方法的作用自Jedis3.0版本之后jedisPool.returnResource()被选择性弃用，而官方则重写close()方法来进行对上述方法进行替代。
+1234567891011121314@Ov
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2018/07/20/Bug记录[Redis]1/#more" rel="contents">
+            <a class="btn" href="/2018/07/20/Redis源码-close()方法/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -476,6 +475,93 @@ Date d = new Date(
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/07/20/Bug记录[Java]1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2018/07/20/Bug记录[Redis]1/" itemprop="url">
+                Bug记录-【Redis】 Read timed out
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-07-20T11:02:14+08:00" content="2018-07-20">
+            2018-07-20
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Bug记录/" itemprop="url" rel="index">
+                  <span itemprop="name">Bug记录</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文记录一个Redis异常jedis.exceptions.JedisConnectionException:               java.net.SocketTimeoutException: Read timed out
+在做后台开发的时候遇到这个错误
+于是上网寻求帮助，看到很多人说是
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/07/20/Bug记录[Redis]1/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -850,94 +936,6 @@ Date d = new Date(
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2018/05/25/日志规范/" itemprop="url">
-                阿里巴巴Java开发手册读后总结---日志规范
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2018-05-25T18:59:54+08:00" content="2018-05-25">
-            2018-05-25
-          </time>
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            本文内容总结自阿里Java开发关于日志规范的内容以下：
-1、应用中不可直接使用日志系统Log4j中的API，而应以来使用日志框架SLF4j的API，有利于维护和个个类的日志处理方式统一;
-2、日志文件推荐存放时间为15天，因为有些异常可能已一周的频次出现。
-3、避免重复答应日志文件，浪费磁盘空间，务
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/05/25/日志规范/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -974,14 +972,14 @@ Date d = new Date(
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>

@@ -40,17 +40,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文讲述如何编写一子程序编写一子程序输出反转字符123456789101112131415161718192021222324252627282930313233343536373839404142434445 STACKS   SEGMENT  STACK         DW     100H DUP(?)          TOP    LABEL WORD         STACKS E">
+<meta name="description" content="####本文内容总结分布式配置Apollo如何提高可用性 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 前面已经提到Apollo如何将配置从代码中抽离，也结合Springboot项目进行了演示，但是这些还不够。前面提到的所有内容都是准对开发测试阶段进行的演示，众所周知一旦我们的应用正式上线则必须保证我们的服务是高可用的。在以前配置和代码还是耦">
 <meta property="og:type" content="article">
-<meta property="og:title" content="汇编--输出反转字符">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/07/汇编--输出反转字符/index.html">
+<meta property="og:title" content="分布式配置—Apollo高可用">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/07/03/分布式配置--Apollo高可用/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文讲述如何编写一子程序编写一子程序输出反转字符123456789101112131415161718192021222324252627282930313233343536373839404142434445 STACKS   SEGMENT  STACK         DW     100H DUP(?)          TOP    LABEL WORD         STACKS E">
+<meta property="og:description" content="####本文内容总结分布式配置Apollo如何提高可用性 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 前面已经提到Apollo如何将配置从代码中抽离，也结合Springboot项目进行了演示，但是这些还不够。前面提到的所有内容都是准对开发测试阶段进行的演示，众所周知一旦我们的应用正式上线则必须保证我们的服务是高可用的。在以前配置和代码还是耦">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-10T08:31:05.398Z">
+<meta property="og:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/Apollo2.png?raw=true">
+<meta property="og:updated_time" content="2019-07-06T07:29:51.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="汇编--输出反转字符">
-<meta name="twitter:description" content="本文讲述如何编写一子程序编写一子程序输出反转字符123456789101112131415161718192021222324252627282930313233343536373839404142434445 STACKS   SEGMENT  STACK         DW     100H DUP(?)          TOP    LABEL WORD         STACKS E">
+<meta name="twitter:title" content="分布式配置—Apollo高可用">
+<meta name="twitter:description" content="####本文内容总结分布式配置Apollo如何提高可用性 以下： 官方文档请看https://github.com/ctripcorp/apollo/wiki 前面已经提到Apollo如何将配置从代码中抽离，也结合Springboot项目进行了演示，但是这些还不够。前面提到的所有内容都是准对开发测试阶段进行的演示，众所周知一旦我们的应用正式上线则必须保证我们的服务是高可用的。在以前配置和代码还是耦">
+<meta name="twitter:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/Apollo2.png?raw=true">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +62,7 @@
   };
 </script>
 
-  <title> 汇编--输出反转字符 | R io </title>
+  <title> 分布式配置—Apollo高可用 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +333,7 @@
           
           
             
-              汇编--输出反转字符
+              分布式配置—Apollo高可用
             
           
         </h1>
@@ -340,8 +342,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-07T16:17:56+08:00" content="2018-05-07">
-            2018-05-07
+          <time itemprop="dateCreated" datetime="2019-07-03T21:11:21+08:00" content="2019-07-03">
+            2019-07-03
           </time>
         </span>
 
@@ -350,8 +352,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/汇编语言/" itemprop="url" rel="index">
-                  <span itemprop="name">汇编语言</span>
+                <a href="/categories/分布式配置/" itemprop="url" rel="index">
+                  <span itemprop="name">分布式配置</span>
                 </a>
               </span>
 
@@ -374,7 +376,82 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="本文讲述如何编写一子程序编写一子程序输出反转字符"><a href="#本文讲述如何编写一子程序编写一子程序输出反转字符" class="headerlink" title="本文讲述如何编写一子程序编写一子程序输出反转字符"></a>本文讲述如何编写一子程序编写一子程序输出反转字符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"> STACKS   SEGMENT  STACK</span><br><span class="line">         DW     100H DUP(?) </span><br><span class="line">         TOP    LABEL WORD</span><br><span class="line">         STACKS ENDS            --定义栈</span><br><span class="line"> </span><br><span class="line">DATAS    SEGMENT</span><br><span class="line">         TABLE  DB 100H DUP(?)</span><br><span class="line">	 DATAS  ENDS            --定义变量</span><br><span class="line"> </span><br><span class="line">CODES    SEGMENT</span><br><span class="line">         ASSUME CS:CODE,SS:STACKS,DS:DATAS</span><br><span class="line">         MAIN PROC FAR </span><br><span class="line">	</span><br><span class="line">         MOV AX,STACKS</span><br><span class="line">         MOV SS,AX</span><br><span class="line">         LEA SP,TOP</span><br><span class="line">         MOV AX,DATAS</span><br><span class="line">         MOV DS,AX</span><br><span class="line"> </span><br><span class="line">	 MOV CX,000DH  --为输出设置一个结束标志，当遇到回车时结束输出</span><br><span class="line">         PUSH CX	 </span><br><span class="line">         MOV CX,40</span><br><span class="line">L1:      MOV AH,1</span><br><span class="line">         INT 21H</span><br><span class="line">	 CMP AL,0DH     --判断输入的值是否是回车符，如果是，则表示输入结束，跳转至L2</span><br><span class="line">	 JZ  L2</span><br><span class="line">	 MOV AH,0</span><br><span class="line">	 PUSH AX</span><br><span class="line">	 LOOP L1        --循环输入</span><br><span class="line"> </span><br><span class="line">	 MOV CX,40</span><br><span class="line">L2:      POP DX</span><br><span class="line">         CMP DL,0DH     --判断是否遇到回车时结束输出</span><br><span class="line">	 JZ  EXIT</span><br><span class="line">         MOV AH,2</span><br><span class="line">	 INT 21H</span><br><span class="line">	 LOOP L2</span><br><span class="line"> </span><br><span class="line">EXIT: </span><br><span class="line">	 MOV AH,4CH</span><br><span class="line">	    INT 21H</span><br><span class="line">	 MAIN   ENDP</span><br><span class="line">	</span><br><span class="line">   CODES  ENDS</span><br><span class="line">   END   MAIN</span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><p>####本文内容总结分布式配置Apollo如何提高可用性</p>
+<p>以下：</p>
+<p>官方文档请看<a href="https://github.com/ctripcorp/apollo/wiki" target="_blank" rel="noopener">https://github.com/ctripcorp/apollo/wiki</a></p>
+<p>前面已经提到Apollo如何将配置从代码中抽离，也结合Springboot项目进行了演示，但是这些还不够。前面提到的所有内容都是准对开发测试阶段进行的演示，众所周知一旦我们的应用正式上线则必须保证我们的服务是高可用的。在以前配置和代码还是耦合在一起的时候我们只需要保证运行代码的服务器、数据库是高可用的即可，但是现在又多了一项，那就是要保证我们的Apollo配置中心必须实现高可用。</p>
+<p>首先Apollo已经实现了高可用，它本身就是支持分布式的，注册中心采用的是Eureka，项目使用了Spring Cloud和Spring Boot做开发，外部依赖少，同时代码开源，当遇到bug时可以快速的定位。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">场景</th>
+<th>影响</th>
+<th>原因</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">某台Config Service下线</td>
+<td>无影响</td>
+<td>Config Service无状态，客户端重连其它Config Service</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">所有Config Service下线</td>
+<td>客户端无法读取最新配置，Portal无影响</td>
+<td>客户端重启时，可以读取本地缓存配置文件。如果是新扩容的机器，可以从其它机器上获取已缓存的配置文件</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">某台Admin Service下线</td>
+<td>无影响</td>
+<td>Admin Service无状态，Portal重连其它Admin Service</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">所有Admin Service下线</td>
+<td>客户端无影响，Portal无法更新配置</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">某台Portal下线</td>
+<td>无影响</td>
+<td>Portal域名通过SLB绑定多台服务器，重试后指向可用的服务器</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">全部Portal下线</td>
+<td>客户端无影响，Portal无法更新配置</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">某个数据中心下线</td>
+<td>无影响</td>
+<td>多数据中心部署，数据完全同步，Meta Server/Portal域名通过SLB自动切换到其它存活的数据中心</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">数据库宕机</td>
+<td>客户端无影响，Portal无法更新配置</td>
+<td>Config Service开启配置缓存后，对配置的读取不受数据库宕机影响</td>
+</tr>
+</tbody>
+</table>
+<h5 id="数据库高可用"><a href="#数据库高可用" class="headerlink" title="数据库高可用"></a>数据库高可用</h5><p>这里有很多种方案，比如主从结构、异地备份、双主结构等等，我这里是选择直接购买Azure的Mysql数据库服务，让云服务厂商去保证数据库的高可用性，这样不仅比自己实现起来更可靠、更轻松，而且还方便管理等。</p>
+<h5 id="AdminService高可用"><a href="#AdminService高可用" class="headerlink" title="AdminService高可用"></a>AdminService高可用</h5><p>在Apollo中所有的Admin Service都会注册到Eureka里，所以我们只需要配置多几台AdminService，数据库采用同一套即可。</p>
+<h5 id="ConfigService和Eureka高可用"><a href="#ConfigService和Eureka高可用" class="headerlink" title="ConfigService和Eureka高可用"></a>ConfigService和Eureka高可用</h5><p>在Apollo的设计中每个ConfigService还是一个Euerka的注册中心，所以保证ConfigService高可用的前提是保证Eureka的高可用，Eureka的高可用实际上就是将自己作为服务向其他服务注册中心注册自己,这样就可以形成一组互相注册的服务注册中心,以实现服务清单的互相同步,达到高可用的效果。我这里是设置了一个负载均衡和三台机器，三台机器上运行ConfigService（同时又是Eureka），然后三台ConfigService分别向负载均衡的地址注册Eureka的服务，然后通过负载均衡向内部转发到可用的机器上面（通过Azure的运行状态探测功能实现判断后端机器是否可用）达到相互注册的目的。</p>
+<p><img src="https://github.com/ORGRUI/inzt.github.io/blob/master/images/Apollo2.png?raw=true" alt="1"></p>
+<p>已上是架构示意图，当其中一台ConfigService停止服务时，还有两台ConfigService可以对外提供服务。</p>
+<p>需要修改的地方是</p>
+<p>（1）数据库中Eureka的地址修改为负载均衡的地址</p>
+<p>（2）Apollo-Portal中的配置文件apollo-env.properties里修改为负载均衡的地址</p>
+<p>（3）Springboot程序中使用apollo.meta修改为负载均衡的地址</p>
+<p>#####ApolloPortal高可用 </p>
+<p>和普通的服务高可用原理一样，建议多几台机器，同时对外有一个负载均衡，机器放到负载均衡后面即可，一般只需两台即可。</p>
+<p>做完以上这些步骤便可以保证配置中心Apollo服务为高可用的，以上无论哪一台机器挂机都可以继续愉快的使用Apollo的功能，除非遇到所有机器挂机的情况，但是即使是这样，在我们的应用服务器中还有配置的本地缓存文件，所以，即使是Apollo全部的服务器都挂机，我们的程序也依然可以对外提供正常的服务，只是无法再更新配置了而已。个人感觉Apollo在高可用架构上考虑的十分周全，值得点赞！</p>
 </span>
       
     </div>
@@ -386,13 +463,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/13/汇编--完成十六进制数输出的功能/" rel="prev">汇编--十六进制数输出</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/05/汇编--字符串比较/" rel="next">汇编—比较两个字符串是否相等</a>
+              <a href="/2019/06/26/分布式配置--Apollo加Springboot/" rel="next">分布式配置—Apollo加Springboot</a>
             
           </div>
         </div>
@@ -498,7 +573,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文讲述如何编写一子程序编写一子程序输出反转字符"><span class="nav-number">1.</span> <span class="nav-text">本文讲述如何编写一子程序编写一子程序输出反转字符</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库高可用"><span class="nav-number">1.</span> <span class="nav-text">数据库高可用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AdminService高可用"><span class="nav-number">2.</span> <span class="nav-text">AdminService高可用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ConfigService和Eureka高可用"><span class="nav-number">3.</span> <span class="nav-text">ConfigService和Eureka高可用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
