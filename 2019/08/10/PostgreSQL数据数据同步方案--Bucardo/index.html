@@ -40,17 +40,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中1234567891011121314151617181920212223242526272829303132333435363738394041424344454647STACKS   SEGMENT  STACK         DW     100H DUP(?)          TOP    LABEL WORD">
+<meta name="description" content="本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程以下： 业务需求由于业务需求要求中国美国异地机房实时（3s内）同步，以满足中国和美国客户的实时协作功能。 整理方案先说单向同步方案，一个主写数据中心（香港），两个读数据中心（大陆、美国） 所有应用程序连接到数据中间件（Mycat等），通过中间件进行读写分离，用户写入操作都将写入香港数据库，而读操作则读取就近数据库，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="汇编--将空行的行数保存在参数AX寄存器中">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/03/汇编--将空行的行数保存在参数AX寄存器中/index.html">
+<meta property="og:title" content="PostgreSQL数据数据同步方案--Bucardo">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/08/10/PostgreSQL数据数据同步方案--Bucardo/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中1234567891011121314151617181920212223242526272829303132333435363738394041424344454647STACKS   SEGMENT  STACK         DW     100H DUP(?)          TOP    LABEL WORD">
+<meta property="og:description" content="本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程以下： 业务需求由于业务需求要求中国美国异地机房实时（3s内）同步，以满足中国和美国客户的实时协作功能。 整理方案先说单向同步方案，一个主写数据中心（香港），两个读数据中心（大陆、美国） 所有应用程序连接到数据中间件（Mycat等），通过中间件进行读写分离，用户写入操作都将写入香港数据库，而读操作则读取就近数据库，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-10T08:30:56.511Z">
+<meta property="og:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/Bucardo1.png?raw=true">
+<meta property="og:updated_time" content="2019-08-10T06:45:01.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="汇编--将空行的行数保存在参数AX寄存器中">
-<meta name="twitter:description" content="本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中1234567891011121314151617181920212223242526272829303132333435363738394041424344454647STACKS   SEGMENT  STACK         DW     100H DUP(?)          TOP    LABEL WORD">
+<meta name="twitter:title" content="PostgreSQL数据数据同步方案--Bucardo">
+<meta name="twitter:description" content="本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程以下： 业务需求由于业务需求要求中国美国异地机房实时（3s内）同步，以满足中国和美国客户的实时协作功能。 整理方案先说单向同步方案，一个主写数据中心（香港），两个读数据中心（大陆、美国） 所有应用程序连接到数据中间件（Mycat等），通过中间件进行读写分离，用户写入操作都将写入香港数据库，而读操作则读取就近数据库，">
+<meta name="twitter:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/Bucardo1.png?raw=true">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +62,7 @@
   };
 </script>
 
-  <title> 汇编--将空行的行数保存在参数AX寄存器中 | R io </title>
+  <title> PostgreSQL数据数据同步方案--Bucardo | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +333,7 @@
           
           
             
-              汇编--将空行的行数保存在参数AX寄存器中
+              PostgreSQL数据数据同步方案--Bucardo
             
           
         </h1>
@@ -340,8 +342,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-03T19:11:16+08:00" content="2018-05-03">
-            2018-05-03
+          <time itemprop="dateCreated" datetime="2019-08-10T12:10:22+08:00" content="2019-08-10">
+            2019-08-10
           </time>
         </span>
 
@@ -350,8 +352,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/汇编语言/" itemprop="url" rel="index">
-                  <span itemprop="name">汇编语言</span>
+                <a href="/categories/数据库/" itemprop="url" rel="index">
+                  <span itemprop="name">数据库</span>
                 </a>
               </span>
 
@@ -374,8 +376,39 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中"><a href="#本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中" class="headerlink" title="本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中"></a>本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">STACKS   SEGMENT  STACK</span><br><span class="line">         DW     100H DUP(?) </span><br><span class="line">         TOP    LABEL WORD</span><br><span class="line">         STACKS ENDS            --定义栈</span><br><span class="line"> </span><br><span class="line">DATAS    SEGMENT</span><br><span class="line">         TABLE  DB 100H DUP(?)</span><br><span class="line">	 DATAS  ENDS            --定义变量</span><br><span class="line"> </span><br><span class="line">CODES    SEGMENT</span><br><span class="line">         ASSUME CS:CODE,SS:STACKS,DS:DATAS</span><br><span class="line">      MAIN PROC FAR </span><br><span class="line">	</span><br><span class="line">         MOV AX,STACKS</span><br><span class="line">         MOV SS,AX</span><br><span class="line">         LEA SP,TOP</span><br><span class="line">         MOV AX,DATAS</span><br><span class="line">         MOV DS,AX</span><br><span class="line"> </span><br><span class="line">	 MOV AX,0      </span><br><span class="line">         MOV AH,1</span><br><span class="line">	 INT 21H         --输入想要换行的行数</span><br><span class="line">	 MOV AH,0</span><br><span class="line">	 MOV CX,AX       --设置循环的次数为输入的数字</span><br><span class="line"> </span><br><span class="line">L1:</span><br><span class="line">	 CALL SKIPLINES  --调用子程序</span><br><span class="line">	 LOOP L1</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">EXIT: </span><br><span class="line">	 MOV AH,4CH</span><br><span class="line">	 INT 21H</span><br><span class="line">      MAIN   ENDP</span><br><span class="line">		</span><br><span class="line">      SKIPLINES PROC FAR</span><br><span class="line">	  MOV DL,0DH     --输出换行，注意在Windows里面只有当0D和0A一起时才能在屏幕上显示换行</span><br><span class="line">	  MOV AH,2</span><br><span class="line">	  INT 21H  </span><br><span class="line">	  MOV DL,0AH</span><br><span class="line">	  MOV AH,2</span><br><span class="line">	  INT 21H        --依次输出回车和换行</span><br><span class="line">	  RET</span><br><span class="line">      SKIPLINES      ENDP </span><br><span class="line"> </span><br><span class="line">    CODES  ENDS</span><br><span class="line">    END   MAIN</span><br></pre></td></tr></table></figure>
-</span>
+        <span itemprop="articleBody"><h5 id="本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程"><a href="#本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程" class="headerlink" title="本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程"></a>本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程</h5><p>以下：</p>
+<h6 id="业务需求"><a href="#业务需求" class="headerlink" title="业务需求"></a>业务需求</h6><p>由于业务需求要求中国美国异地机房实时（3s内）同步，以满足中国和美国客户的实时协作功能。</p>
+<h6 id="整理方案"><a href="#整理方案" class="headerlink" title="整理方案"></a>整理方案</h6><p>先说单向同步方案，一个主写数据中心（香港），两个读数据中心（大陆、美国）</p>
+<p>所有应用程序连接到数据中间件（Mycat等），通过中间件进行读写分离，用户写入操作都将写入香港数据库，而读操作则读取就近数据库，同时当香港数据库有写入数据的时候会马上同步到中国或者美国数据中。应用程序、写数据库、读数据库都通过云服务商的内网打通（云企业网、高速通道）以保证数据传输过程中的速度。主写数据库之所以放在香港是为了满足大陆及美国用户访问速度均衡，也为后面澳洲数据中心做铺垫。</p>
+<p>单向同步的工具有很多对于PostgreSQL来说最方便的就是逻辑订阅机制，而上次介绍的otter也可以满足。</p>
+<p><img src="https://github.com/ORGRUI/inzt.github.io/blob/master/images/Bucardo1.png?raw=true" alt="1"></p>
+<p>再说一下双向同步的方案，及多主写的数据中心。双向同步中有许多坑需要注意例如主键冲突、修改冲突、无限回环等，在这里有两个实现PostgreSQL双向同步的方案，（1）PostgreSQL的逻辑订阅，和单向同步类似的配置，但是双向同步的时候必须检测冲突以及避免回环等，这样就需要写数据库程序，同时还要修改表结构，以满足程序。（2）Bucardo实现多数据中心。配置了这个工具就可以避免我们自己写数据库程序，我们只需要配置需要进行同步的数据库地址以及冲突处理时的规则即可。</p>
+<h6 id="Bucardo详解"><a href="#Bucardo详解" class="headerlink" title="Bucardo详解"></a>Bucardo详解</h6><p>官网：<a href="https://bucardo.org/" target="_blank" rel="noopener">https://bucardo.org</a></p>
+<p>安装步骤（我这里步骤和官网上有所不一样）</p>
+<p>  (1)安装plperl</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install postgresql-plperl</span><br></pre></td></tr></table></figure>
+<p>（2）初始化数据库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser bucardo</span><br><span class="line">sudo passwd bucardo</span><br><span class="line">su - bucardo</span><br><span class="line">initdb btest</span><br></pre></td></tr></table></figure>
+<p>   (3)在root下修改文件夹权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 /var/run/postgresql</span><br></pre></td></tr></table></figure>
+<p>   (4)启动PostgreSQL</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su - bucardo</span><br><span class="line">pg_ctl -D btest -l logfile start</span><br></pre></td></tr></table></figure>
+<p>   (5)安装一些依赖包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install  perl-ExtUtils-MakeMaker  perl-DBD-Pg perl-Encode-Locale  perl-Sys-Syslog perl-boolean perl-Time-HiRes  perl-Test-Simple  perl-Pod-Parser</span><br></pre></td></tr></table></figure>
+<p>   (6)安装DBIx::Safe模块</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install cpan</span><br><span class="line">echo y | cpan DBIx::Safe</span><br></pre></td></tr></table></figure>
+<p>   (7)下载Bucardo压缩包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://bucardo.org/downloads/Bucardo-5.5.0.tar.gz</span><br><span class="line">tar zxvf Bucardo-5.5.0.tar.gz</span><br></pre></td></tr></table></figure>
+<p>   (8)安装Bucardo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">perl Makefile.PL </span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">mkdir pid</span><br><span class="line">echo -e "piddir=pid\nlogdest=." &gt; .bucardorc</span><br><span class="line">bucardo install --batch --quiet</span><br></pre></td></tr></table></figure>
+<p>命令行输入bucardo命令，如果有提示则证明安装成功</p>
+<p>   (9)配置数据库</p>
+<p>这一步的目的是配置需要进行同步的数据库，下面参数不多解释，pg1、pg2是表示该数据的别名。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bucardo add database pg1 dbname=test port=5432 host=127.0.0.1 user=postgres pass=*****</span><br><span class="line">bucardo add database pg2 dbname=test port=5432 host=127.0.0.1 user=postgres pass=*****</span><br></pre></td></tr></table></figure>
+<p>（10）开通同步</p>
+<p>下面参数不多解释sync表示同步，test表示别名,source表示作为源库，两个都配置source表示都可以作为源库，tables=all</p>
+<p>表示所有表，注意这里start或者stop需要在Bucardo目录下进行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bucardo add sync test dbs=pg1:source,pg2:source tables=all</span><br><span class="line">bucardo start</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -386,13 +419,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/05/汇编--字符串比较/" rel="prev">汇编—比较两个字符串是否相等</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/27/汇编--将该线性表中内容为0FFFFH的项删除/" rel="next">汇编--将该线性表中内容为0FFFFH的项删除</a>
+              <a href="/2019/07/03/分布式配置--Apollo高可用/" rel="next">分布式配置—Apollo高可用</a>
             
           </div>
         </div>
@@ -498,7 +529,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中"><span class="nav-number">1.</span> <span class="nav-text">本文讲述如何编写一子程序将空行的行数保存在参数AX寄存器中</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#业务需求"><span class="nav-number">1.1.</span> <span class="nav-text">业务需求</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#整理方案"><span class="nav-number">1.2.</span> <span class="nav-text">整理方案</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Bucardo详解"><span class="nav-number">1.3.</span> <span class="nav-text">Bucardo详解</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

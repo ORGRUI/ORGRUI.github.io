@@ -332,6 +332,94 @@
           
           
             
+              <a class="post-title-link" href="/2019/08/10/PostgreSQL数据数据同步方案--Bucardo/" itemprop="url">
+                PostgreSQL数据数据同步方案--Bucardo
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2019-08-10T12:10:22+08:00" content="2019-08-10">
+            2019-08-10
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/数据库/" itemprop="url" rel="index">
+                  <span itemprop="name">数据库</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程以下：
+业务需求由于业务需求要求中国美国异地机房实时（3s内）同步，以满足中国和美国客户的实时协作功能。
+整理方案先说单向同步方案，一个主写数据中心（香港），两个读数据中心（大陆、美国）
+所有应用程序连接到数据中间件
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/08/10/PostgreSQL数据数据同步方案--Bucardo/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2019/07/03/分布式配置--Apollo高可用/" itemprop="url">
                 分布式配置—Apollo高可用
               </a>
@@ -380,10 +468,9 @@
         
           <span itemprop="articleBody">
             
-            ####本文内容总结分布式配置Apollo如何提高可用性
-以下：
+            本文内容总结分布式配置Apollo如何提高可用性以下：
 官方文档请看https://github.com/ctripcorp/apollo/wiki
-前面已经提到Apollo如何将配置从代码中抽离，也结合Springboot项目进行了演示，但是这些还不够。前面提到的所有内容都是准对开发测试
+前面已经提到Apollo如何将配置从代码中抽离，也结合Springboot项目进行了演示，但是这些还不够。前面提到的所有内容都是准对开发测试阶段进行的
             ...
           </span>
           <div class="post-more-link text-center">
@@ -441,8 +528,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/配置/" itemprop="url" rel="index">
-                  <span itemprop="name">配置</span>
+                <a href="/categories/分布式配置/" itemprop="url" rel="index">
+                  <span itemprop="name">分布式配置</span>
                 </a>
               </span>
 
@@ -468,11 +555,10 @@
         
           <span itemprop="articleBody">
             
-            ####本文内容总结分布式配置Apollo的在Springboot项目中的使用
-以下：
+            本文内容总结分布式配置Apollo的在Springboot项目中的使用以下：
 官方文档请看https://github.com/ctripcorp/apollo/wiki
 创建应用首先在Apollo管理平台创建一个应用，注意AppId，程序中会用到。
-环境选择由于我们这里只配置了一个DEV
+环境选择由于我们这里只配置了一个DEV环境，就选
             ...
           </span>
           <div class="post-more-link text-center">
@@ -557,12 +643,11 @@
         
           <span itemprop="articleBody">
             
-            ####本文内容总结分布式配置Apollo的环境的过程以及遇到的问题
-以下：
+            本文内容总结分布式配置Apollo的环境的过程以及遇到的问题以下：
 官方文档请看https://github.com/ctripcorp/apollo/wiki
 官方提供了两种配置Apollo的方法，一个是Quick Start，另一种是分布式部署。
 #####Quick Start
-Qu
+QuickSt
             ...
           </span>
           <div class="post-more-link text-center">
@@ -647,10 +732,9 @@ Qu
         
           <span itemprop="articleBody">
             
-            ####本文内容总结分布式配置Apollo的应用场景以及基本概念
-以下：
+            本文内容总结分布式配置Apollo的应用场景以及基本概念以下：
 官方文档请看https://github.com/ctripcorp/apollo/wiki
-简介Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应
+简介Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且
             ...
           </span>
           <div class="post-more-link text-center">
@@ -772,8 +856,8 @@ Qu
           
           
             
-              <a class="post-title-link" href="/2019/03/15/Docker容器--容器的优势/" itemprop="url">
-                Docker容器—容器的优势
+              <a class="post-title-link" href="/2019/03/16/服务器侵入修复过程/" itemprop="url">
+                服务器侵入修复过程
               </a>
             
           
@@ -783,8 +867,8 @@ Qu
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-03-15T19:18:16+08:00" content="2019-03-15">
-            2019-03-15
+          <time itemprop="dateCreated" datetime="2019-03-16T10:29:25+08:00" content="2019-03-16">
+            2019-03-16
           </time>
         </span>
 
@@ -793,8 +877,8 @@ Qu
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Docker容器/" itemprop="url" rel="index">
-                  <span itemprop="name">Docker容器</span>
+                <a href="/categories/服务器运维/" itemprop="url" rel="index">
+                  <span itemprop="name">服务器运维</span>
                 </a>
               </span>
 
@@ -820,97 +904,13 @@ Qu
         
           <span itemprop="articleBody">
             
-            本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署虚拟化技术在开始容器化技术之前让我们来了解一下什么是虚拟化技术，相信大家做编程的平常也都会接触虚拟机如VMware等，虚拟机虚拟化了我们的硬件，在电脑中创造了一个虚拟的运行环境，一台电脑可以开启多个虚拟机。虚拟化技术主要分为全虚拟化架构、OS
+            ####本文内容总结一次服务器被黑客攻击然后恢复数据的过程
+由于工作需要，在云服务器上安装了confluence服务为公司内部提供可供交流的公司文档，通常用于日报、周会总结等。
+问题起因前几日开始cpu便显示90%多的利用率，而之前平均也才15%左右，刚开始没有太在意，心想可能是因为confluen
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2019/03/15/Docker容器--容器的优势/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2018/08/21/Java高级工程师技术栈/" itemprop="url">
-                Java高级工程师技术栈
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2018-08-21T13:07:11+08:00" content="2018-08-21">
-            2018-08-21
-          </time>
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/java高级/" itemprop="url" rel="index">
-                  <span itemprop="name">java高级</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            本文主要总结Java高级工程师需要掌握的技术和时下流行的技术作者：qingsong世界来源：CSDN原文：https://blog.csdn.net/qq_28943627/article/details/80281367版权声明：本文为博主原创文章，转载请附上博文链接！
-JVMJVM内存结构堆、栈
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/08/21/Java高级工程师技术栈/#more" rel="contents">
+            <a class="btn" href="/2019/03/16/服务器侵入修复过程/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -936,7 +936,7 @@ JVMJVM内存结构堆、栈
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </nav>
 
  </div>
@@ -968,7 +968,7 @@ JVMJVM内存结构堆、栈
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
