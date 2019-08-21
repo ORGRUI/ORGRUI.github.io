@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="####本文内容总结一次服务器被黑客攻击然后恢复数据的过程 由于工作需要，在云服务器上安装了confluence服务为公司内部提供可供交流的公司文档，通常用于日报、周会总结等。 问题起因前几日开始cpu便显示90%多的利用率，而之前平均也才15%左右，刚开始没有太在意，心想可能是因为confluence比较庞大，所创建的线程较多从而导致的，还有就是因为服务器本身配置不高（1核2G），内存没有达到c">
+<meta name="description" content="本文内容线上GitLab迁移至线下Docker环境以下： 注意事项进行迁移的GitLab版本必须保持一致，否则，在备份恢复的时候会出错，不过好在在官方docker镜像中基本有所有版本的docker镜像。 线下GitLab环境搭建（1）拉取GitLab镜像 1docker pull gitlab/gitlab-ee （2）运行镜像容器 1docker run --name=&apos;gitlab-ee&apos;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="服务器侵入修复过程">
-<meta property="og:url" content="http://ORGRUI.github.io/2019/03/16/服务器侵入修复过程/index.html">
+<meta property="og:title" content="线上GitLab迁移至线下Docker环境">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/08/15/线上GitLab迁移至线下Docker环境/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="####本文内容总结一次服务器被黑客攻击然后恢复数据的过程 由于工作需要，在云服务器上安装了confluence服务为公司内部提供可供交流的公司文档，通常用于日报、周会总结等。 问题起因前几日开始cpu便显示90%多的利用率，而之前平均也才15%左右，刚开始没有太在意，心想可能是因为confluence比较庞大，所创建的线程较多从而导致的，还有就是因为服务器本身配置不高（1核2G），内存没有达到c">
+<meta property="og:description" content="本文内容线上GitLab迁移至线下Docker环境以下： 注意事项进行迁移的GitLab版本必须保持一致，否则，在备份恢复的时候会出错，不过好在在官方docker镜像中基本有所有版本的docker镜像。 线下GitLab环境搭建（1）拉取GitLab镜像 1docker pull gitlab/gitlab-ee （2）运行镜像容器 1docker run --name=&apos;gitlab-ee&apos;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-12T09:11:38.205Z">
+<meta property="og:updated_time" content="2019-08-21T03:18:08.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="服务器侵入修复过程">
-<meta name="twitter:description" content="####本文内容总结一次服务器被黑客攻击然后恢复数据的过程 由于工作需要，在云服务器上安装了confluence服务为公司内部提供可供交流的公司文档，通常用于日报、周会总结等。 问题起因前几日开始cpu便显示90%多的利用率，而之前平均也才15%左右，刚开始没有太在意，心想可能是因为confluence比较庞大，所创建的线程较多从而导致的，还有就是因为服务器本身配置不高（1核2G），内存没有达到c">
+<meta name="twitter:title" content="线上GitLab迁移至线下Docker环境">
+<meta name="twitter:description" content="本文内容线上GitLab迁移至线下Docker环境以下： 注意事项进行迁移的GitLab版本必须保持一致，否则，在备份恢复的时候会出错，不过好在在官方docker镜像中基本有所有版本的docker镜像。 线下GitLab环境搭建（1）拉取GitLab镜像 1docker pull gitlab/gitlab-ee （2）运行镜像容器 1docker run --name=&apos;gitlab-ee&apos;">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 服务器侵入修复过程 | R io </title>
+  <title> 线上GitLab迁移至线下Docker环境 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              服务器侵入修复过程
+              线上GitLab迁移至线下Docker环境
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-03-16T10:29:25+08:00" content="2019-03-16">
-            2019-03-16
+          <time itemprop="dateCreated" datetime="2019-08-15T21:19:34+08:00" content="2019-08-15">
+            2019-08-15
           </time>
         </span>
 
@@ -374,34 +374,23 @@
       
 
       
-        <span itemprop="articleBody"><p>####本文内容总结一次服务器被黑客攻击然后恢复数据的过程</p>
-<p>由于工作需要，在云服务器上安装了confluence服务为公司内部提供可供交流的公司文档，通常用于日报、周会总结等。</p>
-<h5 id="问题起因"><a href="#问题起因" class="headerlink" title="问题起因"></a>问题起因</h5><p>前几日开始cpu便显示90%多的利用率，而之前平均也才15%左右，刚开始没有太在意，心想可能是因为confluence比较庞大，所创建的线程较多从而导致的，还有就是因为服务器本身配置不高（1核2G），内存没有达到confluence的推荐。</p>
-<p>第二日晚发现confluence服务终止，无法通过远程工具ssh连接服务器，通过阿里云网页版的远程工具发现可以连接上，查询后发现是因为cpu利用率太高导致confluence的进程被杀死。于是发现有异常的进程不断的消耗着cpu的资源，于是杀掉了异常进程，同时重启confluence服务，cpu消耗降低，confluence服务正常。</p>
-<p>第三日早发现confluence服务再次终止，昨晚杀掉的进程自动启动不断的消耗cpu的资源，还是昨晚相同的问题，于是意识到了事情的严重性，由于无法直接远程上去，通过网页版修改比较麻烦，于是想直接重启机器，因为confluence和数据库设置成开机启动，所以重启之后应该正常可用，然后通过confluence网页版的备份恢复功能将文档迁移到新的机器上，然后再把原机器删除即可。</p>
-<h5 id="出大问题"><a href="#出大问题" class="headerlink" title="出大问题"></a>出大问题</h5><p>重启服务器之后遇到了大问题，无法通过远程ssh登陆到服务器，通过阿里云网页版登陆服务器之后发现大部分指令执行之后都被killed，程序无法启动，linux大部分命令是用不了如netstat、chown等，而yum、wget提示权限不足，scp提示网卡出错，这个问题十分诡异一开始以为是强制重启导致的文件，后来排除了这个可能，通过和官方人员沟通，觉得这几天的机器异常可能是因为被黑客侵入，在服务器上运行恶意脚本如挖矿脚本，重启服务器之后又恶意删除系统文件所造成的，虽然现在数据还在服务器上，但是几乎所有指令都无法使用，也无法进行ftp，怎么讲数据拿下来然后导入到新环境中成为了一大难题。</p>
-<h5 id="拿回数据"><a href="#拿回数据" class="headerlink" title="拿回数据"></a>拿回数据</h5><p>由于作为系统盘的磁盘无法使用，从而丧失了对虚拟机的控制，但是如果仅仅是要恢复数据的话，可以将这个系统盘挂在到另一台系统盘正常的机器上作为存储盘，然后再将数据取出即可。</p>
-<p>1、创建原系统盘快照，（一定要创建！！否则无法找回数据），确认系统盘的快照已经创建完成。</p>
-<p>2、购买新的云盘，购买【和服务器处于相同可用区】的云盘，选择从快照创建磁盘（即将快照的数据拷贝到了新的磁盘中）注意：初始化系统盘后，目前服务器系统盘里的数据和应用就没有了，需要您再重新配置应用</p>
-<p>3、购买新的服务器，或者初始化原来的已损坏的磁盘</p>
-<p>4、将第二步购买的快照盘在控制台上挂载到服务器上，然后就可以通过远程连接工具，从新创建的数据盘中拷贝出来</p>
-<p>挂载之后还不能体现在虚拟机的目录中，需要以下步骤</p>
-<p>创建用户挂载磁盘的文件夹data</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir data</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
-<p>获得磁盘分区状态。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/vdb1(磁盘名) /data</span><br></pre></td></tr></table></figure>
-<p>挂载磁盘到data文件夹。</p>
-<p>成功之后只要进入到data文件夹即可得到原虚拟机所有的数据信息。</p>
-<p>我通过这个方法，拿回来数据库内所有的的数据（mysql文件夹，在my.cnf中记录了数据文件的目录），以及confluence源文件信息，文件夹路径信息，图片信息等</p>
-<h5 id="恢复服务"><a href="#恢复服务" class="headerlink" title="恢复服务"></a>恢复服务</h5><p>拿回了数据库的所有文件和conlufence的所有文件即可在另一台机器上搭建confluence服务。</p>
-<p>如何通过源文件恢复数据库信息如mysql可查看百度寻找方案。而我是在本地新装了一台数据库，将原数据库的mysql文件夹替换掉新装的数据库的mysql文件夹，然后启动mysql，不要一开始就启动，这样就可以看到新的数据库中有旧的数据库、数据表了，如果无法启动，请检查两次装的数据库版本是否一致，如果一致就进入mysql 的日志目录查看日志中是否记录什么吗异常信息，我也是开始不行，后来同事那边采用这种方法却可以。</p>
-<p>confluence文件夹主要包含两个主要的文件夹，迁移方案在网上也有比较多，这里不再详述，一开始由于我想让confluence直接连接到新版本的数据库，发现服务不可用，后面则采用和旧版本相同的数据库，于是正常。</p>
-<p>至此服务从被破坏到恢复完成。</p>
-<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>这次的经历给我很多经验</p>
-<p>（1）我一直知道网络黑客，但是我却认为网络入侵这样的事情不会发生在我身上，没什么防范意识</p>
-<p>（2）服务器和数据库应该分离部署，原来服务器和数据库是部署在一台机器上面的，如果服务器出现问题，那么数据库也会跟着遭殃，如果一开始我们的数据库可用，那么将节省很大时间。</p>
-<p>（3）所有线上的业务做到每日备份，线上业务又很多，包括公司对外业务、内部管理业务、公司内部管理工具（GitLab、Yapi、Confluence）等，这些东西都要做到每日备份，一旦遇到相同的事情，只需要备份恢复，就可以恢复前一天的状态，从而节约很大的时间。</p>
+        <span itemprop="articleBody"><h4 id="本文内容线上GitLab迁移至线下Docker环境"><a href="#本文内容线上GitLab迁移至线下Docker环境" class="headerlink" title="本文内容线上GitLab迁移至线下Docker环境"></a>本文内容线上GitLab迁移至线下Docker环境</h4><p>以下：</p>
+<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><p>进行迁移的GitLab版本必须保持一致，否则，在备份恢复的时候会出错，不过好在在官方docker镜像中基本有所有版本的docker镜像。</p>
+<h5 id="线下GitLab环境搭建"><a href="#线下GitLab环境搭建" class="headerlink" title="线下GitLab环境搭建"></a>线下GitLab环境搭建</h5><p>（1）拉取GitLab镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitlab/gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>（2）运行镜像容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name='gitlab-ee'  -p 10022:22 -p 10080:80 --restart always --volume /opt/gitlab/config:/etc/gitlab --volume /opt/gitlab/backups:/var/opt/gitlab/backups --volume /opt/gitlab/logs:/var/log/gitlab --volume /opt/gitlab/data:/var/opt/gitlab/ gitlab/gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>（3）进入配置目录修改配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/gitlab/gitlab.rb</span><br><span class="line">external_url 'http://ip'</span><br><span class="line">gitlab_rails['gitlab_ssh_host'] = 'ip'</span><br><span class="line">gitlab_rails['gitlab_shell_ssh_port'] = 10022</span><br></pre></td></tr></table></figure>
+<p>（4）重新启动gitlab</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
+<h5 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h5><p>（1）在原gitlab中执行备份命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
+<p>（2）找到备份文件复制到新gitlab中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name *_gitlab_backup.tar</span><br></pre></td></tr></table></figure>
+<p>（3）在新gitlab中进行数据还原</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:restore BACKUP=1510472027_2017_11_12_9.4.5</span><br></pre></td></tr></table></figure>
+<p>（文件名不加_gitlab_backup.tar）</p>
 </span>
       
     </div>
@@ -413,13 +402,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/21/数据同步解决方案Otter部署/" rel="prev">数据同步解决方案—Otter部署</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/15/Docker容器--容器的优势/" rel="next">Docker容器—容器的优势</a>
+              <a href="/2019/08/14/线上禅道迁移至线下Docker环境/" rel="next">线上禅道迁移至线下Docker环境</a>
             
           </div>
         </div>
@@ -525,7 +512,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#问题起因"><span class="nav-number">1.</span> <span class="nav-text">问题起因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#出大问题"><span class="nav-number">2.</span> <span class="nav-text">出大问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拿回数据"><span class="nav-number">3.</span> <span class="nav-text">拿回数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#恢复服务"><span class="nav-number">4.</span> <span class="nav-text">恢复服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容线上GitLab迁移至线下Docker环境"><span class="nav-number">1.</span> <span class="nav-text">本文内容线上GitLab迁移至线下Docker环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意事项"><span class="nav-number">1.1.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线下GitLab环境搭建"><span class="nav-number">1.2.</span> <span class="nav-text">线下GitLab环境搭建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据迁移"><span class="nav-number">1.3.</span> <span class="nav-text">数据迁移</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

@@ -332,6 +332,272 @@
           
           
             
+              <a class="post-title-link" href="/2019/08/15/线上GitLab迁移至线下Docker环境/" itemprop="url">
+                线上GitLab迁移至线下Docker环境
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2019-08-15T21:19:34+08:00" content="2019-08-15">
+            2019-08-15
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/服务器运维/" itemprop="url" rel="index">
+                  <span itemprop="name">服务器运维</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文内容线上GitLab迁移至线下Docker环境以下：
+注意事项进行迁移的GitLab版本必须保持一致，否则，在备份恢复的时候会出错，不过好在在官方docker镜像中基本有所有版本的docker镜像。
+线下GitLab环境搭建（1）拉取GitLab镜像
+1docker pull gitlab/gi
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/08/15/线上GitLab迁移至线下Docker环境/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2019/08/14/线上禅道迁移至线下Docker环境/" itemprop="url">
+                线上禅道迁移至线下Docker环境
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2019-08-14T21:02:43+08:00" content="2019-08-14">
+            2019-08-14
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/服务器运维/" itemprop="url" rel="index">
+                  <span itemprop="name">服务器运维</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文内容线上禅道迁移至线下Docker环境以下：
+注意事项禅道的数据备份恢复必须是在同一个版本之间进行的，测试过不同小版本之间的备份恢复也会出现问题，所以在做迁移之前需要保证版本一致性。
+线下禅道环境搭建（1）拉取禅道镜像
+1docker pull idoop/zentao:11.6
+（2）运行镜像
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/08/14/线上禅道迁移至线下Docker环境/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2019/08/13/线上YAPI迁移至线下Docker环境/" itemprop="url">
+                线上YAPI迁移至线下Docker环境
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2019-08-13T21:11:21+08:00" content="2019-08-13">
+            2019-08-13
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/服务器运维/" itemprop="url" rel="index">
+                  <span itemprop="name">服务器运维</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文内容线上YAPI迁移至线下Docker环境以下：
+线下YAPI环境搭建（1）拉取YAPI镜像
+1docker pull silsuer/yapi
+（2）运行镜像容器
+1docker run --name yapi -dit -p 27017:27017 -p 9090:9090 -p 3000:
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/08/13/线上YAPI迁移至线下Docker环境/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2019/08/10/PostgreSQL数据数据同步方案--Bucardo/" itemprop="url">
                 PostgreSQL数据数据同步方案--Bucardo
               </a>
@@ -673,265 +939,6 @@ QuickSt
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/06/23/分布式配置--Apollo基本概念/" itemprop="url">
-                分布式配置--Apollo基本概念
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-06-23T22:00:04+08:00" content="2019-06-23">
-            2019-06-23
-          </time>
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/分布式配置/" itemprop="url" rel="index">
-                  <span itemprop="name">分布式配置</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            本文内容总结分布式配置Apollo的应用场景以及基本概念以下：
-官方文档请看https://github.com/ctripcorp/apollo/wiki
-简介Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/06/23/分布式配置--Apollo基本概念/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/03/21/数据同步解决方案Otter部署/" itemprop="url">
-                数据同步解决方案—Otter部署
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-03-21T15:03:15+08:00" content="2019-03-21">
-            2019-03-21
-          </time>
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/数据库/" itemprop="url" rel="index">
-                  <span itemprop="name">数据库</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            本文内容讲述如何通过Centos搭建阿里云数据同步利器Otter的运行环境简述Otter是基于数据库增量日志解析，准实时同步到本机房或异地机房的mysql/oracle数据库. 一个分布式数据库同步系统。主要解决一个跨地域性的数据同步问题，支持单向同步，双向同步，高可用性部署等。我只要用来解决业务在
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/03/21/数据同步解决方案Otter部署/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2019/03/16/服务器侵入修复过程/" itemprop="url">
-                服务器侵入修复过程
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2019-03-16T10:29:25+08:00" content="2019-03-16">
-            2019-03-16
-          </time>
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/服务器运维/" itemprop="url" rel="index">
-                  <span itemprop="name">服务器运维</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            ####本文内容总结一次服务器被黑客攻击然后恢复数据的过程
-由于工作需要，在云服务器上安装了confluence服务为公司内部提供可供交流的公司文档，通常用于日报、周会总结等。
-问题起因前几日开始cpu便显示90%多的利用率，而之前平均也才15%左右，刚开始没有太在意，心想可能是因为confluen
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/03/16/服务器侵入修复过程/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -968,7 +975,7 @@ QuickSt
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
