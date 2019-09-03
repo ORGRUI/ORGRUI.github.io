@@ -48,7 +48,7 @@
 <meta property="og:description" content="本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程以下： 业务需求由于业务需求要求中国美国异地机房实时（3s内）同步，以满足中国和美国客户的实时协作功能。 整理方案先说单向同步方案，一个主写数据中心（香港），两个读数据中心（大陆、美国） 所有应用程序连接到数据中间件（Mycat等），通过中间件进行读写分离，用户写入操作都将写入香港数据库，而读操作则读取就近数据库，">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/Bucardo1.png?raw=true">
-<meta property="og:updated_time" content="2019-08-10T06:45:01.834Z">
+<meta property="og:updated_time" content="2019-09-03T08:17:19.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PostgreSQL数据数据同步方案--Bucardo">
 <meta name="twitter:description" content="本文内容总结PostgreSQL数据同步的几种方案并详细介绍Bucardo搭建的过程以下： 业务需求由于业务需求要求中国美国异地机房实时（3s内）同步，以满足中国和美国客户的实时协作功能。 整理方案先说单向同步方案，一个主写数据中心（香港），两个读数据中心（大陆、美国） 所有应用程序连接到数据中间件（Mycat等），通过中间件进行读写分离，用户写入操作都将写入香港数据库，而读操作则读取就近数据库，">
@@ -408,7 +408,7 @@
 <p>（10）开通同步</p>
 <p>下面参数不多解释sync表示同步，test表示别名,source表示作为源库，两个都配置source表示都可以作为源库，tables=all</p>
 <p>表示所有表，注意这里start或者stop需要在Bucardo目录下进行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bucardo add sync test dbs=pg1:source,pg2:source tables=all</span><br><span class="line">bucardo start</span><br></pre></td></tr></table></figure></span>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bucardo add sync test dbs=pg1:source,pg2:source tables=all conflict_strategy=latest</span><br><span class="line">bucardo start</span><br></pre></td></tr></table></figure></span>
       
     </div>
 

@@ -47,7 +47,7 @@
 <meta property="og:site_name" content="R io">
 <meta property="og:description" content="本文内容线上YAPI迁移至线下Docker环境以下： 线下YAPI环境搭建（1）拉取YAPI镜像 1docker pull silsuer/yapi （2）运行镜像容器 1docker run --name yapi -dit -p 27017:27017 -p 9090:9090 -p 3000:3000 silsuer/yapi bash （3）进入容器内部 1docker exec -it">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T02:52:48.973Z">
+<meta property="og:updated_time" content="2019-08-22T04:19:59.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线上YAPI迁移至线下Docker环境">
 <meta name="twitter:description" content="本文内容线上YAPI迁移至线下Docker环境以下： 线下YAPI环境搭建（1）拉取YAPI镜像 1docker pull silsuer/yapi （2）运行镜像容器 1docker run --name yapi -dit -p 27017:27017 -p 9090:9090 -p 3000:3000 silsuer/yapi bash （3）进入容器内部 1docker exec -it">
@@ -395,7 +395,17 @@
 <h5 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h5><p>（1）导出原mongodb数据库中yapi的数据</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodump -h 127.0.0.1 -p 27017 -d yapi -o /root</span><br></pre></td></tr></table></figure>
 <p>（2）导入新mongodb数据库中</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h 127.0.0.1 -p 27017 -d yapi --dir /root</span><br></pre></td></tr></table></figure></span>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongorestore -h 127.0.0.1 -p 27017 -d yapi --drop --dir /root</span><br></pre></td></tr></table></figure>
+<h5 id="设置每日备份"><a href="#设置每日备份" class="headerlink" title="设置每日备份"></a>设置每日备份</h5><p>由于yapi不支持命令行式的备份指令，而事实上对于yapi只需要备份其数据库内容即可，所以我们可以对yapi使用到的mongodb数据库进行每日备份</p>
+<p>由于docker容器里面是没有安装crontab的，所以需要单独安装crontab</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install cron</span><br></pre></td></tr></table></figure>
+<p>编写自动备份的脚本文件，设置备份的文件及一定要-v挂载在宿主机的文件系统下，否则如果容器挂了，导致无法进入容器，备份的数据就失去了作用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vim mongod_bak.sh </span><br><span class="line">chmod +x mongod_bak.sh </span><br><span class="line"></span><br><span class="line">DUMP=/usr/bin/mongodump</span><br><span class="line">OUT_DIR=/var/data/backup/mongod_bak_now</span><br><span class="line">TAR_DIR=/var/data/backup/mongod_bak_list</span><br><span class="line">DATE=`date +%Y-%m-%d`</span><br><span class="line">DB=yapi</span><br><span class="line">DAYS=30</span><br><span class="line">TAR_BAK="mongod_bak_$DATE.tar.gz"</span><br><span class="line">cd $OUT_DIR</span><br><span class="line">rm -rf $OUT_DIR/*</span><br><span class="line">mkdir -p $OUT_DIR/$DATE</span><br><span class="line"><span class="meta">$</span><span class="bash">DUMP -h 127.0.0.1:27017 -d <span class="variable">$DB</span> -o <span class="variable">$OUT_DIR</span>/<span class="variable">$DATE</span></span></span><br><span class="line">tar -zcvf $TAR_DIR/$TAR_BAK $OUT_DIR/$DATE</span><br><span class="line">find $TAR_DIR/ -mtime +$DAYS -delete</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<p>设置crontab定时执行，前面表示多少分钟，几点钟执行，后面是脚本文件的路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/crontab</span><br><span class="line">43 3    * * *   root    /home/crontab/mongod_bak.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service cron start</span><br><span class="line"></span><br><span class="line">service cron stop</span><br><span class="line"></span><br><span class="line">service cron restart</span><br><span class="line"></span><br><span class="line">service cron reload</span><br><span class="line"></span><br><span class="line">service cron status</span><br></pre></td></tr></table></figure>
+<p>选择reload或者restart</p>
+</span>
       
     </div>
 
@@ -518,7 +528,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容线上YAPI迁移至线下Docker环境"><span class="nav-number">1.</span> <span class="nav-text">本文内容线上YAPI迁移至线下Docker环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#线下YAPI环境搭建"><span class="nav-number">1.1.</span> <span class="nav-text">线下YAPI环境搭建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据迁移"><span class="nav-number">1.2.</span> <span class="nav-text">数据迁移</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容线上YAPI迁移至线下Docker环境"><span class="nav-number">1.</span> <span class="nav-text">本文内容线上YAPI迁移至线下Docker环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#线下YAPI环境搭建"><span class="nav-number">1.1.</span> <span class="nav-text">线下YAPI环境搭建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据迁移"><span class="nav-number">1.2.</span> <span class="nav-text">数据迁移</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置每日备份"><span class="nav-number">1.3.</span> <span class="nav-text">设置每日备份</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

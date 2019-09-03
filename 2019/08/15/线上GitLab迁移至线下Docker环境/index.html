@@ -47,7 +47,7 @@
 <meta property="og:site_name" content="R io">
 <meta property="og:description" content="本文内容线上GitLab迁移至线下Docker环境以下： 注意事项进行迁移的GitLab版本必须保持一致，否则，在备份恢复的时候会出错，不过好在在官方docker镜像中基本有所有版本的docker镜像。 线下GitLab环境搭建（1）拉取GitLab镜像 1docker pull gitlab/gitlab-ee （2）运行镜像容器 1docker run --name=&apos;gitlab-ee&apos;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T03:18:08.771Z">
+<meta property="og:updated_time" content="2019-08-22T04:20:07.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线上GitLab迁移至线下Docker环境">
 <meta name="twitter:description" content="本文内容线上GitLab迁移至线下Docker环境以下： 注意事项进行迁移的GitLab版本必须保持一致，否则，在备份恢复的时候会出错，不过好在在官方docker镜像中基本有所有版本的docker镜像。 线下GitLab环境搭建（1）拉取GitLab镜像 1docker pull gitlab/gitlab-ee （2）运行镜像容器 1docker run --name=&apos;gitlab-ee&apos;">
@@ -391,6 +391,17 @@
 <p>（3）在新gitlab中进行数据还原</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:restore BACKUP=1510472027_2017_11_12_9.4.5</span><br></pre></td></tr></table></figure>
 <p>（文件名不加_gitlab_backup.tar）</p>
+<h5 id="设置每日备份"><a href="#设置每日备份" class="headerlink" title="设置每日备份"></a>设置每日备份</h5><p>gitlab支持通过命令对全部数据进行备份，以下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
+<p>但是我们不可能通过每天手动输入的方式来备份，这时我们便需要使用crontab来帮助进行定时任务</p>
+<p>由于docker容器里面是没有安装crontab的，所以需要单独安装crontab</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install cron</span><br></pre></td></tr></table></figure>
+<p>编写自动备份的脚本文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim autobackup.sh</span><br><span class="line">chmod +x autobackup.sh</span><br><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
+<p>设置crontab定时执行，前面表示多少分钟，几点钟执行，后面是脚本文件的路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/crontab</span><br><span class="line">43 3    * * *   root    /var/opt/autobackup.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service cron start</span><br><span class="line"></span><br><span class="line">service cron stop</span><br><span class="line"></span><br><span class="line">service cron restart</span><br><span class="line"></span><br><span class="line">service cron reload</span><br><span class="line"></span><br><span class="line">service cron status</span><br></pre></td></tr></table></figure>
+<p>选择reload或者restart</p>
 </span>
       
     </div>
@@ -512,7 +523,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容线上GitLab迁移至线下Docker环境"><span class="nav-number">1.</span> <span class="nav-text">本文内容线上GitLab迁移至线下Docker环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意事项"><span class="nav-number">1.1.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线下GitLab环境搭建"><span class="nav-number">1.2.</span> <span class="nav-text">线下GitLab环境搭建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据迁移"><span class="nav-number">1.3.</span> <span class="nav-text">数据迁移</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容线上GitLab迁移至线下Docker环境"><span class="nav-number">1.</span> <span class="nav-text">本文内容线上GitLab迁移至线下Docker环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意事项"><span class="nav-number">1.1.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线下GitLab环境搭建"><span class="nav-number">1.2.</span> <span class="nav-text">线下GitLab环境搭建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据迁移"><span class="nav-number">1.3.</span> <span class="nav-text">数据迁移</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置每日备份"><span class="nav-number">1.4.</span> <span class="nav-text">设置每日备份</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
