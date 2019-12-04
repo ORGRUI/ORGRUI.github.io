@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文内容总结自阿里Java开发关于安全规范的内容以下： 1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。 2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158**9119。 3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。 4、禁止向html输出">
+<meta name="description" content="本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑物理机准备（5min）准备4台2核4G机器用于运行ETCD以及Control 3台4核8G用于运行普通项目程序 所有机器在同一内网下，端口全部开放（有时候需要修改安全组） 确保物理机和RDS、Redis服务内网互通 oss准备（跨区域复制时间极长）（1）新建该地域oss，全量同步数据 CDN准备（10min）（1）配置oss文件到CDN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴Java开发手册读后总结---安全规范">
-<meta property="og:url" content="http://ORGRUI.github.io/2018/05/26/Centos-SSR搭建过程/index.html">
+<meta property="og:title" content="Rancher集群搭建基本流程">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/10/20/rancher集群搭建基本流程/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文内容总结自阿里Java开发关于安全规范的内容以下： 1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。 2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158**9119。 3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。 4、禁止向html输出">
+<meta property="og:description" content="本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑物理机准备（5min）准备4台2核4G机器用于运行ETCD以及Control 3台4核8G用于运行普通项目程序 所有机器在同一内网下，端口全部开放（有时候需要修改安全组） 确保物理机和RDS、Redis服务内网互通 oss准备（跨区域复制时间极长）（1）新建该地域oss，全量同步数据 CDN准备（10min）（1）配置oss文件到CDN">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:48:10.087Z">
+<meta property="og:updated_time" content="2019-11-08T09:46:32.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴Java开发手册读后总结---安全规范">
-<meta name="twitter:description" content="本文内容总结自阿里Java开发关于安全规范的内容以下： 1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。 2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158**9119。 3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。 4、禁止向html输出">
+<meta name="twitter:title" content="Rancher集群搭建基本流程">
+<meta name="twitter:description" content="本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑物理机准备（5min）准备4台2核4G机器用于运行ETCD以及Control 3台4核8G用于运行普通项目程序 所有机器在同一内网下，端口全部开放（有时候需要修改安全组） 确保物理机和RDS、Redis服务内网互通 oss准备（跨区域复制时间极长）（1）新建该地域oss，全量同步数据 CDN准备（10min）（1）配置oss文件到CDN">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 阿里巴巴Java开发手册读后总结---安全规范 | R io </title>
+  <title> Rancher集群搭建基本流程 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              阿里巴巴Java开发手册读后总结---安全规范
+              Rancher集群搭建基本流程
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-26T22:10:12+08:00" content="2018-05-26">
-            2018-05-26
+          <time itemprop="dateCreated" datetime="2019-10-20T14:07:40+08:00" content="2019-10-20">
+            2019-10-20
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                <a href="/categories/rancher/" itemprop="url" rel="index">
+                  <span itemprop="name">rancher</span>
                 </a>
               </span>
 
@@ -374,13 +374,21 @@
       
 
       
-        <span itemprop="articleBody"><h5 id="本文内容总结自阿里Java开发关于安全规范的内容"><a href="#本文内容总结自阿里Java开发关于安全规范的内容" class="headerlink" title="本文内容总结自阿里Java开发关于安全规范的内容"></a>本文内容总结自阿里Java开发关于安全规范的内容</h5><p>以下：</p>
-<p>1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。</p>
-<p>2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158<em>**</em>9119。</p>
-<p>3、用户请求传入的任何参数都必须进行有效性验证，如：内存溢出，order by，任意重定向，sql注入，反序列化注入。</p>
-<p>4、禁止向html输出未经过安全过滤或未安全转义的内容。</p>
-<p>5、表单、ajax提交必须执行CSRF安全过滤。</p>
-<p>6、在使用平台资源，如断行，邮件等，必须实现正确的防重限制。</p>
+        <span itemprop="articleBody"><h4 id="本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑"><a href="#本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑" class="headerlink" title="本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑"></a>本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑</h4><h5 id="物理机准备（5min）"><a href="#物理机准备（5min）" class="headerlink" title="物理机准备（5min）"></a>物理机准备（5min）</h5><p>准备4台2核4G机器用于运行ETCD以及Control</p>
+<p>3台4核8G用于运行普通项目程序</p>
+<p>所有机器在同一内网下，端口全部开放（有时候需要修改安全组）</p>
+<p>确保物理机和RDS、Redis服务内网互通</p>
+<h5 id="oss准备（跨区域复制时间极长）"><a href="#oss准备（跨区域复制时间极长）" class="headerlink" title="oss准备（跨区域复制时间极长）"></a>oss准备（跨区域复制时间极长）</h5><p>（1）新建该地域oss，全量同步数据</p>
+<h5 id="CDN准备（10min）"><a href="#CDN准备（10min）" class="headerlink" title="CDN准备（10min）"></a>CDN准备（10min）</h5><p>（1）配置oss文件到CDN地址</p>
+<h5 id="集群注册（15～20min）"><a href="#集群注册（15～20min）" class="headerlink" title="集群注册（15～20min）"></a>集群注册（15～20min）</h5><p>（1）新建集群，网络组件最好使用Flannel</p>
+<p>（2）ETCD和Control节点一个一个注册，等前一个注册好之后注册</p>
+<p>（3）worker节点可以一起注册</p>
+<h5 id="配置资源（3min）"><a href="#配置资源（3min）" class="headerlink" title="配置资源（3min）"></a>配置资源（3min）</h5><p>（1）配置集群https证书（确认证书正确，最好新下载证书）</p>
+<p>（2）配置私有镜像库</p>
+<h5 id="启动程序（2min）"><a href="#启动程序（2min）" class="headerlink" title="启动程序（2min）"></a>启动程序（2min）</h5><p>（1）分别启动各个程序，注意选择不同的环境</p>
+<h5 id="配置负载均衡（3min）"><a href="#配置负载均衡（3min）" class="headerlink" title="配置负载均衡（3min）"></a>配置负载均衡（3min）</h5><p>（1）根据不同项目访问前缀配置负载均衡</p>
+<h5 id="配置域名解析（1min）"><a href="#配置域名解析（1min）" class="headerlink" title="配置域名解析（1min）"></a>配置域名解析（1min）</h5><p>（1）将域名解析到新集群</p>
+<p>当域名解析生效则当前集群达到可用状态，后续需要配置健康检查、日志、告警通知等</p>
 </span>
       
     </div>
@@ -392,13 +400,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/26/安全规范/" rel="prev">阿里巴巴Java开发手册读后总结---安全规范</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/25/单元测试规范/" rel="next">阿里巴巴Java开发手册读后总结---单元测试规范</a>
+              <a href="/2019/08/15/线上GitLab迁移至线下Docker环境/" rel="next">线上GitLab迁移至线下Docker环境</a>
             
           </div>
         </div>
@@ -504,7 +510,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容总结自阿里Java开发关于安全规范的内容"><span class="nav-number">1.</span> <span class="nav-text">本文内容总结自阿里Java开发关于安全规范的内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑"><span class="nav-number">1.</span> <span class="nav-text">本文内容主要记录rancher集群搭建的基本流程，以及遇到的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#物理机准备（5min）"><span class="nav-number">1.1.</span> <span class="nav-text">物理机准备（5min）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oss准备（跨区域复制时间极长）"><span class="nav-number">1.2.</span> <span class="nav-text">oss准备（跨区域复制时间极长）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CDN准备（10min）"><span class="nav-number">1.3.</span> <span class="nav-text">CDN准备（10min）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集群注册（15～20min）"><span class="nav-number">1.4.</span> <span class="nav-text">集群注册（15～20min）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置资源（3min）"><span class="nav-number">1.5.</span> <span class="nav-text">配置资源（3min）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动程序（2min）"><span class="nav-number">1.6.</span> <span class="nav-text">启动程序（2min）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置负载均衡（3min）"><span class="nav-number">1.7.</span> <span class="nav-text">配置负载均衡（3min）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置域名解析（1min）"><span class="nav-number">1.8.</span> <span class="nav-text">配置域名解析（1min）</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
