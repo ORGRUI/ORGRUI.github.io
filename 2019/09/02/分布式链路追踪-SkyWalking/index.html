@@ -1,0 +1,820 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="每个人都会碰到很多难题，想要解开这些难题，就必须专心地做下去，就需要最疯狂的那股痴劲儿，但这种痴却不是山一般压在你肩上的重量，而是你内心深处最向往的那些喜悦。人生如题各种痴，就是各种喜欢，喜欢做什么那便做下去，这道题目总会有答案的。">
+
+
+
+  <meta name="keywords" content="Hexo,Mala">
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="本文内容讲述分布式链路追踪系统SkyWalking的使用以下： 简介在了解 Skywalking 之前，我们需要先知道 APM 的概念 APM 全称 Application Performance Management/Monitor 应用性能管理（监控），目的是通过各种探针采集数据，收集关键指标，同时搭配数据呈现以实现对应用程序性能管理和故障管理的系统化解决方案。APM 系统则更重视程序内部执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式链路追踪-SkyWalking">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/09/02/分布式链路追踪-SkyWalking/index.html">
+<meta property="og:site_name" content="R io">
+<meta property="og:description" content="本文内容讲述分布式链路追踪系统SkyWalking的使用以下： 简介在了解 Skywalking 之前，我们需要先知道 APM 的概念 APM 全称 Application Performance Management/Monitor 应用性能管理（监控），目的是通过各种探针采集数据，收集关键指标，同时搭配数据呈现以实现对应用程序性能管理和故障管理的系统化解决方案。APM 系统则更重视程序内部执行">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking1.png?raw=true">
+<meta property="og:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking2.png?raw=true">
+<meta property="og:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking3.png?raw=true">
+<meta property="og:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking4.png?raw=true">
+<meta property="og:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking5.png?raw=true">
+<meta property="og:updated_time" content="2019-12-07T13:06:49.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分布式链路追踪-SkyWalking">
+<meta name="twitter:description" content="本文内容讲述分布式链路追踪系统SkyWalking的使用以下： 简介在了解 Skywalking 之前，我们需要先知道 APM 的概念 APM 全称 Application Performance Management/Monitor 应用性能管理（监控），目的是通过各种探针采集数据，收集关键指标，同时搭配数据呈现以实现对应用程序性能管理和故障管理的系统化解决方案。APM 系统则更重视程序内部执行">
+<meta name="twitter:image" content="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking1.png?raw=true">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 分布式链路追踪-SkyWalking | R io </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang>
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">静于心，简于形</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br>
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br>
+            About
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'xxx','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              分布式链路追踪-SkyWalking
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2019-09-02T20:12:21+08:00" content="2019-09-02">
+            2019-09-02
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/分布式追踪/" itemprop="url" rel="index">
+                  <span itemprop="name">分布式追踪</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h4 id="本文内容讲述分布式链路追踪系统SkyWalking的使用"><a href="#本文内容讲述分布式链路追踪系统SkyWalking的使用" class="headerlink" title="本文内容讲述分布式链路追踪系统SkyWalking的使用"></a>本文内容讲述分布式链路追踪系统SkyWalking的使用</h4><p>以下：</p>
+<h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>在了解 Skywalking 之前，我们需要先知道 APM 的概念</p>
+<p>APM 全称 Application Performance Management/Monitor 应用性能管理（监控），目的是通过各种探针采集数据，收集关键指标，同时搭配数据呈现以实现对应用程序性能管理和故障管理的系统化解决方案。APM 系统则更重视程序内部执行过程指标和服务之间链路调用情况的监控，APM更有利于深入代码找到请求响应“慢”的根本问题。</p>
+<h5 id="那么什么是-Skywalking-呢"><a href="#那么什么是-Skywalking-呢" class="headerlink" title="那么什么是 Skywalking 呢"></a>那么什么是 Skywalking 呢</h5><p>官方有两句话介绍SkyWalking：<br>SkyWalking是观察性分析平台和应用性能管理系统。提供分布式追踪、服务网格遥测分析、度量聚合和可视化一体化解决方案<br>Skywalking 是一款分布式系统的应用程序性能监视工具，专为微服务、云原生架构和基于容器架构而设计。</p>
+<p><img src="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking1.png?raw=true" alt="img"></p>
+<p>Skywalking Agent：</p>
+<p>采集 tracing（调用链数据）和 metric（指标）信息并上报，上报通过 HTTP 或者 gRPC 方式发送数据到 Skywalking Collector</p>
+<p>Skywalking Collector ：</p>
+<p>链路数据收集器，对 agent 传过来的 tracing 和 metric 数据进行整合分析通过Analysis Core 模块处理并落入相关的数据存储中，同时会通过 Query Core 模块进行二次统计和监控告警</p>
+<p>Storage：</p>
+<p>Skywalking 的存储，支持以 ElasticSearch、Mysql、TiDB、H2 等作为存储介质进行数据存储</p>
+<p>UI：</p>
+<p>Web可视化平台，用来展示落地的数据，目前官方采纳了 RocketBot 作为 Skywalking的主UI</p>
+<h5 id="为什么要用-Skywalking"><a href="#为什么要用-Skywalking" class="headerlink" title="为什么要用 Skywalking ?"></a>为什么要用 Skywalking ?</h5><p>随着微服务的大行其道，系统的功能越来越丰富，各类服务之间的调用错综复杂，这就给我们带来了很大的困扰，下面是两个常见的场景。</p>
+<p>场景1</p>
+<p>开发 A 编写了一段代码，代码依赖了很多的接口。一个调用下去没出结果，或者超时了，Debug 之后发现是接口 M 挂了，然后找到这个接口 M 的负责人B ，告知 B 接口挂了。B 拉起自己的调用和 Debug 环境，按照之前传过来的调用方式重新 Debug 了一遍自己的接口，发现NND是自己依赖的接口 N 挂了，然后找到接口 N 负责人 C 。C同样Debug了自己的接口（此处省略一万个‘怎么可能呢，你调用参数不对吧’），最终发现是某个空判断错误，修复bug，转告给B说我们bug修复了，B再转告给A说，是C那个傻x弄挂了，现在Ok了，你试一下。</p>
+<p>场景2</p>
+<p>哪一天系统完成了开发，需要进行性能测试，发现哪些地方调用比较慢，影响了全局。A工程师拉起自己的系统，调用一遍，就汇报给老板，时间没啥问题。B工程师拉起自己的系统，调用了一遍，也没啥问题，同时将结果汇报了给老板。C工程师这时候发现自己的系统比较慢，debug发现原来是自己依赖的接口慢了，于是找到接口负责人。。balabala，和场景1一样，弄好了。老板一一把这些都记录下来，满满的一本子。哪天改了个需求，又重新来一遍，劳民伤财。</p>
+<p>这里就要说一下 Skywalking 的作用了：</p>
+<ul>
+<li>分布式追踪和上下文传输</li>
+<li>应用、实例、服务性能指标分析</li>
+<li>根源分析</li>
+<li>应用拓扑分析</li>
+<li>应用和服务依赖分析</li>
+<li>慢服务检测</li>
+<li>性能优化</li>
+</ul>
+<p>这些功能不仅仅完美的解决了我们日常中遇到的微服务带来的这些问题，更可以去更深度的去优化我们的应用，从帮助我们做出更多的正确的选择。</p>
+<h5 id="怎么去用Skywalking"><a href="#怎么去用Skywalking" class="headerlink" title="怎么去用Skywalking"></a>怎么去用Skywalking</h5><p>使用之前我们需要去了解 sw 的原理（这里使用的是 java 的自动探针）：</p>
+<ul>
+<li>agent 端通过 –javaagent 机制动态修改被监控的应用，获取数据传递给 collector 端</li>
+<li>collector 端接收 agent 端发送的数据，根据不同具体实现(例如h2或es)将数据保存起来</li>
+<li>webui 获取数据进行展示</li>
+</ul>
+<h5 id="仪表盘"><a href="#仪表盘" class="headerlink" title="仪表盘"></a>仪表盘</h5><p>主要包含 Service Dashboard 和 Database Dashboard 。</p>
+<ul>
+<li>Service Dashboard内分别有Global、Service、Endpoint、Instance面板，展示了全局以及服务、端点、实例的详细信息</li>
+<li>Database Dashboard内可以展示数据库的响应时间、响应时间分布、吞吐量、SLA、慢SQL等详细信息，便于直观展示数据库状态</li>
+</ul>
+<p><img src="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking2.png?raw=true" alt="img"></p>
+<h5 id="拓扑图"><a href="#拓扑图" class="headerlink" title="拓扑图"></a>拓扑图</h5><p>SkyWalking能够根据获取的数据自动绘制服务之间的调用关系图，每条连线的颜色反应了服务之间的调用延迟情况，可以非常直观的看到服务与服务之间的调用状态，连线中间的点能点击，可显示两个服务之间链路的平均响应时间、吞吐率以及SLA等信息。</p>
+<p><img src="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking3.png?raw=true" alt="img"></p>
+<h5 id="追踪面板"><a href="#追踪面板" class="headerlink" title="追踪面板"></a>追踪面板</h5><p>能够显示请求的代码内部执行情况，一个完整的请求都经过了哪些服务、执行了哪些代码方法、每个方法的执行时间、执行状态等详细信息，快速定位代码问题</p>
+<p><img src="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking4.png?raw=true" alt="img"></p>
+<p><img src="https://github.com/ORGRUI/inzt.github.io/blob/master/images/skywalking5.png?raw=true" alt="img"></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/21/EFK日志分析系统之Kibana使用/" rel="prev">EFK日志分析系统之Kibana使用</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/02/分布式链路追踪-SkyWalking部署/" rel="next">分布式链路追踪-SkyWalking部署</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+    </div>
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+          <div class="comments" id="comments">
+            
+            -->
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Rio" itemprop="image">
+          <p class="site-author-name" itemprop="name">Rio</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">每个人都会碰到很多难题，想要解开这些难题，就必须专心地做下去，就需要最疯狂的那股痴劲儿，但这种痴却不是山一般压在你肩上的重量，而是你内心深处最向往的那些喜悦。人生如题各种痴，就是各种喜欢，喜欢做什么那便做下去，这道题目总会有答案的。</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容讲述分布式链路追踪系统SkyWalking的使用"><span class="nav-number">1.</span> <span class="nav-text">本文内容讲述分布式链路追踪系统SkyWalking的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#那么什么是-Skywalking-呢"><span class="nav-number">1.2.</span> <span class="nav-text">那么什么是 Skywalking 呢</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么要用-Skywalking"><span class="nav-number">1.3.</span> <span class="nav-text">为什么要用 Skywalking ?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#怎么去用Skywalking"><span class="nav-number">1.4.</span> <span class="nav-text">怎么去用Skywalking</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#仪表盘"><span class="nav-number">1.5.</span> <span class="nav-text">仪表盘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拓扑图"><span class="nav-number">1.6.</span> <span class="nav-text">拓扑图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#追踪面板"><span class="nav-number">1.7.</span> <span class="nav-text">追踪面板</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </div></main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp;  2017 - 
+  <span itemprop="copyrightYear">2019
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rio
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="https://idhyt.github.io">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+  <div class="busuanzi-info">
+    <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+  </div>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
