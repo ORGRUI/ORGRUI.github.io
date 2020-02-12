@@ -40,17 +40,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署虚拟化技术在开始容器化技术之前让我们来了解一下什么是虚拟化技术，相信大家做编程的平常也都会接触虚拟机如VMware等，虚拟机虚拟化了我们的硬件，在电脑中创造了一个虚拟的运行环境，一台电脑可以开启多个虚拟机。虚拟化技术主要分为全虚拟化架构、OS层虚拟化架构、硬件层虚拟化架构，而Docker则是基于OS层的虚拟化架构设计的，特点是灵活快速。 D">
+<meta name="description" content="本文内容举例如何将现有的单体应用转化为微服务应用前提条件如果你的工作围绕一个大型的，复杂的单体应用，并且每天开发和部署应用的工作都是进展缓慢而痛苦的，那么便可以考虑将该应用拆分为微服务来解决遇到的问题。而如果你的工作是开发一 些简单的应用，临时性的解决一些问题，或者是作为应用的中间件，则不需要考虑作为微服务来开发。 确认功能模块用商城应用来作为例子，由于前期为了追求开发的速度所以把各个模块都耦合在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker容器—容器的优势">
-<meta property="og:url" content="http://ORGRUI.github.io/2019/03/15/Docker容器--容器的优势/index.html">
+<meta property="og:title" content="单体应用转化成微服务应用">
+<meta property="og:url" content="http://ORGRUI.github.io/2019/05/21/单体应用转化成微服务应用/index.html">
 <meta property="og:site_name" content="R io">
-<meta property="og:description" content="本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署虚拟化技术在开始容器化技术之前让我们来了解一下什么是虚拟化技术，相信大家做编程的平常也都会接触虚拟机如VMware等，虚拟机虚拟化了我们的硬件，在电脑中创造了一个虚拟的运行环境，一台电脑可以开启多个虚拟机。虚拟化技术主要分为全虚拟化架构、OS层虚拟化架构、硬件层虚拟化架构，而Docker则是基于OS层的虚拟化架构设计的，特点是灵活快速。 D">
+<meta property="og:description" content="本文内容举例如何将现有的单体应用转化为微服务应用前提条件如果你的工作围绕一个大型的，复杂的单体应用，并且每天开发和部署应用的工作都是进展缓慢而痛苦的，那么便可以考虑将该应用拆分为微服务来解决遇到的问题。而如果你的工作是开发一 些简单的应用，临时性的解决一些问题，或者是作为应用的中间件，则不需要考虑作为微服务来开发。 确认功能模块用商城应用来作为例子，由于前期为了追求开发的速度所以把各个模块都耦合在">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-11T09:43:38.477Z">
+<meta property="og:updated_time" content="2020-01-06T03:36:52.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker容器—容器的优势">
-<meta name="twitter:description" content="本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署虚拟化技术在开始容器化技术之前让我们来了解一下什么是虚拟化技术，相信大家做编程的平常也都会接触虚拟机如VMware等，虚拟机虚拟化了我们的硬件，在电脑中创造了一个虚拟的运行环境，一台电脑可以开启多个虚拟机。虚拟化技术主要分为全虚拟化架构、OS层虚拟化架构、硬件层虚拟化架构，而Docker则是基于OS层的虚拟化架构设计的，特点是灵活快速。 D">
+<meta name="twitter:title" content="单体应用转化成微服务应用">
+<meta name="twitter:description" content="本文内容举例如何将现有的单体应用转化为微服务应用前提条件如果你的工作围绕一个大型的，复杂的单体应用，并且每天开发和部署应用的工作都是进展缓慢而痛苦的，那么便可以考虑将该应用拆分为微服务来解决遇到的问题。而如果你的工作是开发一 些简单的应用，临时性的解决一些问题，或者是作为应用的中间件，则不需要考虑作为微服务来开发。 确认功能模块用商城应用来作为例子，由于前期为了追求开发的速度所以把各个模块都耦合在">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> Docker容器—容器的优势 | R io </title>
+  <title> 单体应用转化成微服务应用 | R io </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang>
@@ -331,7 +331,7 @@
           
           
             
-              Docker容器—容器的优势
+              单体应用转化成微服务应用
             
           
         </h1>
@@ -340,8 +340,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2019-03-15T19:18:16+08:00" content="2019-03-15">
-            2019-03-15
+          <time itemprop="dateCreated" datetime="2019-05-21T21:12:11+08:00" content="2019-05-21">
+            2019-05-21
           </time>
         </span>
 
@@ -350,8 +350,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Docker容器/" itemprop="url" rel="index">
-                  <span itemprop="name">Docker容器</span>
+                <a href="/categories/微服务/" itemprop="url" rel="index">
+                  <span itemprop="name">微服务</span>
                 </a>
               </span>
 
@@ -374,16 +374,9 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署"><a href="#本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署" class="headerlink" title="本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署"></a>本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署</h4><h5 id="虚拟化技术"><a href="#虚拟化技术" class="headerlink" title="虚拟化技术"></a>虚拟化技术</h5><p>在开始容器化技术之前让我们来了解一下什么是虚拟化技术，相信大家做编程的平常也都会接触虚拟机如VMware等，虚拟机虚拟化了我们的硬件，在电脑中创造了一个虚拟的运行环境，一台电脑可以开启多个虚拟机。虚拟化技术主要分为全虚拟化架构、OS层虚拟化架构、硬件层虚拟化架构，而Docker则是基于OS层的虚拟化架构设计的，特点是灵活快速。</p>
-<h5 id="Docker容器"><a href="#Docker容器" class="headerlink" title="Docker容器"></a>Docker容器</h5><p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口</p>
-<h6 id="解决了什么问题？"><a href="#解决了什么问题？" class="headerlink" title="解决了什么问题？"></a>解决了什么问题？</h6><p>Containers are a solution to the problem of how to get software to run reliably when moved from one computing environment to another. This could be from a developer’s laptop to a test environment, from a staging environment into production, and perhaps from a physical machine in a data center to a virtual machine in a private or public cloud.</p>
-<p>容器是如何在从一个计算环境转移到另一个计算环境时使软件可靠运行的问题的解决方案。这可能是从开发人员的笔记本电脑到测试环境，从测试环境到生产环境，也可能是从数据中心的物理机到私有或公共云中的虚拟机。</p>
-<p>想象这样一个情况，如果你在开发过程中本地使用Java10开发的WEB应用，但是上线到服务器时，发现服务器部署的是Java8的环境，这样你的项目就可能无法运行。如果你说这样无非就是修改项目为Java8就好了，但是如果你的代码中包含Java10的新特性的话在Java8中可以运行吗？那如果说该服务器Java版本的话，这个方案也是不被允许的，一个是服务器数量问题，还有就是修改服务器Java版本的话可能会造成服务器上其他程序出错。那这样容器化技术就可以很好的解决这一问题了，你可以轻松的将本地的环境全部复制到服务器上，就好像在服务上开了一个虚拟机，而虚拟机中的配置全部是你设定的，而且从一台服务器迁移到另一台服务器也十分方便。</p>
-<h6 id="解决方法是什么？"><a href="#解决方法是什么？" class="headerlink" title="解决方法是什么？"></a>解决方法是什么？</h6><p>Put simply, a container consists of an entire runtime environment: an application, plus all its dependencies, libraries and other binaries, and configuration files needed to run it, bundled into one package. By containerizing the application platform and its dependencies, differences in OS distributions and underlying infrastructure are abstracted away.</p>
-<p>简单说，一个容器包含了完整的运行时环境：一个应用、这个应用所需的全部依赖、类库、其他二进制文件、配置文件，它们统一被打入了一个包中。通过将应用平台和其依赖容器化，操作系统发行版本和其他基础环境造成的差异，都被抽象掉了。</p>
-<p>所以你的应用程序用到的所有依赖全部和服务器配置无关，容器只提供一个接口供外部访问，一台传统的服务器上可以部署数十的Docker容器也是没有问题的。</p>
-<h6 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h6><p>这个优势需要和虚拟机技术进行对比，通过上述介绍相信有的人会觉得容器技术和虚拟机技术太像了，我前面也说了容器也是虚拟机的一个分支，但是Docker容器比传统的虚拟机快上太多了，而且更加灵活，热拔插，即插即用，而且所占用的存储空间也极小，通常是你项目大小加上十几M。</p>
-<h5 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h5><p>容器优势这么多，但是也不是所有应用都适用容器的。具体项目还是要具体讨论，但是可以肯定的是容器技术适用于绝大多数的应用服务，无论是传统的电商平台、还是高并发应用、还是企业SaaS平台都可以用到容器化技术，而且容器和现在流行的微服务简直是天作之和，可以说所有微服务项目都可以用Docker容器来部署，后面会讨论如何来通过容器来部署微服务应用。</p>
+        <span itemprop="articleBody"><h5 id="本文内容举例如何将现有的单体应用转化为微服务应用"><a href="#本文内容举例如何将现有的单体应用转化为微服务应用" class="headerlink" title="本文内容举例如何将现有的单体应用转化为微服务应用"></a>本文内容举例如何将现有的单体应用转化为微服务应用</h5><h6 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h6><p>如果你的工作围绕一个大型的，复杂的单体应用，并且每天开发和部署应用的工作都是进展缓慢而痛苦的，那么便可以考虑将该应用拆分为微服务来解决遇到的问题。而如果你的工作是开发一 些简单的应用，临时性的解决一些问题，或者是作为应用的中间件，则不需要考虑作为微服务来开发。</p>
+<h6 id="确认功能模块"><a href="#确认功能模块" class="headerlink" title="确认功能模块"></a>确认功能模块</h6><p>用商城应用来作为例子，由于前期为了追求开发的速度所以把各个模块都耦合在一起，想要把他拆分成微服务则必须梳理好该商城应用都是有哪几个模块组成的。商城应用通常会有用户模块、商品模块、文件模块、消息模块，这些一般在单体应用中也会用的Service来进行处理，现在要 做的是把这些集成在程序内部的各个模块都提取出来制作成一个个新的应用。而在确认功能模块时，要注意各个模块的依赖关系，例如商品通常依赖文件，用户依赖消息，这些依赖必须在拆分<br>之前梳理清楚，不能出现拆分之后发现用户管理不仅要依赖消息，消息又要依赖用户的情况发生， 这样就会造成循环依赖的错误，导致无法打包。通常遇到循环依赖这样的问题都是可以在业务模式或者代码层面解决，总之切记别产生循环依赖。</p>
+<h6 id="拆分应用"><a href="#拆分应用" class="headerlink" title="拆分应用"></a>拆分应用</h6><p>通过上一步已经清楚哪些模块需要单独产分成一个微服务应用了，这一步便是要把这些应用抽离出来。主要分为抽离相关代码、抽离引用的依赖、修改原有代码使之对外无感知。在抽离的过程中要讲究循序渐进地重构的应用。可以逐步地构建一个部分微服务化的应用，然后和原来的的单 体应用集成起来。如此循环，单体应用的实现的功能会逐渐变少，最终消失或变成一个新的微服务组件。这样做的目的主要是符合敏捷开发的思想，每次开发都是迭代的向前推进的，每次迭代<br>都会有相应的产出，而且一步步抽离代码的好处也便于程序的Debug，不会造成，出现问题后大 范围的不可用。</p>
 </span>
       
     </div>
@@ -395,13 +388,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/16/服务器侵入修复过程/" rel="prev">服务器侵入修复过程</a>
+              <a href="/2019/06/21/DMS简介和应用场景/" rel="prev">DMS简介和应用场景</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/21/Java高级工程师技术栈/" rel="next">Java高级工程师技术栈</a>
+              <a href="/2019/03/22/Linux磁盘常用命令/" rel="next">Linux磁盘常用命令</a>
             
           </div>
         </div>
@@ -507,7 +500,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署"><span class="nav-number">1.</span> <span class="nav-text">本文主要讲述容器的概念，容器的优势，什么业务适用容器化部署</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#虚拟化技术"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟化技术</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Docker容器"><span class="nav-number">1.2.</span> <span class="nav-text">Docker容器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解决了什么问题？"><span class="nav-number">1.2.1.</span> <span class="nav-text">解决了什么问题？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#解决方法是什么？"><span class="nav-number">1.2.2.</span> <span class="nav-text">解决方法是什么？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#优势"><span class="nav-number">1.2.3.</span> <span class="nav-text">优势</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#适用范围"><span class="nav-number">1.3.</span> <span class="nav-text">适用范围</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#本文内容举例如何将现有的单体应用转化为微服务应用"><span class="nav-number">1.</span> <span class="nav-text">本文内容举例如何将现有的单体应用转化为微服务应用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#前提条件"><span class="nav-number">1.1.</span> <span class="nav-text">前提条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#确认功能模块"><span class="nav-number">1.2.</span> <span class="nav-text">确认功能模块</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#拆分应用"><span class="nav-number">1.3.</span> <span class="nav-text">拆分应用</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
