@@ -332,8 +332,8 @@
           
           
             
-              <a class="post-title-link" href="/2018/05/26/Centos-SSR搭建过程/" itemprop="url">
-                阿里巴巴Java开发手册读后总结---安全规范
+              <a class="post-title-link" href="/2018/07/20/Bug记录[Java]1/" itemprop="url">
+                Bug记录-【Java】 系统时间给程序命名重复
               </a>
             
           
@@ -343,8 +343,97 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-05-26T22:10:12+08:00" content="2018-05-26">
-            2018-05-26
+          <time itemprop="dateCreated" datetime="2018-07-20T11:02:14+08:00" content="2018-07-20">
+            2018-07-20
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Bug记录/" itemprop="url" rel="index">
+                  <span itemprop="name">Bug记录</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文记录一个Java基础的Bug由于需要写一个文件上传的接口，为了防止命名重复的问题，我想到了用系统当时的毫秒数的Long值来给文件命名。
+Date d = new Date();
+d.getTime()；
+因为是多文件上传，所以用到了for循环给文件进行命名。
+Date d = new Date(
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/07/20/Bug记录[Java]1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2018/05/27/MySQL规范/" itemprop="url">
+                阿里巴巴Java开发手册读后总结---MySQL规范
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-05-27T20:07:40+08:00" content="2018-05-27">
+            2018-05-27
           </time>
         </span>
 
@@ -380,14 +469,13 @@
         
           <span itemprop="articleBody">
             
-            本文内容总结自阿里Java开发关于安全规范的内容以下：
-1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。
-2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158**9119。
-3、用户请求传入的任何参数都必须进行有效性
+            本文内容总结自阿里Java开发关于MySQL建表规范的内容以下：
+1、表达是与否概念的字段，必须使用is_XXX的方式命名，数据类型是unsigned tinyint，任何字段如果非负数，必须是unsigned。
+2、表名、字段名必须使用小写字母或者数字，禁止出现数字开头，禁止两个下划线中间出现数字
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2018/05/26/Centos-SSR搭建过程/#more" rel="contents">
+            <a class="btn" href="/2018/05/27/MySQL规范/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -476,6 +564,94 @@
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/05/26/安全规范/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2018/05/26/Centos-SSR搭建过程/" itemprop="url">
+                阿里巴巴Java开发手册读后总结---安全规范
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-05-26T22:10:12+08:00" content="2018-05-26">
+            2018-05-26
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
+                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            本文内容总结自阿里Java开发关于安全规范的内容以下：
+1、隶属于用户个人的页面或者功能必须进行权限控制校验，防止没有做水平权限校验就可以虽拜年访问、修改、删除别人的数据。
+2、用户敏感信息禁止直接展示，必须对展示数据进行脱敏，如手机号158**9119。
+3、用户请求传入的任何参数都必须进行有效性
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/05/26/Centos-SSR搭建过程/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -763,182 +939,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2018/05/23/异常处理规范/" itemprop="url">
-                阿里巴巴Java开发手册读后总结---异常处理规范
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2018-05-23T21:02:14+08:00" content="2018-05-23">
-            2018-05-23
-          </time>
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            本文内容总结自阿里Java开发关于异常处理的内容以下：
-1、Java类库中定义的一类RuntimeException可以通过预先检查或者判断进行避免，不应该用catch来处理。
-2、异常不要用来做流程控制，条件控制，因为异常的处理效率比田间分支低。
-3、对大段代码进行try-catch是不负责任的行
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/05/23/异常处理规范/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2018/05/23/控制及其他规范/" itemprop="url">
-                阿里巴巴Java开发手册读后总结---控制及其他规范
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2018-05-23T19:11:22+08:00" content="2018-05-23">
-            2018-05-23
-          </time>
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/阿里巴巴Java开发手册读后总结/" itemprop="url" rel="index">
-                  <span itemprop="name">阿里巴巴Java开发手册读后总结</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            本文内容总结自阿里Java开发关于控制语句、其他规范的内容以下：
-1、在if/else/for/while/do语句中必须使用大括号，即使只有一行代码。
-2、少用if()..else if()方式，如果非要使用，不要超过3层。
-3、循环体中的语句要考量性能，以下操作尽量移至循环体外处理：定义对象、变
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/05/23/控制及其他规范/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -975,14 +975,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
